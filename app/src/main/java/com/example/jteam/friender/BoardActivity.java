@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-
+//////////////TEST/////////////////////////////////////
 
 public class BoardActivity extends AppCompatActivity {
     CityList CList = new CityList();
