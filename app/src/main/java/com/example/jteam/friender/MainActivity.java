@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -14,8 +15,8 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-
-public class MainActivity extends Activity {
+//Seon Test
+public class MainActivity extends AppCompatActivity {
     CityAdapter Adapter;
 
     protected void onCreate(Bundle savedInstanceState) {
