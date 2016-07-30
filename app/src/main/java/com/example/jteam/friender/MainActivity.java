@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-
+//Seon Test
 public class MainActivity extends Activity {
     CityAdapter Adapter;
 
