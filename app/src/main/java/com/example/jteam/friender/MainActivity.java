@@ -15,7 +15,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 //Seon Test
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
     CityAdapter Adapter;
 
     protected void onCreate(Bundle savedInstanceState) {
