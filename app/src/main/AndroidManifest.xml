@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.jteam.friender">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,21 +11,22 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:icon="@mipmap/ic_launcher"
-            android:name=".MainActivity">
-            </activity>
-        <activity android:name=".SplashActivity"
+            android:name=".MainActivity"
+            android:icon="@mipmap/ic_launcher"></activity>
+        <activity
+            android:name=".SplashActivity"
             android:label="@string/title_activity_splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name = ".BoardActivity"
-            android:label="BoardActivity">
-        </activity>
-        <activity android:name="com.example.jteam.friender.Database_Person"/>
+            android:name=".BoardActivity"
+            android:label="BoardActivity"></activity>
+        <activity android:name=".Database_Person" />
+        <activity android:name=".DB_bulletin"></activity>
     </application>
 
 </manifest>
