@@ -83,6 +83,9 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
         if (id == R.id.main_login )
         {
+            Intent intent = new Intent(MainActivity.this, DB_Login.class);
+            startActivity(intent);
+
             return true;
         }
         return super.onOptionsItemSelected(item);

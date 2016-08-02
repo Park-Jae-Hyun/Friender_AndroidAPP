@@ -2,10 +2,9 @@ package com.example.jteam.friender;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.Context;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -20,7 +19,7 @@ import java.net.URLEncoder;
 /**
  * Created by flag on 2016-07-27.
  */
-public class Database_Person extends Activity {
+public class DB_Resister extends Activity {
 
     private EditText editTextFirstName;
     private EditText editTextLastName;
@@ -28,19 +27,14 @@ public class Database_Person extends Activity {
     private EditText editTextPassword;
     private EditText editTextBirth;
     private EditText editTextMobileNumber;
+    Handler mHandler;
+    private String userId;
+    private String userPw;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_db_mem_login);
-    }
-
-    public void login(View view){
-
-    }
-
-    public void resMem(View view){
-        setContentView(R.layout.activity_db_mem_res);
+        setContentView(R.layout.activity_db_resister);
     }
 
 
@@ -70,7 +64,7 @@ public class Database_Person extends Activity {
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                loading = ProgressDialog.show(Database_Person.this, "Please Wait", null, true, true);
+                loading = ProgressDialog.show(DB_Resister.this, "Please Wait", null, true, true);
             }
 
             @Override

@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
         android:ems="10"
-        android:id="@+id/editText"
+        android:id="@+id/login_text"
         android:layout_gravity="center_horizontal" />
 
     <TextView
@@ -26,7 +26,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText4" />
+        android:id="@+id/password_text" />
 
     <Button
         android:layout_width="match_parent"
