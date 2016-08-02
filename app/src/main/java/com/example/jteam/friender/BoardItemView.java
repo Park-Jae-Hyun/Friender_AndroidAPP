@@ -4,12 +4,20 @@ package com.example.jteam.friender;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 /**
  * Created by Jeong on 2016-07-27.
  */
 public class BoardItemView extends LinearLayout{
+    TextView DestinationView;
+    TextView RouteView;
+    TextView DateView;
+    TextView PresentView;
+    TextView FindingView;
+    ImageView[] PictogramView = new ImageView[3];
 
     public BoardItemView(Context context) {
         super(context);
@@ -28,7 +36,40 @@ public class BoardItemView extends LinearLayout{
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         inflater.inflate(R.layout.board_item,this,true);
 
+        DestinationView = (TextView) findViewById(R.id.destination);
+        RouteView = (TextView) findViewById(R.id.route);
+        DateView = (TextView) findViewById(R.id.date);
+        PresentView = (TextView) findViewById(R.id.present);
+        FindingView = (TextView) findViewById(R.id.finding);
+        PictogramView[0] = (ImageView) findViewById(R.id.pictogram1);
+        PictogramView[1] = (ImageView) findViewById(R.id.pictogram2);
+        PictogramView[2] = (ImageView) findViewById(R.id.pictogram3);
     }
 
+    public void setDateView(String date) {
+        DateView.setText(date);
+    }
+
+    public void setDestinationView(String destination) {
+        DestinationView.setText(destination);
+    }
+
+    public void setFindingView(String finding) {
+        FindingView.setText(finding);
+    }
+
+    public void setPresentView(String present) {
+        PresentView.setText(present);
+    }
+
+    public void setRouteView(String route) {
+        RouteView.setText(route);
+    }
+
+    public void setPictogramView(int[] pictogram) {
+        PictogramView[0].setImageResource(pictogram[0]);
+        PictogramView[1].setImageResource(pictogram[1]);
+        PictogramView[2].setImageResource(pictogram[2]);
+    }
 
 }
