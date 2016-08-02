@@ -37,10 +37,7 @@ public class BoardActivity extends AppCompatActivity {
         View itemview = getLayoutInflater().inflate(R.layout.city_item,null);
 
         actionbar.setCustomView(itemview);
-        // actionbar.setBackgroundDrawable(Drawable.createFromPath(""));
 
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
         actionbar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FF000000")));
         actionbar.setDisplayHomeAsUpEnabled(true);
 

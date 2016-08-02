@@ -6,6 +6,8 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -18,11 +20,12 @@ import java.util.ArrayList;
 //Seon Test
 public class MainActivity extends AppCompatActivity {
     CityAdapter Adapter;
+    Intent intent;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        intent = getIntent();
         // Complete
         ArrayList<String> main_city_list = new ArrayList<String>();
         CityList CList= new CityList();
@@ -59,7 +62,31 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
+        android.support.v7.app.ActionBar actionbar = getSupportActionBar();
+        actionbar.setTitle("Friender");
 
+        //View itemview = getLayoutInflater().inflate(R.layout.city_item,null);
+       // actionbar.setCustomView(itemview);
+
+        actionbar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FF000000")));
+        actionbar.setDisplayHomeAsUpEnabled(true);
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.actionbar_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        int id = item.getItemId();
+        if (id == R.id.main_login )
+        {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+        
     }
 
     class CityAdapter extends BaseAdapter {
