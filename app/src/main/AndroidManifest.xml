@@ -25,13 +25,9 @@
         <activity
             android:name=".BoardActivity"
             android:label="BoardActivity"></activity>
-<<<<<<< HEAD
-        <activity android:name=".DB_Resister" />
+        <activity android:name=".DB_Resister"></activity>
         <activity android:name=".DB_Login"></activity>
-=======
-        <activity android:name=".Database_Person" />
         <activity android:name=".DB_bulletin"></activity>
->>>>>>> a48db2e1040f150e380cc4d3414e39e87dbe37bc
     </application>
 
 </manifest>
