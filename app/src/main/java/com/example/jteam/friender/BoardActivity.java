@@ -34,9 +34,9 @@ public class BoardActivity extends AppCompatActivity {
         android.support.v7.app.ActionBar actionbar = getSupportActionBar();
         actionbar.setTitle((String)CList.getCity_list().get(intent.getFlags()));
 
-        View itemview = getLayoutInflater().inflate(R.layout.city_item,null);
+       // View itemview = getLayoutInflater().inflate(R.layout.city_item,null);
 
-        actionbar.setCustomView(itemview);
+        //actionbar.setCustomView(itemview);
 
         actionbar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FF000000")));
         actionbar.setDisplayHomeAsUpEnabled(true);
