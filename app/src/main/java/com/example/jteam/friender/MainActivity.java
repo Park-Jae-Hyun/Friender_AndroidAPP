@@ -72,6 +72,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         android.support.v7.app.ActionBar actionbar = getSupportActionBar();
+        actionbar.setTitle("Friender");
+
         actionbar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FF000000")));
         actionbar.setDisplayHomeAsUpEnabled(true);
     }
@@ -124,6 +126,8 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.main_login )
         {
             fireCustomDialog(null);
+
+            return true;
         }
         return super.onOptionsItemSelected(item);
             
@@ -169,28 +173,3 @@ public class MainActivity extends AppCompatActivity {
     }
 
 }
-
-
-
-
-
-
-
-    // ActionBar Option // 액션연습한건데 잘안됨
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu){
-//        getMenuInflater().inflate(R.menu.actionbar_menu,menu);
-//        return true;
-//    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        int id = item.getItemId();
-//
-//        if ( id == R.id.newID ) {
-//            Toast.makeText(MainActivity.this, "새 글 등록 버튼 클릭", Toast.LENGTH_SHORT).show();
-//            return true;
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
-//}
