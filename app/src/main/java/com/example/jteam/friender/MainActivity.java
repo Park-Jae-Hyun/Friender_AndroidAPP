@@ -29,21 +29,13 @@ public class MainActivity extends AppCompatActivity {
     CityAdapter Adapter;
     Intent intent;
     boolean loginset = false; // whether login was complete or not
+    private static final int RESULT = 1000;
     private String user_id=null;
     private String ID = null, F_NAME = null, L_NAME = null, EMAIL = null, BIRTH = null, MOBILE_NUMBER = null;
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        intent = getIntent();
-
-        if(intent.getStringExtra("F_NAME")!=null) {
-            loginset = true;
-            F_NAME = intent.getStringExtra("F_NAME");
-            L_NAME = intent.getStringExtra("L_NAME");
-            EMAIL = intent.getStringExtra("EMAIL");
-            BIRTH = intent.getStringExtra("BIRTH");
-            MOBILE_NUMBER = intent.getStringExtra("MOBILE_NUMBER");
-        }
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_main);
+            intent = getIntent();
 
         // Complete
         ArrayList<String> main_city_list = new ArrayList<String>();
@@ -90,6 +82,30 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        super.onActivityResult(requestCode, requestCode, data);
+        switch (requestCode) {
+            case RESULT:
+                if(resultCode==RESULT_OK) {
+                    Bundle bundle = data.getExtras();
+                    F_NAME = bundle.getString("F_NAME");
+                    L_NAME = bundle.getString("L_NAME");
+                    EMAIL = bundle.getString("EMAIL");
+                    BIRTH = bundle.getString("BIRTH");
+                    MOBILE_NUMBER = bundle.getString("MOBILE_NUMBER");
+
+//                    Log.i("F_NAME",""+F_NAME);
+//                    Log.i("L_NAME",""+L_NAME);
+//                    Log.i("EMAIL",""+EMAIL);
+//                    Log.i("BIRTH",""+BIRTH);
+//                    Log.i("MOBILE_NUMBER",""+MOBILE_NUMBER);
+                    //loginset = true;
+                }
+                break;
+        }
+    }
 
     private void fireCustomDialog(final CalendarContract.Reminders reminder)
     {
@@ -119,8 +135,8 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this,DB_Login.class);
                 intent.putExtra("main_id",id);
                 intent.putExtra("main_password",password);
-                startActivity(intent);
-                Log.i("Email",""+EMAIL);
+                startActivityForResult(intent,RESULT);
+                dialog.dismiss();
             }
         });
 
