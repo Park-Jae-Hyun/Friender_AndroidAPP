@@ -28,6 +28,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     CityAdapter Adapter;
     Intent intent;
+
     boolean loginset = false; // whether login was complete or not
     private static final int RESULT = 1000;
     private String user_id=null;
@@ -124,18 +125,17 @@ public class MainActivity extends AppCompatActivity {
 
         commitButton.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 EditText main_id = (EditText) dialog.findViewById(R.id.main_id);
                 EditText main_password = (EditText) dialog.findViewById(R.id.main_password);
 
-                String id= main_id.getText().toString();
+                String id = main_id.getText().toString();
                 String password = main_password.getText().toString();
 
-                Intent intent = new Intent(MainActivity.this,DB_Login.class);
-                intent.putExtra("main_id",id);
-                intent.putExtra("main_password",password);
-                startActivityForResult(intent,RESULT);
+                Intent intent = new Intent(MainActivity.this, DB_Login.class);
+                intent.putExtra("main_id", id);
+                intent.putExtra("main_password", password);
+                startActivityForResult(intent, RESULT);
                 dialog.dismiss();
             }
         });
@@ -163,49 +163,35 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
     private void logincustom(final CalendarContract.Reminders reminder)
     {
         final Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.login_custom);
 
+        Button magementButton = (Button) dialog.findViewById(R.id.magement);
+        Button logoutButton = (Button) dialog.findViewById(R.id.logout);
 
-        TextView titleView = (TextView) dialog.findViewById(R.id.custom_title);
-        Button commitButton = (Button) dialog.findViewById(R.id.custom_button_login);
-        LinearLayout rootLayout = (LinearLayout) dialog.findViewById(R.id.custom_root_layout);
-        Button signupButton = (Button) dialog.findViewById(R.id.custom_button_signup);
-
-        final boolean isEditOperation = (reminder != null);
-
-
-        commitButton.setOnClickListener(new View.OnClickListener(){
+        logoutButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v)
             {
-
             }
+
         });
 
-        signupButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v)
-            {
-
-            }
-        });
-
-        Button buttonCancle = (Button)dialog.findViewById(R.id.custom_button_cancel);
-
-        buttonCancle.setOnClickListener(new View.OnClickListener(){
+        magementButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v)
             {
                 dialog.dismiss();
+                setContentView(R.layout.member_information);
             }
 
         });
         dialog.show();
-
 
     }
 
