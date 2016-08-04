@@ -29,11 +29,14 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     CityAdapter Adapter;
     Intent intent;
+    boolean loginset;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         intent = getIntent();
+        loginset = false;
+
         // Complete
         ArrayList<String> main_city_list = new ArrayList<String>();
         CityList CList= new CityList();
@@ -95,9 +98,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
+
             }
         });
-
 
         Button buttonCancle = (Button)dialog.findViewById(R.id.custom_button_cancel);
 
@@ -110,6 +113,8 @@ public class MainActivity extends AppCompatActivity {
 
         });
         dialog.show();
+
+
     }
 
 
@@ -125,9 +130,15 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
         if (id == R.id.main_login )
         {
-            fireCustomDialog(null);
+            if(loginset = false) {
+                fireCustomDialog(null);
+            }
+            else
+            {
 
+            }
             return true;
+
         }
         return super.onOptionsItemSelected(item);
             
