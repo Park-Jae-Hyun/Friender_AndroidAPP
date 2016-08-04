@@ -1,6 +1,5 @@
 package com.example.jteam.friender;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
@@ -17,7 +16,6 @@ import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -30,13 +28,14 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     CityAdapter Adapter;
     Intent intent;
-    boolean loginset; // whether login was complete or not
+    boolean loginset = false; // whether login was complete or not
     private String user_id=null;
     private String ID = null, F_NAME = null, L_NAME = null, EMAIL = null, BIRTH = null, MOBILE_NUMBER = null;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         intent = getIntent();
+
         if(intent.getStringExtra("F_NAME")!=null) {
             loginset = true;
             F_NAME = intent.getStringExtra("F_NAME");
@@ -45,8 +44,6 @@ public class MainActivity extends AppCompatActivity {
             BIRTH = intent.getStringExtra("BIRTH");
             MOBILE_NUMBER = intent.getStringExtra("MOBILE_NUMBER");
         }
-
-        loginset = false;
 
         // Complete
         ArrayList<String> main_city_list = new ArrayList<String>();
@@ -90,6 +87,8 @@ public class MainActivity extends AppCompatActivity {
 
         actionbar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FF000000")));
         actionbar.setDisplayHomeAsUpEnabled(true);
+
+
     }
 
     private void fireCustomDialog(final CalendarContract.Reminders reminder)
@@ -148,10 +147,56 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+    private void logincustom(final CalendarContract.Reminders reminder)
+    {
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.login_custom);
+
+
+        TextView titleView = (TextView) dialog.findViewById(R.id.custom_title);
+        Button commitButton = (Button) dialog.findViewById(R.id.custom_button_login);
+        LinearLayout rootLayout = (LinearLayout) dialog.findViewById(R.id.custom_root_layout);
+        Button signupButton = (Button) dialog.findViewById(R.id.custom_button_signup);
+
+        final boolean isEditOperation = (reminder != null);
+
+
+        commitButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v)
+            {
+
+            }
+        });
+
+        signupButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v)
+            {
+
+            }
+        });
+
+        Button buttonCancle = (Button)dialog.findViewById(R.id.custom_button_cancel);
+
+        buttonCancle.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v)
+            {
+                dialog.dismiss();
+            }
+
+        });
+        dialog.show();
+
+
+    }
 
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+   public boolean onCreateOptionsMenu(Menu menu)
+    {
         getMenuInflater().inflate(R.menu.actionbar_main, menu);
         return true;
     }
@@ -167,7 +212,7 @@ public class MainActivity extends AppCompatActivity {
             }
             else
             {
-
+                logincustom(null);
             }
             return true;
 
