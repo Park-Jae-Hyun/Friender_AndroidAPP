@@ -1,17 +1,23 @@
 package com.example.jteam.friender;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.provider.CalendarContract;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -60,15 +66,50 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
+
         android.support.v7.app.ActionBar actionbar = getSupportActionBar();
         actionbar.setTitle("Friender");
-
-        //View itemview = getLayoutInflater().inflate(R.layout.city_item,null);
-       // actionbar.setCustomView(itemview);
 
         actionbar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FF000000")));
         actionbar.setDisplayHomeAsUpEnabled(true);
     }
+
+    private void fireCustomDialog(final CalendarContract.Reminders reminder)
+    {
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.dialog_custom);
+
+
+        TextView titleView = (TextView) dialog.findViewById(R.id.custom_title);
+        Button commitButton = (Button) dialog.findViewById(R.id.custom_button_login);
+        LinearLayout rootLayout = (LinearLayout) dialog.findViewById(R.id.custom_root_layout);
+        final boolean isEditOperation = (reminder != null);
+
+
+        commitButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v)
+            {
+
+            }
+        });
+
+
+        Button buttonCancle = (Button)dialog.findViewById(R.id.custom_button_cancel);
+
+        buttonCancle.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v)
+            {
+                dialog.dismiss();
+            }
+
+        });
+        dialog.show();
+    }
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.actionbar_main, menu);
@@ -81,10 +122,12 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
         if (id == R.id.main_login )
         {
+            fireCustomDialog(null);
+
             return true;
         }
         return super.onOptionsItemSelected(item);
-        
+            
     }
 
     class CityAdapter extends BaseAdapter {
@@ -127,28 +170,3 @@ public class MainActivity extends AppCompatActivity {
     }
 
 }
-
-
-
-
-
-
-
-    // ActionBar Option // 액션연습한건데 잘안됨
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu){
-//        getMenuInflater().inflate(R.menu.actionbar_menu,menu);
-//        return true;
-//    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        int id = item.getItemId();
-//
-//        if ( id == R.id.newID ) {
-//            Toast.makeText(MainActivity.this, "새 글 등록 버튼 클릭", Toast.LENGTH_SHORT).show();
-//            return true;
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
-//}
