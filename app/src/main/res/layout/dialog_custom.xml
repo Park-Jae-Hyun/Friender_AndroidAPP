@@ -18,6 +18,8 @@
         android:textColor="@color/black"
         android:textSize="30sp"/>
 
+
+
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="fill_parent"
