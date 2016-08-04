@@ -28,7 +28,6 @@
             android:label="BoardActivity"></activity>
         <activity android:name=".DB_Resister"></activity>
         <activity android:name=".DB_Login"></activity>
-        <activity android:name=".DB_Bulletin"></activity>
     </application>
 
 </manifest>

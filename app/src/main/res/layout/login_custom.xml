@@ -14,7 +14,7 @@
         android:layout_height="60dp"
         android:gravity="center_horizontal"
         android:padding="10dp"
-        android:text="LOGIN"
+        android:text="HI"
         android:textColor="@color/black"
         android:textSize="30sp"/>
 
