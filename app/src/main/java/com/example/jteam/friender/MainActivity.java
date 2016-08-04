@@ -1,6 +1,5 @@
 package com.example.jteam.friender;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -20,12 +19,11 @@ import java.util.ArrayList;
 //Seon Test
 public class MainActivity extends AppCompatActivity {
     CityAdapter Adapter;
-    Intent intent;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        intent = getIntent();
+
         // Complete
         ArrayList<String> main_city_list = new ArrayList<String>();
         CityList CList= new CityList();
@@ -46,8 +44,8 @@ public class MainActivity extends AppCompatActivity {
 
         // listview options
         list.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
-        list.setDivider(new ColorDrawable(Color.WHITE));
-        list.setDividerHeight(2);
+        list.setDivider(new ColorDrawable(Color.BLACK));
+       // list.setDividerHeight(2);
 
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 

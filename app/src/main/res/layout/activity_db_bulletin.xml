@@ -1,12 +1,393 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.jteam.friender.DB_bulletin">
+    tools:context="com.example.jteam.friender.DB_bulletin"
+    android:weightSum="1">
 
-</RelativeLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="1"
+        android:background="#ffffff">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="183dp"
+                android:layout_height="158dp" >
+
+                <TextView
+                    android:text="Main Destination"
+                    android:id="@+id/textView11"
+                    android:layout_column="0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp" />
+
+                <EditText
+                    android:id="@+id/editText5"
+                    android:layout_column="0"
+                    android:layout_width="163dp"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:text="Route"
+                    android:id="@+id/textView13"
+                    android:layout_column="0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp" />
+
+                <EditText
+                    android:id="@+id/editText3"
+                    android:layout_column="0"
+                    android:layout_width="109dp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="162dp"
+                android:weightSum="1" >
+
+                <TextView
+                    android:text="Date"
+                    android:id="@+id/textView12"
+                    android:layout_column="0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp" />
+
+                <Button
+                    android:id="@+id/datebutton"
+                    android:layout_column="1"
+                    android:layout_width="143dp"
+                    android:layout_height="35dp"
+                    android:text="Click"
+                    android:textColor="#ffffffff" />
+
+                <TextView
+                    android:text="number of friends"
+                    android:id="@+id/textView15"
+                    android:layout_column="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp" />
+
+                <Spinner
+                    android:id="@+id/numofmembers"
+                    android:layout_column="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tendency"
+            android:id="@+id/textView9"
+            android:textSize="20dp" />
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="53dp"
+            android:id="@+id/horizontalScrollView"
+            android:layout_gravity="center_horizontal" >
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical">
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBox" />
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/imageView"
+                    android:background="@mipmap/p01people"
+                    android:layout_marginRight="10dp" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBox2" />
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/imageView2"
+                    android:background="@android:drawable/star_big_on"
+                    android:layout_marginRight="10dp" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBox3" />
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/imageView3"
+                    android:background="@android:drawable/star_big_on"
+                    android:layout_marginRight="10dp" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBox4" />
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/imageView4"
+                    android:background="@android:drawable/star_big_on"
+                    android:layout_marginRight="10dp" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBox5" />
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/imageView5"
+                    android:background="@android:drawable/star_big_on"
+                    android:layout_marginRight="10dp" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBox6" />
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/imageView6"
+                    android:background="@android:drawable/star_big_on"
+                    android:layout_marginRight="10dp" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBox7" />
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/imageView7"
+                    android:background="@android:drawable/star_big_on"
+                    android:layout_marginRight="10dp" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBox8" />
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/imageView8"
+                    android:background="@android:drawable/star_big_on"
+                    android:layout_marginRight="10dp" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBox9" />
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/imageView9"
+                    android:background="@android:drawable/star_big_on"
+                    android:layout_marginRight="10dp" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBox10" />
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/imageView10"
+                    android:background="@android:drawable/star_big_on"
+                    android:layout_marginRight="10dp" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBox11" />
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/imageView11"
+                    android:background="@android:drawable/star_big_on"
+                    android:layout_marginRight="10dp" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBox12" />
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/imageView12"
+                    android:background="@android:drawable/star_big_on"
+                    android:layout_marginRight="10dp" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBox13" />
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/imageView13"
+                    android:background="@android:drawable/star_big_on"
+                    android:layout_marginRight="10dp" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBox14" />
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/imageView14"
+                    android:background="@android:drawable/star_big_on"
+                    android:layout_marginRight="10dp" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBox15" />
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/imageView15"
+                    android:background="@android:drawable/star_big_on"
+                    android:layout_marginRight="10dp" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBox16" />
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/imageView16"
+                    android:background="@android:drawable/star_big_on"
+                    android:layout_marginRight="10dp" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBox17" />
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/imageView17"
+                    android:background="@android:drawable/star_big_on"
+                    android:layout_marginRight="10dp" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBox18" />
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/imageView18"
+                    android:background="@android:drawable/star_big_on"
+                    android:layout_marginRight="10dp" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBox19" />
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/imageView19"
+                    android:background="@android:drawable/star_big_on"
+                    android:layout_marginRight="10dp" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBox20" />
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/imageView20"
+                    android:background="@android:drawable/star_big_on"
+                    android:layout_marginRight="10dp" />
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Writing"
+            android:id="@+id/textView10"
+            android:textSize="20dp"
+            android:layout_marginTop="20dp" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="161dp"
+            android:id="@+id/scrollView3"
+            android:layout_weight="0.16"
+            android:background="#faf7f7">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/writing"
+                android:gravity="top"
+                android:background="@null"
+                android:autoText="false"
+                android:textSize="25dp"
+                android:text="content" />
+        </ScrollView>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Write"
+            android:id="@+id/button2"
+            android:layout_gravity="right" />
+
+    </LinearLayout>
+
+</LinearLayout>

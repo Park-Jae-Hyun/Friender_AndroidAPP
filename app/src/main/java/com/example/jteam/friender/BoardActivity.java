@@ -10,9 +10,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class BoardActivity extends AppCompatActivity {
     CityList CList = new CityList();
@@ -45,6 +47,22 @@ public class BoardActivity extends AppCompatActivity {
         ListView list = (ListView) findViewById(R.id.listView2);
         list.setAdapter(Adapter);
 
+        list.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+        list.setDivider(new ColorDrawable(Color.YELLOW));
+        list.setDividerHeight(2);
+
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getApplicationContext(), "Selected : " + position, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(),BoardActivity.class);
+
+                startActivity(intent);
+            }
+
+        });
+
 
     }
 
@@ -64,7 +82,9 @@ public class BoardActivity extends AppCompatActivity {
         }
         if(id == R.id.Write)
         {
+            Intent intent = new Intent(getApplicationContext(),DB_bulletin.class);
 
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }

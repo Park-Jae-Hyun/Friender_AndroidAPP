@@ -13,7 +13,8 @@ import android.widget.TextView;
  */
 public class BoardItemView extends LinearLayout{
     TextView DestinationView;
-    TextView RouteView;
+    TextView Route1View;
+    TextView Route2View;
     TextView DateView;
     TextView PresentView;
     TextView FindingView;
@@ -37,7 +38,8 @@ public class BoardItemView extends LinearLayout{
         inflater.inflate(R.layout.board_item,this,true);
 
         DestinationView = (TextView) findViewById(R.id.destination);
-        RouteView = (TextView) findViewById(R.id.route);
+        Route1View = (TextView) findViewById(R.id.route1);
+        Route2View = (TextView) findViewById(R.id.route2);
         DateView = (TextView) findViewById(R.id.date);
         PresentView = (TextView) findViewById(R.id.present);
         FindingView = (TextView) findViewById(R.id.finding);
@@ -63,7 +65,12 @@ public class BoardItemView extends LinearLayout{
     }
 
     public void setRouteView(String route) {
-        RouteView.setText(route);
+        Route1View.setText(route);
+    }
+
+    public void setRouteView(String route1, String route2) {
+        Route1View.setText(route1);
+        Route2View.setText(route2);
     }
 
     public void setPictogramView(int[] pictogram) {

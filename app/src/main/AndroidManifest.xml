@@ -12,7 +12,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:icon="@mipmap/ic_launcher"></activity>
+            android:icon="@mipmap/ic_launcher" />
         <activity
             android:name=".SplashActivity"
             android:label="@string/title_activity_splash">
@@ -24,9 +24,10 @@
         </activity>
         <activity
             android:name=".BoardActivity"
-            android:label="BoardActivity"></activity>
+            android:label="BoardActivity" />
         <activity android:name=".Database_Person" />
-        <activity android:name=".DB_bulletin"></activity>
+        <activity android:name=".DB_bulletin" />
+        <activity android:name=".Posting"></activity>
     </application>
 
 </manifest>
