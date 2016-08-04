@@ -1,33 +1,23 @@
 package com.example.jteam.friender;
 
 import android.app.Activity;
-
-import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class DB_Login extends Activity {
+public class DB_Login extends Activity{
 
     String id, password;
     EditText Id, Password;
@@ -44,6 +34,7 @@ public class DB_Login extends Activity {
     public void resMem(View v) {
         startActivity(new Intent(DB_Login.this, DB_Resister.class));
     }
+
 
     public void login(View v) {
         id = Id.getText().toString();

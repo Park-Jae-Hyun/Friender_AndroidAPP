@@ -30,6 +30,7 @@
         <activity android:name=".DB_Login"></activity>
         <activity android:name=".DB_bulletin"></activity>
         <activity android:name=".Posting"></activity>
+        <activity android:name=".DB_Bulletin"></activity>
     </application>
 
 </manifest>

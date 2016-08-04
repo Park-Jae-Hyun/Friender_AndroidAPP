@@ -15,6 +15,7 @@ import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -25,10 +26,16 @@ import java.util.ArrayList;
 //Seon Test
 public class MainActivity extends AppCompatActivity {
     CityAdapter Adapter;
+    Intent intent;
+    boolean loginset;
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        intent = getIntent();
+        loginset = false;
 
         // Complete
         ArrayList<String> main_city_list = new ArrayList<String>();
@@ -84,6 +91,8 @@ public class MainActivity extends AppCompatActivity {
         TextView titleView = (TextView) dialog.findViewById(R.id.custom_title);
         Button commitButton = (Button) dialog.findViewById(R.id.custom_button_login);
         LinearLayout rootLayout = (LinearLayout) dialog.findViewById(R.id.custom_root_layout);
+        Button signupButton = (Button) dialog.findViewById(R.id.custom_button_signup);
+
         final boolean isEditOperation = (reminder != null);
 
 
@@ -91,10 +100,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
+                EditText id = (EditText) dialog.findViewById(R.id.ID);
+                EditText password = (EditText) dialog.findViewById(R.id.password);
+
 
             }
         });
 
+        signupButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v)
+            {
+
+            }
+        });
 
         Button buttonCancle = (Button)dialog.findViewById(R.id.custom_button_cancel);
 
@@ -107,6 +126,8 @@ public class MainActivity extends AppCompatActivity {
 
         });
         dialog.show();
+
+
     }
 
 
@@ -122,9 +143,15 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
         if (id == R.id.main_login )
         {
-            fireCustomDialog(null);
+            if(loginset = false) {
+                fireCustomDialog(null);
+            }
+            else
+            {
 
+            }
             return true;
+
         }
         return super.onOptionsItemSelected(item);
             
