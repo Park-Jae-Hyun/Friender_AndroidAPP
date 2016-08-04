@@ -1,23 +1,27 @@
 //게시판 액티비티
 package com.example.jteam.friender;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.provider.CalendarContract;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
 public class BoardActivity extends AppCompatActivity {
     CityList CList = new CityList();
     TextView textview;
-    Intent intent;
     BoardAdapter Adapter;
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -28,7 +32,7 @@ public class BoardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.city_board);
 
-        intent = getIntent();
+        Intent intent = getIntent();
 
         //액션바 타이틀 변경
         android.support.v7.app.ActionBar actionbar = getSupportActionBar();
@@ -60,14 +64,45 @@ public class BoardActivity extends AppCompatActivity {
 
         if(id == R.id.Find)
         {
-
+            findcustom(null);
         }
         if(id == R.id.Write)
         {
-
+            Intent intent2 = new Intent(BoardActivity.this,DB_bulletin.class);
+            Log.i("boardActivity","test1");
+            startActivity(intent2);
+            Log.i("boardActivity","test2");
         }
         return super.onOptionsItemSelected(item);
     }
+
+    private void findcustom(final CalendarContract.Reminders reminder)
+    {
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.find_custom);
+
+        Button findButton = (Button) dialog.findViewById(R.id.custom_button_find);
+        Button cancleButton = (Button) dialog.findViewById(R.id.custom_button_cancel);
+
+        findButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v)
+            {
+            }
+
+        });
+        cancleButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v)
+            {
+                dialog.dismiss();
+            }
+
+        });
+        dialog.show();
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.actionbar_menu, menu);

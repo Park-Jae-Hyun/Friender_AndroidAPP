@@ -19,131 +19,163 @@
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="20"
                 android:text="ID"
-                android:id="@+id/inform_id_text" />
+                android:id="@+id/inform_id_text"
+                android:textSize="25sp"
+                android:layout_gravity="center" />
+
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="Humm"
-                android:id="@+id/inform_id" />
+                android:id="@+id/inform_id"
+                android:textSize="25sp"
+                android:layout_weight="80"
+                android:layout_gravity="center"/>
         </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="20"
+                android:textSize="25sp"
                 android:text="PW"
-                android:id="@+id/textView12" />
+                android:id="@+id/inform_password_text" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="60"
+                android:textSize="25sp"
                 android:layout_height="wrap_content"
-                android:text="Type password"
-                android:id="@+id/textView13" />
+                android:text="Bal"
+                android:id="@+id/inform_password" />
 
             <Button
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="20"
                 android:text="modify"
+                android:background="@color/black"
+                android:textColor="@color/white"
                 android:id="@+id/button2" />
             </LinearLayout>
 
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="20"
+                android:textSize="25dp"
                 android:text="SEX"/>
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="80"
+                android:textSize="25dp"
                 android:text="New Text"
                 android:id="@+id/textView14" />
         </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="match_parent"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="20"
+                android:textSize="25sp"
                 android:text="Name"
                 android:id="@+id/textView15" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="40"
+                android:textSize="25sp"
                 android:text="first name"
                 android:id="@+id/textView16" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="40"
+                android:textSize="25sp"
                 android:text="last name"
                 android:id="@+id/textView17" />
         </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="match_parent"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Brith"
+                android:layout_weight="20"
+                android:textSize="25sp"
+                android:text="Birth"
                 android:id="@+id/textView18" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="80"
+                android:textSize="25sp"
                 android:text="type birth"
                 android:id="@+id/textView19" />
         </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="match_parent"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Mobile Number"
+                android:layout_weight="50"
+                android:textSize="25sp"
+                android:text="Phone Number"
                 android:id="@+id/textView20" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="50"
                 android:text="000 000 0000"
+                android:textSize="25sp"
                 android:id="@+id/textView21" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
             android:orientation="horizontal">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="pictogram"/>
+                android:text="I WANT TO THIS FOR TRAVEL"/>
         </LinearLayout>
 
 
