@@ -91,10 +91,20 @@ public class MainActivity extends AppCompatActivity {
         TextView titleView = (TextView) dialog.findViewById(R.id.custom_title);
         Button commitButton = (Button) dialog.findViewById(R.id.custom_button_login);
         LinearLayout rootLayout = (LinearLayout) dialog.findViewById(R.id.custom_root_layout);
+        Button signupButton = (Button) dialog.findViewById(R.id.custom_button_signup);
+
         final boolean isEditOperation = (reminder != null);
 
 
         commitButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v)
+            {
+
+            }
+        });
+
+        signupButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v)
             {
