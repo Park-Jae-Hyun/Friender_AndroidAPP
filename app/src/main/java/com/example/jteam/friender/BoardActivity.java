@@ -6,14 +6,15 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class BoardActivity extends AppCompatActivity {
     CityList CList = new CityList();
@@ -30,6 +31,9 @@ public class BoardActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
 
+
+
+
         //액션바 타이틀 변경
         android.support.v7.app.ActionBar actionbar = getSupportActionBar();
         actionbar.setTitle((String)CList.getCity_list().get(intent.getFlags()));
@@ -44,6 +48,24 @@ public class BoardActivity extends AppCompatActivity {
         Adapter = new BoardAdapter();
         ListView list = (ListView) findViewById(R.id.listView2);
         list.setAdapter(Adapter);
+
+        // listview options
+        list.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+        list.setDivider(new ColorDrawable(Color.BLACK));
+        list.setDividerHeight(2);
+
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getApplicationContext(), "Selected : " + position, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(),DB_Bulletin.class);
+
+                //인텐트에 position정보를 담아 전달
+                //intent.setFlags(position);
+                startActivity(intent);
+            }
+
+        });
 
 
     }
@@ -64,10 +86,8 @@ public class BoardActivity extends AppCompatActivity {
         }
         if(id == R.id.Write)
         {
-            Intent intent2 = new Intent(BoardActivity.this,DB_bulletin.class);
-            Log.i("boardActivity","test1");
+            Intent intent2 = new Intent(BoardActivity.this,DB_Posting.class);
             startActivity(intent2);
-            Log.i("boardActivity","test2");
         }
         return super.onOptionsItemSelected(item);
     }
@@ -86,7 +106,7 @@ public class BoardActivity extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            return 2;
+            return 10;
         }
 
         @Override
