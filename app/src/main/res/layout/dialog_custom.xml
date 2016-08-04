@@ -41,7 +41,7 @@
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_weight="70"
-            android:id="@+id/ID"
+            android:id="@+id/main_id"
             android:background="@android:color/white" />
     </LinearLayout>
 <LinearLayout
@@ -65,7 +65,7 @@
         android:layout_width="0dp"
         android:layout_height="fill_parent"
         android:layout_weight="70"
-        android:id="@+id/password"
+        android:id="@+id/main_password"
         android:background="@color/white"
         />
 </LinearLayout>

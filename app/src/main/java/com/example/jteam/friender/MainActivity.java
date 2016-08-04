@@ -8,6 +8,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.provider.CalendarContract;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -29,12 +30,22 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     CityAdapter Adapter;
     Intent intent;
-    boolean loginset;
-
+    boolean loginset; // whether login was complete or not
+    private String user_id=null;
+    private String ID = null, F_NAME = null, L_NAME = null, EMAIL = null, BIRTH = null, MOBILE_NUMBER = null;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         intent = getIntent();
+        if(intent.getStringExtra("F_NAME")!=null) {
+            loginset = true;
+            F_NAME = intent.getStringExtra("F_NAME");
+            L_NAME = intent.getStringExtra("L_NAME");
+            EMAIL = intent.getStringExtra("EMAIL");
+            BIRTH = intent.getStringExtra("BIRTH");
+            MOBILE_NUMBER = intent.getStringExtra("MOBILE_NUMBER");
+        }
+
         loginset = false;
 
         // Complete
@@ -100,10 +111,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-                EditText id = (EditText) dialog.findViewById(R.id.ID);
-                EditText password = (EditText) dialog.findViewById(R.id.password);
+                EditText main_id = (EditText) dialog.findViewById(R.id.main_id);
+                EditText main_password = (EditText) dialog.findViewById(R.id.main_password);
 
+                String id= main_id.getText().toString();
+                String password = main_password.getText().toString();
 
+                Intent intent = new Intent(MainActivity.this,DB_Login.class);
+                intent.putExtra("main_id",id);
+                intent.putExtra("main_password",password);
+                startActivity(intent);
+                Log.i("Email",""+EMAIL);
             }
         });
 
@@ -111,7 +129,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-
+                dialog.dismiss();
+                startActivity(new Intent(MainActivity.this, DB_Resister.class));
             }
         });
 
@@ -143,7 +162,7 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
         if (id == R.id.main_login )
         {
-            if(loginset = false) {
+            if(loginset == false) {
                 fireCustomDialog(null);
             }
             else
