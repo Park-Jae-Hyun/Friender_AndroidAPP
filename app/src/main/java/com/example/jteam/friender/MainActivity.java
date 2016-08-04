@@ -105,7 +105,6 @@ public class MainActivity extends AppCompatActivity {
                 EditText id = (EditText) dialog.findViewById(R.id.ID);
                 EditText password = (EditText) dialog.findViewById(R.id.password);
 
-
             }
         });
 
@@ -131,49 +130,35 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
     private void logincustom(final CalendarContract.Reminders reminder)
     {
         final Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.login_custom);
 
+        Button magementButton = (Button) dialog.findViewById(R.id.magement);
+        Button logoutButton = (Button) dialog.findViewById(R.id.logout);
 
-        TextView titleView = (TextView) dialog.findViewById(R.id.custom_title);
-        Button commitButton = (Button) dialog.findViewById(R.id.custom_button_login);
-        LinearLayout rootLayout = (LinearLayout) dialog.findViewById(R.id.custom_root_layout);
-        Button signupButton = (Button) dialog.findViewById(R.id.custom_button_signup);
-
-        final boolean isEditOperation = (reminder != null);
-
-
-        commitButton.setOnClickListener(new View.OnClickListener(){
+        logoutButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v)
             {
-
             }
+
         });
 
-        signupButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v)
-            {
-
-            }
-        });
-
-        Button buttonCancle = (Button)dialog.findViewById(R.id.custom_button_cancel);
-
-        buttonCancle.setOnClickListener(new View.OnClickListener(){
+        magementButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v)
             {
                 dialog.dismiss();
+                setContentView(R.layout.member_information);
             }
 
         });
         dialog.show();
-
 
     }
 
@@ -191,7 +176,7 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
         if (id == R.id.main_login )
         {
-            if(loginset = false) {
+            if(loginset == false) {
                 fireCustomDialog(null);
             }
             else
