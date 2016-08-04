@@ -14,7 +14,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class DB_bulletin extends AppCompatActivity {
+public class DB_Bulletin extends AppCompatActivity {
 
     String url = "http://52.68.212.232:80/db_login.php";/////////////check
     TextView tv;

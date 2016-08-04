@@ -95,6 +95,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
+                EditText id = (EditText) dialog.findViewById(R.id.ID);
+                EditText password = (EditText) dialog.findViewById(R.id.password);
+
 
             }
         });
