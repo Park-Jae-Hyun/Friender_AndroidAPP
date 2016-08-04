@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,7 +18,6 @@ import android.widget.TextView;
 public class BoardActivity extends AppCompatActivity {
     CityList CList = new CityList();
     TextView textview;
-    Intent intent;
     BoardAdapter Adapter;
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -28,7 +28,7 @@ public class BoardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.city_board);
 
-        intent = getIntent();
+        Intent intent = getIntent();
 
         //액션바 타이틀 변경
         android.support.v7.app.ActionBar actionbar = getSupportActionBar();
@@ -64,7 +64,10 @@ public class BoardActivity extends AppCompatActivity {
         }
         if(id == R.id.Write)
         {
-
+            Intent intent2 = new Intent(BoardActivity.this,DB_bulletin.class);
+            Log.i("boardActivity","test1");
+            startActivity(intent2);
+            Log.i("boardActivity","test2");
         }
         return super.onOptionsItemSelected(item);
     }
