@@ -26,8 +26,10 @@ public class DB_Login extends Activity{
         Intent intent = getIntent();
         id = intent.getStringExtra("main_id");
         password =intent.getStringExtra("main_password");
+
         LoginCheck login_check = new LoginCheck();
         login_check.execute(id, password);
+
     }
 
     class LoginCheck extends AsyncTask<String, String, String> {
@@ -83,13 +85,13 @@ public class DB_Login extends Activity{
                 EMAIL = dataJObject.getString("email");
                 BIRTH = dataJObject.getString("birth");
                 MOBILE_NUMBER = dataJObject.getString("mobile_number");
-
                 Intent intent = new Intent(DB_Login.this, MainActivity.class);
                 intent.putExtra("F_NAME", F_NAME);
                 intent.putExtra("L_NAME", L_NAME);
                 intent.putExtra("EMAIL", EMAIL);
                 intent.putExtra("BIRTH", BIRTH);
                 intent.putExtra("MOBILE_NUMBER", MOBILE_NUMBER);
+
                 setResult(RESULT_OK,intent);
                 finish();
 
