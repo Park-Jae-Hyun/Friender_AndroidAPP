@@ -6,9 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.DatePicker;
-import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -17,13 +15,13 @@ import java.util.Calendar;
 public class DB_Posting extends Activity {
     Button datebutton;
     Spinner numofmembers;
-    EditText destinatoin;
+    /*EditText destinatoin;
     EditText route1;
     EditText route2;
     EditText Letter;
     CheckBox[] checkBox;
     Button write;
-    Button cancel;
+    Button cancel;*/
 
     //check box resource 배열
     int[] checkres = {R.id.posting_check1, R.id.posting_check2, R.id.posting_check3,
@@ -40,14 +38,14 @@ public class DB_Posting extends Activity {
 
         datebutton = (Button) findViewById(R.id.posting_datebutton);
         numofmembers = (Spinner) findViewById(R.id.posting_num);
-        destinatoin = (EditText) findViewById(R.id.posting_destinationedit);
+       /* destinatoin = (EditText) findViewById(R.id.posting_destinationedit);
         route1 = (EditText)findViewById(R.id.posting_route1);
         route2 = (EditText)findViewById(R.id.posting_route2);
         Letter = (EditText)findViewById(R.id.posting_letter);
         for(int i = 0 ; i< 20; i++)
-        checkBox[i] = (CheckBox)findViewById(checkres[i]);
+            checkBox[i] = (CheckBox)findViewById(checkres[i]);
         write = (Button) findViewById(R.id.posting_write);
-        cancel = (Button) findViewById(R.id.posting_cancel);
+        cancel = (Button) findViewById(R.id.posting_cancel);*/
 
         //날짜 선택 초기상태가 현재 날짜이도록 초기화
         final Calendar c = Calendar.getInstance();

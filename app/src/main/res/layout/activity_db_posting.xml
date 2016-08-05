@@ -176,7 +176,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:id="@+id/posting_pic2"
-                    android:background="@android:drawable/star_big_on"
+                    android:background="@mipmap/p02food"
                     android:layout_marginRight="10dp" />
 
                 <CheckBox
@@ -188,7 +188,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:id="@+id/posting_pic3"
-                    android:background="@android:drawable/star_big_on"
+                    android:background="@mipmap/p03beer"
                     android:layout_marginRight="10dp" />
 
                 <CheckBox
@@ -200,7 +200,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:id="@+id/posting_pic4"
-                    android:background="@android:drawable/star_big_on"
+                    android:background="@mipmap/p04coffee"
                     android:layout_marginRight="10dp" />
 
                 <CheckBox
@@ -212,7 +212,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:id="@+id/posting_pic5"
-                    android:background="@android:drawable/star_big_on"
+                    android:background="@mipmap/p05sports"
                     android:layout_marginRight="10dp" />
 
                 <CheckBox
@@ -224,7 +224,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:id="@+id/posting_pic6"
-                    android:background="@android:drawable/star_big_on"
+                    android:background="@mipmap/p06music"
                     android:layout_marginRight="10dp" />
 
                 <CheckBox
@@ -236,7 +236,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:id="@+id/posting_pic7"
-                    android:background="@android:drawable/star_big_on"
+                    android:background="@mipmap/p07movie"
                     android:layout_marginRight="10dp" />
 
                 <CheckBox
@@ -248,7 +248,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:id="@+id/posting_pic8"
-                    android:background="@android:drawable/star_big_on"
+                    android:background="@mipmap/p08photo"
                     android:layout_marginRight="10dp" />
 
                 <CheckBox
@@ -260,7 +260,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:id="@+id/posting_pic9"
-                    android:background="@android:drawable/star_big_on"
+                    android:background="@mipmap/p09reading"
                     android:layout_marginRight="10dp" />
 
                 <CheckBox
@@ -272,7 +272,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:id="@+id/posting_pic10"
-                    android:background="@android:drawable/star_big_on"
+                    android:background="@mipmap/p10concert"
                     android:layout_marginRight="10dp" />
 
                 <CheckBox
@@ -284,7 +284,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:id="@+id/posting_pic11"
-                    android:background="@android:drawable/star_big_on"
+                    android:background="@mipmap/p11festival"
                     android:layout_marginRight="10dp" />
 
                 <CheckBox
@@ -296,7 +296,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:id="@+id/posting_pic12"
-                    android:background="@android:drawable/star_big_on"
+                    android:background="@mipmap/p12travel"
                     android:layout_marginRight="10dp" />
 
                 <CheckBox
@@ -308,7 +308,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:id="@+id/posting_pic13"
-                    android:background="@android:drawable/star_big_on"
+                    android:background="@mipmap/p13rest"
                     android:layout_marginRight="10dp" />
 
                 <CheckBox
@@ -320,7 +320,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:id="@+id/posting_pic14"
-                    android:background="@android:drawable/star_big_on"
+                    android:background="@mipmap/p14tour"
                     android:layout_marginRight="10dp" />
 
                 <CheckBox
@@ -332,7 +332,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:id="@+id/posting_pic15"
-                    android:background="@android:drawable/star_big_on"
+                    android:background="@mipmap/p15beach"
                     android:layout_marginRight="10dp" />
 
                 <CheckBox
@@ -344,7 +344,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:id="@+id/posting_pic16"
-                    android:background="@android:drawable/star_big_on"
+                    android:background="@mipmap/p16mountain"
                     android:layout_marginRight="10dp" />
 
                 <CheckBox
@@ -356,7 +356,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:id="@+id/posting_pic17"
-                    android:background="@android:drawable/star_big_on"
+                    android:background="@mipmap/p17owncar"
                     android:layout_marginRight="10dp" />
 
                 <CheckBox
@@ -368,7 +368,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:id="@+id/posting_pic18"
-                    android:background="@android:drawable/star_big_on"
+                    android:background="@mipmap/p18bycicle"
                     android:layout_marginRight="10dp" />
 
                 <CheckBox
@@ -380,7 +380,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:id="@+id/posting_pic19"
-                    android:background="@android:drawable/star_big_on"
+                    android:background="@mipmap/p19publictransit"
                     android:layout_marginRight="10dp" />
 
                 <CheckBox
@@ -392,7 +392,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:id="@+id/posting_pic20"
-                    android:background="@android:drawable/star_big_on"
+                    android:background="@mipmap/p20cruise"
                     android:layout_marginRight="10dp" />
 
             </LinearLayout>
