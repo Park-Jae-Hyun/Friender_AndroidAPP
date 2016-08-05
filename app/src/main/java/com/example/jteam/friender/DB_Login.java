@@ -1,19 +1,9 @@
 package com.example.jteam.friender;
 
 import android.app.Activity;
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.provider.CalendarContract;
-import android.util.Log;
-import android.view.View;
-import android.view.Window;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.io.IOException;
@@ -25,11 +15,14 @@ import java.net.URL;
 
 public class DB_Login extends Activity{
 
-    private String id, password;
+    private String id = null, password = null;
+    private static String ID = null, F_NAME = null, L_NAME = null, EMAIL = null, BIRTH = null, MOBILE_NUMBER = null;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         Intent intent = getIntent();
         id = intent.getStringExtra("main_id");
         password =intent.getStringExtra("main_password");
@@ -77,11 +70,9 @@ public class DB_Login extends Activity{
 
         @Override
         protected void onPostExecute(String s) {
-            String ID = null, F_NAME = null, L_NAME = null, EMAIL = null, BIRTH = null, MOBILE_NUMBER = null;
-            String err = null;
+
             String data = null;
 
-            //Log.i("json", "First EMAIL : " + EMAIL);
             try {
                 JSONObject json = new JSONObject(s);
                 data = json.getString("user_data");
@@ -93,18 +84,17 @@ public class DB_Login extends Activity{
                 BIRTH = dataJObject.getString("birth");
                 MOBILE_NUMBER = dataJObject.getString("mobile_number");
 
-                Intent intent = new Intent(DB_Login.this, MainActivity.class );
+                Intent intent = new Intent(DB_Login.this, MainActivity.class);
                 intent.putExtra("F_NAME", F_NAME);
                 intent.putExtra("L_NAME", L_NAME);
                 intent.putExtra("EMAIL", EMAIL);
                 intent.putExtra("BIRTH", BIRTH);
                 intent.putExtra("MOBILE_NUMBER", MOBILE_NUMBER);
-                startActivity(intent);
+                setResult(RESULT_OK,intent);
+                finish();
 
             } catch (JSONException e) {
                 e.printStackTrace();
-                err = "Exception: " + e.getMessage();
-                Toast.makeText(getApplicationContext(), "" + err, Toast.LENGTH_LONG).show();
             }
         }
     }
