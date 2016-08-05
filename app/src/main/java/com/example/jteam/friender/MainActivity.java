@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     boolean loginset = false; // whether login was complete or not
     private static final int RESULT = 1000;
     private String user_id=null;
-    private String ID = null, F_NAME = null, L_NAME = null, EMAIL = null, BIRTH = null, MOBILE_NUMBER = null;
+    private String ID = null, F_NAME = null, L_NAME = null, Sex = null, EMAIL = null, BIRTH = null, MOBILE_NUMBER = null;
     protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);
@@ -94,12 +94,14 @@ public class MainActivity extends AppCompatActivity {
                     F_NAME = bundle.getString("F_NAME");
                     L_NAME = bundle.getString("L_NAME");
                     EMAIL = bundle.getString("EMAIL");
+                    Sex = bundle.getString("Sex");
                     BIRTH = bundle.getString("BIRTH");
                     MOBILE_NUMBER = bundle.getString("MOBILE_NUMBER");
 
                     Log.i("F_NAME",""+F_NAME);
                     Log.i("L_NAME",""+L_NAME);
                     Log.i("EMAIL",""+EMAIL);
+                    Log.i("Sex",""+Sex);
                     Log.i("BIRTH",""+BIRTH);
                     Log.i("MOBILE_NUMBER",""+MOBILE_NUMBER);
                     //loginset = true;
