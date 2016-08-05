@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
         // listview options
         list.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
-        list.setDivider(new ColorDrawable(Color.WHITE));
+        list.setDivider(new ColorDrawable(Color.BLACK));
         list.setDividerHeight(2);
 
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
