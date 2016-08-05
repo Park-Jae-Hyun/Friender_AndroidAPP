@@ -3,7 +3,6 @@ package com.example.jteam.friender;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -13,18 +12,14 @@ import android.widget.Toast;
 
 import java.util.Calendar;
 
-public class DB_bulletin extends Activity {
+public class DB_Posting extends Activity {
     Button datebutton;
     Spinner numofmembers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.i("DB_bulletin", "test3");
         super.onCreate(savedInstanceState);
-        Log.i("DB_bulletin", "test4");
-        setContentView(R.layout.activity_db_bulletin);
-        Log.i("DB_bulletin", "test5");
-
+        setContentView(R.layout.activity_db_posting);
         //날짜 선택 초기상태가 현재 날짜이도록 초기화
         final Calendar c = Calendar.getInstance();
         final int year = c.get(Calendar.YEAR);
@@ -43,7 +38,7 @@ public class DB_bulletin extends Activity {
         datebutton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 DatePickerDialog dialog = new DatePickerDialog
-                        (DB_bulletin.this, listener, year, month, day);
+                        (DB_Posting.this, listener, year, month, day);
                 dialog.show();
             }
         });

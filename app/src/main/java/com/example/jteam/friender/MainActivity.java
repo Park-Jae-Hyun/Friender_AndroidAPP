@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
 
         // listview options
         list.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
-        list.setDivider(new ColorDrawable(Color.WHITE));
+        list.setDivider(new ColorDrawable(Color.BLACK));
         list.setDividerHeight(2);
 
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -102,6 +102,12 @@ public class MainActivity extends AppCompatActivity {
 //                    Log.i("BIRTH",""+BIRTH);
 //                    Log.i("MOBILE_NUMBER",""+MOBILE_NUMBER);
 //                    loginset = true;
+                    Log.i("F_NAME",""+F_NAME);
+                    Log.i("L_NAME",""+L_NAME);
+                    Log.i("EMAIL",""+EMAIL);
+                    Log.i("BIRTH",""+BIRTH);
+                    Log.i("MOBILE_NUMBER",""+MOBILE_NUMBER);
+                    //loginset = true;
                 }
                 break;
         }
