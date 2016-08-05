@@ -14,15 +14,12 @@
         android:layout_height="60dp"
         android:gravity="center_horizontal"
         android:padding="10dp"
-        android:text="LOGIN"
+        android:text="Filter"
         android:textColor="@color/black"
         android:textSize="30sp"/>
-
-
-
     <LinearLayout
         android:orientation="horizontal"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/black">
 
@@ -31,8 +28,8 @@
             android:layout_height="30dp"
             android:layout_weight="30"
             android:gravity="center"
-            android:text="ID"
-            android:id="@+id/textid"
+            android:text="Destination"
+            android:id="@+id/findword_text"
             android:background="@color/white"
             android:textSize = "24sp"
             android:textColor="@color/black"/>
@@ -40,35 +37,63 @@
         <EditText
             android:layout_width="0dp"
             android:layout_height="fill_parent"
-            android:layout_weight="70"
-            android:id="@+id/main_id"
-            android:background="@android:color/white" />
+            android:layout_weight="40.99"
+            android:id="@+id/find_word"
+            android:background="@color/white"
+            />
     </LinearLayout>
-<LinearLayout
-    android:orientation="horizontal"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/black">
 
-    <TextView
-        android:layout_width="0dp"
-        android:layout_height="30dp"
-        android:layout_weight="30"
-        android:gravity="center"
-        android:text="PW"
-        android:id="@+id/textpassword"
-        android:background="@color/white"
-        android:textSize = "24sp"
-        android:textColor="@color/black"/>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black">
 
-    <EditText
-        android:layout_width="0dp"
-        android:layout_height="fill_parent"
-        android:layout_weight="70"
-        android:id="@+id/main_password"
-        android:background="@color/white"
-        />
-</LinearLayout>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="30"
+            android:gravity="center"
+            android:text="DATE"
+            android:id="@+id/find_date_text"
+            android:background="@color/white"
+            android:textSize = "24sp"
+            android:textColor="@color/black"/>
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="40.99"
+            android:id="@+id/fint_date"
+            android:background="@color/white"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="30"
+            android:gravity="center"
+            android:text="~"
+            android:id="@+id/textView23"
+            android:background="@color/white"
+            android:textSize="24sp"
+            android:textColor="@color/black" />
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="70"
+            android:id="@+id/editText2"
+            android:background="@color/white" />
+    </LinearLayout>
+
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -85,29 +110,15 @@
             android:background="#00ff0000"/>
 
         <Button
-            android:id="@+id/custom_button_login"
+            android:id="@+id/custom_button_find"
             android:layout_width="0dp"
             android:layout_height="60dp"
             android:layout_weight="50"
             android:textSize="25sp"
-            android:text="Login"
+            android:text="FIND"
             android:textColor="@color/black"
             android:background="#00ff0000"/>
     </LinearLayout>
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:text="Sign up"
-            android:textSize="25sp"
-            android:id="@+id/custom_button_signup"
-            android:textColor="@color/black"
-            android:background="#00ff0000"/>
-    </LinearLayout>
 
 </LinearLayout>
