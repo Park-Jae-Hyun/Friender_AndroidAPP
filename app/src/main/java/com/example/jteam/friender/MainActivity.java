@@ -37,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);
             intent = getIntent();
-
         // Complete
         ArrayList<String> main_city_list = new ArrayList<String>();
         CityList CList= new CityList();
@@ -102,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
 //                    Log.i("EMAIL",""+EMAIL);
 //                    Log.i("BIRTH",""+BIRTH);
 //                    Log.i("MOBILE_NUMBER",""+MOBILE_NUMBER);
-                    //loginset = true;
+//                    loginset = true;
                 }
                 break;
         }
