@@ -55,8 +55,6 @@ public class DB_Posting extends Activity {
         final int month = c.get(Calendar.MONTH);
         final int day = c.get(Calendar.DATE);
 
-        datebutton = (Button) findViewById(R.id.datebutton);
-        numofmembers = (Spinner) findViewById(R.id.numofmembers);
 
         Intent intent = getIntent();
         if(intent.getStringExtra("EMAIL")!=null) {

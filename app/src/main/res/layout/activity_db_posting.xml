@@ -98,7 +98,7 @@
                         android:textColor="#000000" />
 
                     <Button
-                        android:id="@+id/datebutton"
+                        android:id="@+id/posting_datebutton"
                         android:layout_width="70dp"
                         android:layout_height="35dp"
                         android:text="Click"
@@ -123,7 +123,7 @@
                     android:textColor="#000000" />
 
                 <Spinner
-                    android:id="@+id/numofmembers"
+                    android:id="@+id/posting_num"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp" />
 
