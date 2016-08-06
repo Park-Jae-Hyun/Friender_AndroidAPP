@@ -8,6 +8,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.provider.CalendarContract;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,6 +25,7 @@ public class BoardActivity extends AppCompatActivity {
     CityList CList = new CityList();
     TextView textview;
     BoardAdapter Adapter;
+    String id_EMAIL = null;
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -34,10 +36,9 @@ public class BoardActivity extends AppCompatActivity {
         setContentView(R.layout.city_board);
 
         Intent intent = getIntent();
-
-
-
-
+        if(intent.getStringExtra("EMAIL")!=null) {
+            id_EMAIL=intent.getStringExtra("EMAIL");
+        }
         //액션바 타이틀 변경
         android.support.v7.app.ActionBar actionbar = getSupportActionBar();
         actionbar.setTitle((String)CList.getCity_list().get(intent.getFlags()));
@@ -63,6 +64,9 @@ public class BoardActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(getApplicationContext(), "Selected : " + position, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(),DB_Bulletin.class);
+                if(id_EMAIL!=null) {
+                    intent.putExtra("EMAIL",""+id_EMAIL);
+                }
 
                 //인텐트에 position정보를 담아 전달
                 //intent.setFlags(position);

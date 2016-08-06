@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     boolean loginset = false; // whether login was complete or not
     private static final int RESULT = 1000;
     private String user_id=null;
-    private String ID = null, F_NAME = null, L_NAME = null, Sex = null, EMAIL = null, BIRTH = null, MOBILE_NUMBER = null;
+    private String ID = null, F_NAME = null, L_NAME = null, SEX = null, EMAIL = null, BIRTH = null, MOBILE_NUMBER = null;
     protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);
@@ -67,8 +67,12 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(getApplicationContext(), "Selected : " + position, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(),BoardActivity.class);
-
                 //인텐트에 position정보를 담아 전달
+
+                if(EMAIL!=null) {
+                    intent.putExtra("EMAIL",""+EMAIL);
+                }
+
                 intent.setFlags(position);
                 startActivity(intent);
             }
@@ -94,14 +98,14 @@ public class MainActivity extends AppCompatActivity {
                     F_NAME = bundle.getString("F_NAME");
                     L_NAME = bundle.getString("L_NAME");
                     EMAIL = bundle.getString("EMAIL");
-                    Sex = bundle.getString("Sex");
+                    SEX = bundle.getString("SEX");
                     BIRTH = bundle.getString("BIRTH");
                     MOBILE_NUMBER = bundle.getString("MOBILE_NUMBER");
 
                     Log.i("F_NAME",""+F_NAME);
                     Log.i("L_NAME",""+L_NAME);
                     Log.i("EMAIL",""+EMAIL);
-                    Log.i("Sex",""+Sex);
+                    Log.i("SEX",""+SEX);
                     Log.i("BIRTH",""+BIRTH);
                     Log.i("MOBILE_NUMBER",""+MOBILE_NUMBER);
                     //loginset = true;

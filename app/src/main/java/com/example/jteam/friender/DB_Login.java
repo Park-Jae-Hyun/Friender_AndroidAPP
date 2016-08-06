@@ -16,7 +16,7 @@ import java.net.URL;
 public class DB_Login extends Activity{
 
     private String id = null, password = null;
-    private static String ID = null, F_NAME = null, L_NAME = null, EMAIL = null, Sex = null, BIRTH = null, MOBILE_NUMBER = null;
+    private static String ID = null, F_NAME = null, L_NAME = null, EMAIL = null, SEX = null, BIRTH = null, MOBILE_NUMBER = null;
 
 
     @Override
@@ -83,7 +83,7 @@ public class DB_Login extends Activity{
                 F_NAME = dataJObject.getString("f_name");
                 L_NAME = dataJObject.getString("l_name");
                 EMAIL = dataJObject.getString("email");
-                Sex = dataJObject.getString("sex");
+                SEX = dataJObject.getString("sex");
                 BIRTH = dataJObject.getString("birth");
                 MOBILE_NUMBER = dataJObject.getString("mobile_number");
 
@@ -92,7 +92,7 @@ public class DB_Login extends Activity{
                 intent.putExtra("F_NAME", F_NAME);
                 intent.putExtra("L_NAME", L_NAME);
                 intent.putExtra("EMAIL", EMAIL);
-                intent.putExtra("SEX", Sex);
+                intent.putExtra("SEX", SEX);
                 intent.putExtra("BIRTH", BIRTH);
                 intent.putExtra("MOBILE_NUMBER", MOBILE_NUMBER);
 

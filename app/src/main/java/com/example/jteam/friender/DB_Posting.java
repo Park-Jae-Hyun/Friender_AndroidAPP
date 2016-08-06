@@ -2,6 +2,7 @@ package com.example.jteam.friender;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -15,6 +16,7 @@ import java.util.Calendar;
 public class DB_Posting extends Activity {
     Button datebutton;
     Spinner numofmembers;
+    private String id_EMAIL=null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +29,11 @@ public class DB_Posting extends Activity {
         final int day = c.get(Calendar.DATE);
         datebutton = (Button) findViewById(R.id.datebutton);
         numofmembers = (Spinner) findViewById(R.id.numofmembers);
+
+        Intent intent = getIntent();
+        if(intent.getStringExtra("EMAIL")!=null) {
+            id_EMAIL=intent.getStringExtra("EMAIL");
+        }
 
 
         //구하는 사람수를 선택하기 위해 string.xml에 리스트(2,3,4...미리적어둠)를 불러옴
