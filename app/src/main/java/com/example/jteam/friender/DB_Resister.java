@@ -25,6 +25,7 @@ public class DB_Resister extends Activity {
     private EditText editTextLastName;
     private EditText editTextEmail;
     private EditText editTextPassword;
+    private EditText editTextSex;
     private EditText editTextBirth;
     private EditText editTextMobileNumber;
     Handler mHandler;
@@ -44,6 +45,7 @@ public class DB_Resister extends Activity {
         editTextLastName = (EditText) findViewById(R.id.last_Name);
         editTextEmail = (EditText) findViewById(R.id.email);
         editTextPassword = (EditText) findViewById(R.id.password);
+        editTextSex = (EditText) findViewById(R.id.sex);
         editTextBirth = (EditText) findViewById(R.id.birth);
         editTextMobileNumber =(EditText) findViewById(R.id.mobile_Number);
 
@@ -51,12 +53,13 @@ public class DB_Resister extends Activity {
         String l_name = editTextLastName.getText().toString();
         String email = editTextEmail.getText().toString();
         String password = editTextPassword.getText().toString();
+        String sex = editTextSex.getText().toString();
         String birth = editTextBirth.getText().toString();
         String mobile_number = editTextMobileNumber.getText().toString();
 
-        insertToDatabase(f_name, l_name, email, password, birth, mobile_number); // Some information of person insert into database
+        insertToDatabase(f_name, l_name, email, password, sex, birth, mobile_number); // Some information of person insert into database
     }
-    private void insertToDatabase(String f_name, String l_name, String email, String password, final String birth, String mobile_number){
+    private void insertToDatabase(String f_name, String l_name, String email, String password, String sex, String birth, String mobile_number){
 
         class InsertData extends AsyncTask<String, Void, String> {
             ProgressDialog loading;
@@ -83,14 +86,16 @@ public class DB_Resister extends Activity {
                     String l_name = params[1];
                     String email = params[2];
                     String password = params[3];
-                    String birth = params[4];
-                    String mobile_number = params[5];
+                    String sex = params[4];
+                    String birth = params[5];
+                    String mobile_number = params[6];
 
                     String link = "http://52.68.212.232/insert.php";
                     String data = URLEncoder.encode("f_name", "UTF-8") + "=" + URLEncoder.encode(f_name, "UTF-8");
                     data += "&" + URLEncoder.encode("l_name", "UTF-8") + "=" + URLEncoder.encode(l_name, "UTF-8");
                     data += "&" + URLEncoder.encode("email", "UTF-8") + "=" + URLEncoder.encode(email, "UTF-8");
                     data += "&" + URLEncoder.encode("password", "UTF-8") + "=" + URLEncoder.encode(password, "UTF-8");
+                    data += "&" + URLEncoder.encode("sex","UTF-8") + "=" + URLEncoder.encode(sex, "UTF-8");
                     data += "&" + URLEncoder.encode("birth", "UTF-8") + "=" + URLEncoder.encode(birth, "UTF-8");
                     data += "&" + URLEncoder.encode("mobile_number", "UTF-8") + "=" + URLEncoder.encode(mobile_number, "UTF-8");
 
@@ -121,6 +126,6 @@ public class DB_Resister extends Activity {
         }
 
         InsertData task = new InsertData();
-        task.execute(f_name, l_name, email, password, birth, mobile_number);
+        task.execute(f_name, l_name, email, password, sex, birth, mobile_number);
     }
 }
