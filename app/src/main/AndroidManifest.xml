@@ -27,7 +27,7 @@
             android:label="BoardActivity" />
         <activity android:name=".DB_Resister" />
         <activity android:name=".DB_Login" />
-        <activity android:name=".DB_Posting" />
+        <activity android:name=".BoardPost" />
         <activity android:name=".DB_Bulletin"></activity>
     </application>
 
