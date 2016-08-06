@@ -21,7 +21,7 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/black">
+        android:background="@color/white">
 
         <TextView
             android:layout_width="0dp"
@@ -39,7 +39,7 @@
             android:layout_height="fill_parent"
             android:layout_weight="40.99"
             android:id="@+id/find_word"
-            android:background="@color/white"
+            android:background="#e7e7e7"
             />
     </LinearLayout>
 
@@ -47,51 +47,50 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/black">
+        android:background="@color/white">
 
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="100dp"
             android:layout_height="30dp"
-            android:layout_weight="30"
             android:gravity="center"
             android:text="DATE"
             android:id="@+id/find_date_text"
-            android:background="@color/white"
             android:textSize = "24sp"
             android:textColor="@color/black"/>
 
-        <EditText
+        <Button
             android:layout_width="0dp"
             android:layout_height="fill_parent"
-            android:layout_weight="40.99"
-            android:id="@+id/fint_date"
+            android:layout_weight="40.27"
+            android:id="@+id/startdate"
             android:background="@color/white"
-            />
+            android:text="No maatter" />
     </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/black" >
+        android:background="@color/white" >
 
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="100dp"
             android:layout_height="30dp"
-            android:layout_weight="30"
+            android:layout_weight="1.43"
             android:gravity="center"
             android:text="~"
             android:id="@+id/textView23"
-            android:background="@color/white"
             android:textSize="24sp"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:background="#ffffff" />
 
-        <EditText
+        <Button
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_weight="70"
-            android:id="@+id/editText2"
-            android:background="@color/white" />
+            android:id="@+id/lastdate"
+            android:background="#ffffff"
+            android:text="NO MATTER" />
     </LinearLayout>
 
     <LinearLayout

@@ -25,7 +25,15 @@
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:text="My post"
+        android:id="@+id/mypost"
+        android:layout_gravity="center" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
         android:text="Logout"
         android:id="@+id/logout"
         android:layout_gravity="center" />
+
 </LinearLayout>

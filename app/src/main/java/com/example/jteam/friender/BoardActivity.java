@@ -36,6 +36,7 @@ public class BoardActivity extends AppCompatActivity {
         setContentView(R.layout.city_board);
 
         Intent intent = getIntent();
+
         if(intent.getStringExtra("EMAIL")!=null) {
             id_EMAIL=intent.getStringExtra("EMAIL");
         }
@@ -57,7 +58,7 @@ public class BoardActivity extends AppCompatActivity {
         // listview options
         list.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
         list.setDivider(new ColorDrawable(Color.BLACK));
-        list.setDividerHeight(2);
+        list.setDividerHeight(10);
 
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -107,7 +108,7 @@ public class BoardActivity extends AppCompatActivity {
         dialog.setContentView(R.layout.find_custom);
 
         Button findButton = (Button) dialog.findViewById(R.id.custom_button_find);
-        Button cancleButton = (Button) dialog.findViewById(R.id.custom_button_cancel);
+        Button cancelButton = (Button) dialog.findViewById(R.id.custom_button_cancel);
 
         findButton.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -116,7 +117,7 @@ public class BoardActivity extends AppCompatActivity {
             }
 
         });
-        cancleButton.setOnClickListener(new View.OnClickListener(){
+        cancelButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v)
             {

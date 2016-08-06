@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     CityAdapter Adapter;
     Intent intent;
 
-    boolean loginset = false; // whether login was complete or not
+    boolean loginset = true; // whether login was complete or not
     private static final int RESULT = 1000;
     private String user_id=null;
     private String ID = null, F_NAME = null, L_NAME = null, SEX = null, EMAIL = null, BIRTH = null, MOBILE_NUMBER = null;
@@ -37,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);
             intent = getIntent();
-
         // Complete
         ArrayList<String> main_city_list = new ArrayList<String>();
         CityList CList= new CityList();
@@ -102,6 +101,12 @@ public class MainActivity extends AppCompatActivity {
                     BIRTH = bundle.getString("BIRTH");
                     MOBILE_NUMBER = bundle.getString("MOBILE_NUMBER");
 
+//                    Log.i("F_NAME",""+F_NAME);
+//                    Log.i("L_NAME",""+L_NAME);
+//                    Log.i("EMAIL",""+EMAIL);
+//                    Log.i("BIRTH",""+BIRTH);
+//                    Log.i("MOBILE_NUMBER",""+MOBILE_NUMBER);
+//                    loginset = true;
                     Log.i("F_NAME",""+F_NAME);
                     Log.i("L_NAME",""+L_NAME);
                     Log.i("EMAIL",""+EMAIL);
@@ -109,6 +114,11 @@ public class MainActivity extends AppCompatActivity {
                     Log.i("BIRTH",""+BIRTH);
                     Log.i("MOBILE_NUMBER",""+MOBILE_NUMBER);
                     //loginset = true;
+
+                    TextView textview = (TextView)findViewById(R.id.inform_id);
+                    //textview.setText("GI");
+                    //textview.append("HELLO");
+                    textview.setBackgroundColor(Color.BLACK);
                 }
                 break;
         }

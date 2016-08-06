@@ -29,13 +29,12 @@
                 android:text="ID"
                 android:id="@+id/inform_id_text"
                 android:textSize="25sp"
-                android:layout_gravity="center" />
+                android:gravity="center" />
 
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Humm"
                 android:id="@+id/inform_id"
                 android:textSize="25sp"
                 android:layout_weight="80"
@@ -53,7 +52,8 @@
                 android:layout_weight="20"
                 android:textSize="25sp"
                 android:text="PW"
-                android:id="@+id/inform_password_text" />
+                android:id="@+id/inform_password_text"
+                android:gravity="center"/>
 
             <TextView
                 android:layout_width="0dp"
@@ -68,8 +68,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="20"
                 android:text="modify"
-                android:background="@color/black"
-                android:textColor="@color/white"
+                android:background="@color/white"
+                android:textColor="@color/black"
                 android:id="@+id/button2" />
             </LinearLayout>
 
@@ -83,7 +83,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="20"
                 android:textSize="25dp"
-                android:text="SEX"/>
+                android:text="SEX"
+                android:gravity="center"/>
 
             <TextView
                 android:layout_width="0dp"
@@ -105,7 +106,8 @@
                 android:layout_weight="20"
                 android:textSize="25sp"
                 android:text="Name"
-                android:id="@+id/textView15" />
+                android:id="@+id/textView15"
+                android:gravity="center"/>
 
             <TextView
                 android:layout_width="0dp"
@@ -135,7 +137,8 @@
                 android:layout_weight="20"
                 android:textSize="25sp"
                 android:text="Birth"
-                android:id="@+id/textView18" />
+                android:id="@+id/textView18"
+                android:gravity="center"/>
 
             <TextView
                 android:layout_width="0dp"
@@ -154,31 +157,237 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="50"
+                android:layout_weight="20"
                 android:textSize="25sp"
                 android:text="Phone Number"
-                android:id="@+id/textView20" />
+                android:id="@+id/textView20"
+                android:gravity="center"/>
 
             <TextView
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="50"
+                android:layout_height="fill_parent"
+                android:layout_weight="80"
                 android:text="000 000 0000"
                 android:textSize="25sp"
+                android:gravity="center"
                 android:id="@+id/textView21" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="I WANT TO THIS FOR TRAVEL"/>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></LinearLayout>
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+             <HorizontalScrollView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/horizontalScrollView2">
+                 <LinearLayout
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:orientation="vertical">
+
+                     <LinearLayout
+                         android:orientation="horizontal"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content">
+
+                         <CheckBox
+                             android:layout_width="match_parent"
+                             android:layout_height="match_parent" />
+
+                         <ImageView
+                             android:layout_width="50dp"
+                             android:layout_height="50dp"
+                             android:id="@+id/imageView21"
+                             android:background="@mipmap/p01people"
+                             android:layout_marginRight="10dp"/>
+
+                         <CheckBox
+                             android:layout_width="match_parent"
+                             android:layout_height="match_parent" />
+
+                         <ImageView
+                             android:layout_width="50dp"
+                             android:layout_height="50dp"
+                             android:id="@+id/imageView22"
+                             android:background="@mipmap/p02food"
+                             android:layout_marginRight="10dp"/>
+
+                         <CheckBox
+                             android:layout_width="match_parent"
+                             android:layout_height="match_parent" />
+
+                         <ImageView
+                             android:layout_width="50dp"
+                             android:layout_height="50dp"
+                             android:id="@+id/imageView23"
+                             android:background="@mipmap/p03beer"
+                             android:layout_marginRight="10dp"/>
+
+                         <CheckBox
+                             android:layout_width="match_parent"
+                             android:layout_height="match_parent" />
+
+                         <ImageView
+                             android:layout_width="50dp"
+                             android:layout_height="50dp"
+                             android:id="@+id/imageView24"
+                             android:background="@mipmap/p04coffee"
+                             android:layout_marginRight="10dp"/>
+
+                         <CheckBox
+                             android:layout_width="match_parent"
+                             android:layout_height="match_parent" />
+
+                         <ImageView
+                             android:layout_width="50dp"
+                             android:layout_height="50dp"
+                             android:id="@+id/imageView25"
+                             android:background="@mipmap/p05sports"
+                             android:layout_marginRight="10dp"/>
+
+                         <CheckBox
+                             android:layout_width="match_parent"
+                             android:layout_height="match_parent" />
+
+                         <ImageView
+                             android:layout_width="50dp"
+                             android:layout_height="50dp"
+                             android:id="@+id/imageView26"
+                             android:background="@mipmap/p06music"
+                             android:layout_marginRight="10dp"/>
+
+                         <CheckBox
+                             android:layout_width="match_parent"
+                             android:layout_height="match_parent" />
+
+                         <ImageView
+                             android:layout_width="50dp"
+                             android:layout_height="50dp"
+                             android:id="@+id/imageView27"
+                             android:background="@mipmap/p07movie"
+                             android:layout_marginRight="10dp"/>
+
+                         <CheckBox
+                             android:layout_width="match_parent"
+                             android:layout_height="match_parent" />
+
+                         <ImageView
+                             android:layout_width="50dp"
+                             android:layout_height="50dp"
+                             android:id="@+id/imageView28"
+                             android:background="@mipmap/p08photo"
+                             android:layout_marginRight="10dp"/>
+
+                         <CheckBox
+                             android:layout_width="match_parent"
+                             android:layout_height="match_parent" />
+
+                         <ImageView
+                             android:layout_width="50dp"
+                             android:layout_height="50dp"
+                             android:id="@+id/imageView29"
+                             android:background="@mipmap/p09reading"
+                             android:layout_marginRight="10dp"/>
+
+                         <CheckBox
+                             android:layout_width="match_parent"
+                             android:layout_height="match_parent" />
+
+                         <ImageView
+                             android:layout_width="50dp"
+                             android:layout_height="50dp"
+                             android:id="@+id/imageView30"
+                             android:background="@mipmap/p10concert"
+                             android:layout_marginRight="10dp"/>
+                         <CheckBox
+                             android:layout_width="match_parent"
+                             android:layout_height="match_parent" />
+
+
+                     </LinearLayout>
+
+                     <LinearLayout
+                         android:orientation="horizontal"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content">
+
+                         <CheckBox
+                         android:layout_width="match_parent"
+                         android:layout_height="match_parent" />
+
+                         <ImageView
+                             android:layout_width="50dp"
+                             android:layout_height="50dp"
+                             android:id="@+id/imageView31"
+                             android:background="@mipmap/p11festival"
+                             android:layout_marginRight="10dp"/>
+                         <CheckBox
+                             android:layout_width="match_parent"
+                             android:layout_height="match_parent" />
+
+                         <ImageView
+                             android:layout_width="50dp"
+                             android:layout_height="50dp"
+                             android:id="@+id/imageView32"
+                             android:background="@mipmap/p12travel"
+                             android:layout_marginRight="10dp"/>
+
+                     </LinearLayout>
+                 </LinearLayout>
+            </HorizontalScrollView>
         </LinearLayout>
 
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="bottom">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:text="New Button"
+                android:id="@+id/button3" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:text="New Button"
+                android:id="@+id/button4" />
+        </LinearLayout>
 
     </LinearLayout>
+
+
+
 
 </LinearLayout>

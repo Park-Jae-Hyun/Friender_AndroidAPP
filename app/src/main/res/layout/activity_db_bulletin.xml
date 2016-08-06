@@ -17,7 +17,8 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:gravity="center_vertical">
 
             <ImageView
                 android:layout_width="match_parent"
@@ -30,7 +31,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="dd,mm,yyyy"
-                android:id="@+id/textView18"
+                android:id="@+id/bulletin_date"
                 android:textSize="20dp"
                 android:textColor="#000000" />
 
@@ -38,7 +39,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Destination"
-                android:id="@+id/textView19"
+                android:id="@+id/bulletin_destination"
                 android:textSize="40dp"
                 android:textColor="#000000" />
 
@@ -52,8 +53,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Subdestination"
-                    android:id="@+id/textView17"
+                    android:text="Route"
+                    android:id="@+id/bulletin_route1"
                     android:textSize="20dp"
                     android:layout_weight="0.35"
                     android:textColor="#000000" />
@@ -61,8 +62,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Subdestination"
-                    android:id="@+id/textView20"
+                    android:text="Route"
+                    android:id="@+id/bulletin_route2"
                     android:textSize="20dp"
                     android:textColor="#000000" />
             </LinearLayout>
@@ -93,33 +94,34 @@
         android:layout_height="50dp"
         android:layout_below="@+id/linearLayout"
         android:layout_alignParentStart="true"
-        android:id="@+id/linearLayout2">
+        android:id="@+id/linearLayout2"
+        android:gravity="center_vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="IDABCD"
-            android:id="@+id/textView14"
-            android:textSize="30dp" />
+            android:id="@+id/bulletin_id"
+            android:textSize="25dp" />
 
         <ImageView
             android:layout_width="45dp"
             android:layout_height="45dp"
-            android:id="@+id/imageView24"
+            android:id="@+id/bulletin_pictogram1"
             android:layout_marginLeft="100dp"
             android:background="#000000" />
 
         <ImageView
             android:layout_width="45dp"
             android:layout_height="45dp"
-            android:id="@+id/imageView25"
+            android:id="@+id/bulletin_pictogram2"
             android:layout_marginLeft="10dp"
             android:background="#000000" />
 
         <ImageView
             android:layout_width="45dp"
             android:layout_height="45dp"
-            android:id="@+id/imageView26"
+            android:id="@+id/bulletin_pictogram3"
             android:layout_marginLeft="10dp"
             android:background="#000000" />
 
@@ -140,26 +142,41 @@
         android:layout_height="50dp"
         android:layout_alignTop="@+id/imageView27"
         android:layout_centerHorizontal="true"
-        android:id="@+id/linearLayout3">
+        android:id="@+id/linearLayout3"
+        android:gravity="center_vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Text"
-            android:id="@+id/textView21"
+            android:text="Present : "
+            android:id="@+id/textView12"
+            android:textSize="25dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="q"
+            android:id="@+id/bulletin_present"
             android:textSize="25dp" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="New Button"
-            android:id="@+id/button3" />
+            android:id="@+id/bulletin_joinbutton" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Text"
+            android:text="Finding : "
             android:id="@+id/textView22"
+            android:textSize="25dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="q"
+            android:id="@+id/bulletin_finding"
             android:textSize="25dp" />
     </LinearLayout>
 
@@ -176,7 +193,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Text"
-        android:id="@+id/textView16"
+        android:id="@+id/bulletin_letter"
         android:layout_alignStart="@+id/imageView28"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
