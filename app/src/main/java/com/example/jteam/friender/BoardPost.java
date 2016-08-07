@@ -7,6 +7,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -33,7 +34,7 @@ public class BoardPost extends Activity {
     private EditText editRoute1;
     private EditText editRoute2;
     private EditText editLetter;
-    private CheckBox[] checkBox;
+    private CheckBox[] checkBox = new CheckBox[20];
     private Button buttonWrite;
     private Button buttonCancel;
 
@@ -86,6 +87,14 @@ public class BoardPost extends Activity {
         editRoute2 = (EditText)findViewById(R.id.posting_route2);
         editLetter = (EditText)findViewById(R.id.posting_letter);
 
+        for(int i = 0; i < 20; i++) {
+            checkBox[i] = (CheckBox)findViewById(checkres[i]);
+        }
+
+        buttonWrite = (Button) findViewById(R.id.posting_write);
+        buttonCancel = (Button) findViewById(R.id.posting_cancel);
+
+
 
 
         // check the value of result from checkbox
@@ -107,9 +116,37 @@ public class BoardPost extends Activity {
         final int day = c.get(Calendar.DATE);
 
         //구하는 사람수를 선택하기 위해 string.xml에 리스트(2,3,4...미리적어둠)를 불러옴
-        ArrayAdapter adapter = ArrayAdapter.createFromResource(this,
-                R.array.number, android.R.layout.simple_spinner_item);
-        numofmembers.setAdapter(adapter);
+        ArrayAdapter totalnumadapter = ArrayAdapter.createFromResource(this,
+                R.array.totalnumbers, android.R.layout.simple_spinner_item);
+        numofmembers.setAdapter(totalnumadapter);
+        ArrayAdapter joinednumadapter = ArrayAdapter.createFromResource(this,
+                R.array.joinednumbers, android.R.layout.simple_spinner_item);
+        myfriend.setAdapter(joinednumadapter);
+
+        //전체 사람수 선택 스피너 리스너
+        numofmembers.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getApplicationContext(), "Selected : " + position, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
+        //현재사람수 선택 스피너 리스너
+        myfriend.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getApplicationContext(), "Selected : " + position, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
 
         //date버튼이 눌리면 datepickerdialog 생성
         datebutton.setOnClickListener(new View.OnClickListener() {
