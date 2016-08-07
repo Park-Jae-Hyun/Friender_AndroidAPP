@@ -28,7 +28,7 @@ public class BoardPost extends Activity {
     private Spinner numofmembers;
     private Spinner myfriend;
 
-    private String USER_UNIQUE_ID=null;
+    private int USER_UNIQUE_ID = 0;
     private EditText editDestination;
     private EditText editRoute1;
     private EditText editRoute2;
@@ -36,6 +36,18 @@ public class BoardPost extends Activity {
     private CheckBox[] checkBox;
     private Button buttonWrite;
     private Button buttonCancel;
+
+    private String destination = null;
+    private String route1 = null;
+    private String route2 = null;
+    private String letter = null;
+    private boolean[] checkbox = new boolean[20];
+    private int[] character = new int[3];
+    private int p_year;
+    private int p_month;
+    private int p_day;
+    private String p_date =null;
+
 
     //check box resource 배열
     int[] checkres = {R.id.posting_check1, R.id.posting_check2, R.id.posting_check3,
@@ -52,10 +64,18 @@ public class BoardPost extends Activity {
 
         // GET ID FROM BOARDACTIVITY TO GET TRABLE_INFO FROM DATABASE, USER_UNIQUE_ID is FOREIGNER
         Intent intent = getIntent();
-        if(intent.getStringExtra("USER_UNIQUE_ID")!=null) {
-            USER_UNIQUE_ID=intent.getStringExtra("USER_UNIQUE_ID");
-            Log.i("USER_UNIQUE_ID",USER_UNIQUE_ID);
+
+        if(intent.getIntExtra("USER_UNIQUE_ID",0)!=0) {
+            USER_UNIQUE_ID = intent.getIntExtra("USER_UNIQUE_ID",0);
+            Log.i("USER_UNIQUE_ID",""+USER_UNIQUE_ID);
         }
+        Log.i("USER_UNIQUE_IDherere",""+USER_UNIQUE_ID);
+
+//        for(int i = 0; i < 20; i++) {
+//         //   checkBox[i] = (CheckBox)findViewById(checkres[i]);
+//        }
+        buttonWrite = (Button) findViewById(R.id.posting_write);
+        buttonCancel = (Button) findViewById(R.id.posting_cancel);
 
         datebutton = (Button) findViewById(R.id.posting_datebutton);
         numofmembers = (Spinner) findViewById(R.id.posting_total_num);
@@ -65,27 +85,26 @@ public class BoardPost extends Activity {
         editRoute1 = (EditText)findViewById(R.id.posting_route1);
         editRoute2 = (EditText)findViewById(R.id.posting_route2);
         editLetter = (EditText)findViewById(R.id.posting_letter);
-        for(int i = 0; i < 20; i++) {
-            checkBox[i] = (CheckBox)findViewById(checkres[i]);
-        }
-        buttonWrite = (Button) findViewById(R.id.posting_write);
-        buttonCancel = (Button) findViewById(R.id.posting_cancel);
 
-        String destination = editDestination.getText().toString();
-        String route1 = editRoute1.getText().toString();
-        String route2 = editRoute2.getText().toString();
-        String letter = editLetter.getText().toString();
-        Integer[] checkbox = new Integer[20];
-        for(int i = 0; i < 20; i++) {
-            //checkbox[i] = checkBox[i].getInE;
-        }
+
+
+        // check the value of result from checkbox
+//        for(int i = 0; i < 20; i++) {
+//            checkbox[i] = checkBox[i].isChecked();
+//            if(checkbox[i]) {
+//                for(int j=0; j<3; j++) {
+//                    character[j] = i;
+//                }
+//            }
+//        }
+
+
 
         //날짜 선택 초기상태가 현재 날짜이도록 초기화
         final Calendar c = Calendar.getInstance();
         final int year = c.get(Calendar.YEAR);
         final int month = c.get(Calendar.MONTH);
         final int day = c.get(Calendar.DATE);
-
 
         //구하는 사람수를 선택하기 위해 string.xml에 리스트(2,3,4...미리적어둠)를 불러옴
         ArrayAdapter adapter = ArrayAdapter.createFromResource(this,
@@ -100,6 +119,7 @@ public class BoardPost extends Activity {
                 dialog.show();
             }
         });
+
     }
 
     //datepickerdialog listener 정의
@@ -112,8 +132,30 @@ public class BoardPost extends Activity {
                             monthOfYear + "/" + dayOfMonth, Toast.LENGTH_SHORT).show();
                     Button date = (Button) findViewById(R.id.posting_datebutton);
                     date.setText(year + "/" + monthOfYear + "/" + dayOfMonth);
+                    p_year = year;
+                    p_month = monthOfYear;
+                    p_day = dayOfMonth;
+
+                    p_date = ""+year+""+monthOfYear+""+dayOfMonth;
                 }
     };
+
+
+    public void onClickPost(View v) {
+        //id, destination, route1, route2, date(p_year,p_month,p_day), character1, character2, character3, text
+
+
+        destination = editDestination.getText().toString();
+        route1 = editRoute1.getText().toString();
+        route2 = editRoute2.getText().toString();
+        letter = editLetter.getText().toString();
+        Log.i("destination",""+destination);
+
+        PostOnBoard post_on_board = new PostOnBoard();
+        //post_on_board.execute(USER_UNIQUE_ID, destination, route1, route2, p_date, ""+character[1], ""+character[2], ""+character[3]);
+        post_on_board.execute(""+USER_UNIQUE_ID, destination, route1, route2, p_date);
+
+    }
 
     class PostOnBoard extends AsyncTask<String, Void, String> {
 
@@ -124,19 +166,33 @@ public class BoardPost extends Activity {
 
         @Override
         protected String doInBackground(String... params) {
-            int user_u_id = Integer.parseInt(params[0]);
-            String destination = params[1];
-            String route1 = params[2];
-            String route2 = params[3];
-            String letter = params[4];
+
+            String user_u_id = params[0];
+            String user_destination = params[1];
+            String user_route1 = params[2];
+            String user_route2 = params[3];
+            String user_date = params[4];
+//            String user_character1 = params[5];
+//            String user_character2 = params[6];
+//            String user_character3 = params[7];
+
+
+            Log.i("user_u_id",""+user_u_id);
+            Log.i("user_destination",""+user_destination);
+            Log.i("user_route1",""+user_route1);
+            Log.i("user_route2",""+user_route2);
+            Log.i("user_date",""+user_date);
 
             String data = "";
             int tmp;
 
             try {
-                URL url = new URL("http://52.68.212.232/db_post.php");
-                String urlParams = "user_u_id="+user_u_id+"&destination="
-                                 ;
+                URL url = new URL("http://52.68.212.232/db_travel_post.php");
+//                String urlParams = "id="+user_u_id+"&destination="+user_destination+"&route1="+user_route1+"&route2="+user_route2
+//                                   +"&date="+user_date+"&character1="+user_character1+"&character2="+user_character2+"&character3="+user_character3;
+                String urlParams = "id="+user_u_id+"&destination="+user_destination+"&route1="+user_route1+"&route2="+user_route2
+                        +"&date="+user_date;
+
 
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
                 httpURLConnection.setDoOutput(true);
@@ -165,6 +221,8 @@ public class BoardPost extends Activity {
         @Override
         protected void onPostExecute(String s) {
 
+            Intent intent = getIntent();
+            Toast.makeText(getApplicationContext(),s,Toast.LENGTH_LONG).show();
             finish();
         }
     }

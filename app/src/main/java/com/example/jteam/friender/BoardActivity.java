@@ -8,6 +8,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.provider.CalendarContract;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -65,9 +66,6 @@ public class BoardActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(getApplicationContext(), "Selected : " + position, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(),DB_Bulletin.class);
-                if(USER_UNIQUE_ID!=0) {
-                    intent.putExtra("USER_UNIQUE_ID",USER_UNIQUE_ID);
-                }
 
                 //인텐트에 position정보를 담아 전달
                 //intent.setFlags(position);
@@ -96,6 +94,11 @@ public class BoardActivity extends AppCompatActivity {
         if(id == R.id.Write)
         {
             Intent intent2 = new Intent(BoardActivity.this,BoardPost.class);
+            if(USER_UNIQUE_ID!=0) {
+                intent2.putExtra("USER_UNIQUE_ID",USER_UNIQUE_ID);
+                Log.i("rightUSER_UNIQUE_ID",""+USER_UNIQUE_ID);
+            }
+
             startActivity(intent2);
         }
         return super.onOptionsItemSelected(item);
