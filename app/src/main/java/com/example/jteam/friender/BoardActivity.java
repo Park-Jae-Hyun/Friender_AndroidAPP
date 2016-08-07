@@ -1,6 +1,7 @@
 //게시판 액티비티
 package com.example.jteam.friender;
 
+import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
@@ -16,14 +17,21 @@ import android.widget.AdapterView;
 import android.view.Window;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.Calendar;
 
 public class BoardActivity extends AppCompatActivity {
     CityList CList = new CityList();
     TextView textview;
     BoardAdapter Adapter;
+
+    Button startdateButton;
+    Button lastdateButton;
+
     private int USER_UNIQUE_ID = 0;
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -64,6 +72,7 @@ public class BoardActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(getApplicationContext(), "Selected : " + position, Toast.LENGTH_SHORT).show();
+
                 Intent intent = new Intent(getApplicationContext(),DB_Bulletin.class);
                 if(USER_UNIQUE_ID!=0) {
                     intent.putExtra("USER_UNIQUE_ID",USER_UNIQUE_ID);
@@ -109,6 +118,31 @@ public class BoardActivity extends AppCompatActivity {
 
         Button findButton = (Button) dialog.findViewById(R.id.custom_button_find);
         Button cancelButton = (Button) dialog.findViewById(R.id.custom_button_cancel);
+        startdateButton = (Button) dialog.findViewById(R.id.custom_button_startdate);
+        lastdateButton = (Button) dialog.findViewById(R.id.custom_button_lastdate);
+
+        //날짜 선택 초기상태가 현재 날짜이도록 초기화
+        final Calendar c = Calendar.getInstance();
+        final int year = c.get(Calendar.YEAR);
+        final int month = c.get(Calendar.MONTH);
+        final int day = c.get(Calendar.DATE);
+
+        startdateButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                DatePickerDialog dialog = new DatePickerDialog
+                        (BoardActivity.this, startdatelistener, year, month, day);
+                dialog.show();
+            }
+        });
+
+        lastdateButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                DatePickerDialog dialog = new DatePickerDialog
+                        (BoardActivity.this, lastdatelistener, year, month, day);
+                dialog.show();
+            }
+        });
+
 
         findButton.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -127,6 +161,29 @@ public class BoardActivity extends AppCompatActivity {
         });
         dialog.show();
     }
+
+    private DatePickerDialog.OnDateSetListener startdatelistener = new DatePickerDialog.OnDateSetListener() {
+        @Override
+        public void onDateSet(DatePicker view, int year, int monthOfYear,
+                              int dayOfMonth) {
+            monthOfYear++;
+            Toast.makeText(getApplicationContext(), year + "/" +
+                    monthOfYear + "/" + dayOfMonth, Toast.LENGTH_SHORT).show();
+            startdateButton.setText(year + "/" + monthOfYear + "/" + dayOfMonth);
+        }
+    };
+
+    private DatePickerDialog.OnDateSetListener lastdatelistener = new DatePickerDialog.OnDateSetListener() {
+        @Override
+        public void onDateSet(DatePicker view, int year, int monthOfYear,
+                              int dayOfMonth) {
+            monthOfYear++;
+            Toast.makeText(getApplicationContext(), year + "/" +
+                    monthOfYear + "/" + dayOfMonth, Toast.LENGTH_SHORT).show();
+            lastdateButton.setText(year + "/" + monthOfYear + "/" + dayOfMonth);
+        }
+    };
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

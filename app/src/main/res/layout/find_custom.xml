@@ -62,9 +62,9 @@
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_weight="40.27"
-            android:id="@+id/startdate"
+            android:id="@+id/custom_button_startdate"
             android:background="@color/white"
-            android:text="No maatter" />
+            android:text="No matter" />
     </LinearLayout>
 
     <LinearLayout
@@ -88,9 +88,9 @@
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_weight="70"
-            android:id="@+id/lastdate"
+            android:id="@+id/custom_button_lastdate"
             android:background="#ffffff"
-            android:text="NO MATTER" />
+            android:text="No matter" />
     </LinearLayout>
 
     <LinearLayout
