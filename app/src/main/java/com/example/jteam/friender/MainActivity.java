@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     CityAdapter Adapter;
     Intent intent;
 
-    boolean loginset = true; // whether login was complete or not
+    boolean loginset = false; // whether login was complete or not
     private static final int RESULT = 1000;
     private String user_id=null;
     private String F_NAME = null, L_NAME = null, SEX = null, EMAIL = null, BIRTH = null, MOBILE_NUMBER = null;
