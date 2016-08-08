@@ -71,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if(USER_UNIQUE_ID!=0) {
                     intent.putExtra("USER_UNIQUE_ID",USER_UNIQUE_ID);
+                    intent.putExtra("NAME",""+F_NAME+" "+L_NAME);
                 }
                 intent.setFlags(position);
                 startActivity(intent);

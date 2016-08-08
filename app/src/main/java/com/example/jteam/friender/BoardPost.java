@@ -37,6 +37,7 @@ public class BoardPost extends Activity {
     private CheckBox[] checkBox = new CheckBox[20];
     private Button buttonWrite;
     private Button buttonCancel;
+    private String writer = null;
 /*
     private String destination = null;
     private String route1 = null;
@@ -70,6 +71,7 @@ public class BoardPost extends Activity {
         if(intent.getIntExtra("USER_UNIQUE_ID",0)!=0) {
             USER_UNIQUE_ID = intent.getIntExtra("USER_UNIQUE_ID",0);
             bulletin.setCity(intent.getStringExtra("city"));
+            writer = intent.getStringExtra("writer");
             Log.i("USER_UNIQUE_ID",""+USER_UNIQUE_ID);
         }
         Log.i("USER_UNIQUE_IDherere",""+USER_UNIQUE_ID);
@@ -187,8 +189,9 @@ public class BoardPost extends Activity {
 
         PostOnBoard post_on_board = new PostOnBoard();
         //post_on_board.execute(USER_UNIQUE_ID, destination, route1, route2, p_date, ""+character[1], ""+character[2], ""+character[3]);
-        post_on_board.execute(""+USER_UNIQUE_ID, bulletin.getCity(), bulletin.getDestination(),
-                bulletin.getRoute1(), bulletin.getRoute2(), bulletin.getDate(), bulletin.getLetter());
+        post_on_board.execute(""+USER_UNIQUE_ID, bulletin.getCity(), bulletin.getDestination(), writer,
+                bulletin.getRoute1(), bulletin.getRoute2(), bulletin.getDate(),""+bulletin.getTotalnum(),
+                ""+bulletin.getJoinednum(), ""+bulletin.getCharacter(0), ""+bulletin.getCharacter(1), ""+bulletin.getCharacter(2), bulletin.getLetter());
 
     }
 
@@ -205,31 +208,54 @@ public class BoardPost extends Activity {
             String user_u_id = params[0];
             String user_city = params[1];
             String user_destination = params[2];
-            String user_route1 = params[3];
-            String user_route2 = params[4];
-            String user_date = params[5];
-            String text = params[6];
-//            String user_character1 = params[5];
-//            String user_character2 = params[6];
-//            String user_character3 = params[7];
+            String user_writer = params[3];
+            String user_route1 = params[4];
+            String user_route2 = params[5];
+            String user_date = params[6];
+            String user_total_traveler = params[7];
+            String user_joined_traveler = params[8];
+            String user_character1 = params[9];
+            String user_character2 = params[10];
+            String user_character3 = params[11];
+            String user_text = params[12];
 
 
             Log.i("user_u_id",""+user_u_id);
             Log.i("user_city",""+user_city);
             Log.i("user_destination",""+user_destination);
+            Log.i("user_writer",""+user_writer);
             Log.i("user_route1",""+user_route1);
             Log.i("user_route2",""+user_route2);
             Log.i("user_date",""+user_date);
+            Log.i("user_total_traveler",""+user_total_traveler);
+            Log.i("user_joined_traveler",""+user_joined_traveler);
+            Log.i("user_character1",""+user_character1);
+            Log.i("user_character2",""+user_character2);
+            Log.i("user_character3",""+user_character3);
+            Log.i("user_text",""+user_text);
+
+
+
 
             String data = "";
             int tmp;
 
             try {
                 URL url = new URL("http://52.68.212.232/db_travel_post.php");
-//                String urlParams = "id="+user_u_id+"&destination="+user_destination+"&route1="+user_route1+"&route2="+user_route2
-//                                   +"&date="+user_date+"&character1="+user_character1+"&character2="+user_character2+"&character3="+user_character3;
-                String urlParams = "id="+user_u_id+"&city="+user_city+"&destination="+user_destination+"&route1="+user_route1+"&route2="+user_route2
-                        +"&date="+user_date+"&text="+text;
+//
+                String urlParams =  "id="+user_u_id+
+                                    "&city="+user_city+
+                                    "&destination="+user_destination+
+                                    "&writer="+user_writer+
+                                    "&route1="+user_route1+
+                                    "&route2="+user_route2+
+                                    "&date="+user_date+
+                                    "&total_friends="+user_total_traveler+
+                                    "&joined_friends="+user_joined_traveler+
+                                    "&character1="+user_character1+
+                                    "&character2="+user_character2+
+                                    "&character3="+user_character3+
+                                    "&text="+user_text;
 
 
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
