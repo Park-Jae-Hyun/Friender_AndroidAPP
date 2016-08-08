@@ -18,7 +18,6 @@
             android:label="@string/title_activity_splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -27,7 +26,7 @@
             android:label="BoardActivity" />
         <activity android:name=".DB_Resister" />
         <activity android:name=".DB_Login" />
-        <activity android:name=".DB_Posting" />
+        <activity android:name=".BoardPost" />
         <activity android:name=".DB_Bulletin"></activity>
     </application>
 

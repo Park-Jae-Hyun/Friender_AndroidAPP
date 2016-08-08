@@ -29,10 +29,11 @@ public class MainActivity extends AppCompatActivity {
     CityAdapter Adapter;
     Intent intent;
 
-    boolean loginset = true; // whether login was complete or not
+    boolean loginset = false; // whether login was complete or not
     private static final int RESULT = 1000;
     private String user_id=null;
-    private String ID = null, F_NAME = null, L_NAME = null, Sex = null, EMAIL = null, BIRTH = null, MOBILE_NUMBER = null;
+    private String F_NAME = null, L_NAME = null, SEX = null, EMAIL = null, BIRTH = null, MOBILE_NUMBER = null;
+    private int USER_UNIQUE_ID = 0;
     protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);
@@ -66,8 +67,11 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(getApplicationContext(), "Selected : " + position, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(),BoardActivity.class);
-
                 //인텐트에 position정보를 담아 전달
+
+                if(USER_UNIQUE_ID!=0) {
+                    intent.putExtra("USER_UNIQUE_ID",USER_UNIQUE_ID);
+                }
                 intent.setFlags(position);
                 startActivity(intent);
             }
@@ -90,10 +94,11 @@ public class MainActivity extends AppCompatActivity {
             case RESULT:
                 if(resultCode==RESULT_OK) {
                     Bundle bundle = data.getExtras();
+                    USER_UNIQUE_ID  = bundle.getInt("USER_UNIQUE_ID");
                     F_NAME = bundle.getString("F_NAME");
                     L_NAME = bundle.getString("L_NAME");
                     EMAIL = bundle.getString("EMAIL");
-                    Sex = bundle.getString("Sex");
+                    SEX = bundle.getString("SEX");
                     BIRTH = bundle.getString("BIRTH");
                     MOBILE_NUMBER = bundle.getString("MOBILE_NUMBER");
 
@@ -103,18 +108,19 @@ public class MainActivity extends AppCompatActivity {
 //                    Log.i("BIRTH",""+BIRTH);
 //                    Log.i("MOBILE_NUMBER",""+MOBILE_NUMBER);
 //                    loginset = true;
+                    Log.i("USER_UNIQUE_ID",""+USER_UNIQUE_ID);
                     Log.i("F_NAME",""+F_NAME);
                     Log.i("L_NAME",""+L_NAME);
                     Log.i("EMAIL",""+EMAIL);
-                    Log.i("Sex",""+Sex);
+                    Log.i("SEX",""+SEX);
                     Log.i("BIRTH",""+BIRTH);
                     Log.i("MOBILE_NUMBER",""+MOBILE_NUMBER);
                     //loginset = true;
 
-                    TextView textview = (TextView)findViewById(R.id.inform_id);
+                    //TextView textview = (TextView)findViewById(R.id.inform_id);
                     //textview.setText("GI");
                     //textview.append("HELLO");
-                    textview.setBackgroundColor(Color.BLACK);
+                   // textview.setBackgroundColor(Color.BLACK);
                 }
                 break;
         }

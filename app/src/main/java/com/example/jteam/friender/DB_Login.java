@@ -16,7 +16,8 @@ import java.net.URL;
 public class DB_Login extends Activity{
 
     private String id = null, password = null;
-    private static String ID = null, F_NAME = null, L_NAME = null, EMAIL = null, Sex = null, BIRTH = null, MOBILE_NUMBER = null;
+    private static String F_NAME = null, L_NAME = null, EMAIL = null, SEX = null, BIRTH = null, MOBILE_NUMBER = null;
+    private static int USER_UNIQUE_ID=0;
 
 
     @Override
@@ -79,20 +80,21 @@ public class DB_Login extends Activity{
                 JSONObject json = new JSONObject(s);
                 data = json.getString("user_data");
                 JSONObject dataJObject = json.getJSONObject("user_data");
-                ID = dataJObject.getString("id");
+                USER_UNIQUE_ID = dataJObject.getInt("user_unique_id");
                 F_NAME = dataJObject.getString("f_name");
                 L_NAME = dataJObject.getString("l_name");
                 EMAIL = dataJObject.getString("email");
-                Sex = dataJObject.getString("sex");
+                SEX = dataJObject.getString("sex");
                 BIRTH = dataJObject.getString("birth");
                 MOBILE_NUMBER = dataJObject.getString("mobile_number");
 
 
                 Intent intent = new Intent(DB_Login.this, MainActivity.class);
+                intent.putExtra("USER_UNIQUE_ID", USER_UNIQUE_ID);
                 intent.putExtra("F_NAME", F_NAME);
                 intent.putExtra("L_NAME", L_NAME);
                 intent.putExtra("EMAIL", EMAIL);
-                intent.putExtra("SEX", Sex);
+                intent.putExtra("SEX", SEX);
                 intent.putExtra("BIRTH", BIRTH);
                 intent.putExtra("MOBILE_NUMBER", MOBILE_NUMBER);
 

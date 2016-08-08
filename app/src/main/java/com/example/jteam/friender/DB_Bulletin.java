@@ -1,7 +1,6 @@
 package com.example.jteam.friender;
 
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -19,11 +18,11 @@ public class DB_Bulletin extends AppCompatActivity{
     TextView Finding;
     TextView Join;
     TextView Letter;
-    ImageView[] Pictogram;
+    ImageView[] Pictogram = new ImageView[3];
 
     @Override
-    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_db_bulletin);
 
         Date = (TextView) findViewById(R.id.bulletin_date);
