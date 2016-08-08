@@ -62,6 +62,21 @@ public class BoardActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
 
+        //지울거
+        Bulletin temp= new Bulletin();
+        temp.setDate("20160808");
+        temp.setLetter("Hi hello banga");
+        temp.setTotalnum(9);
+        temp.setJoinednum(1);
+        temp.setRoute1("Daegu");
+        temp.setRoute2("Pusan");
+        temp.setDestination("Seoul");
+        temp.setCharacter(0,0);
+        temp.setCharacter(1,1);
+        temp.setCharacter(2,2);
+        bulletin.add(temp);
+        bulletin.add(temp);
+
         if(intent.getIntExtra("USER_UNIQUE_ID",0)!=0) {
             USER_UNIQUE_ID = intent.getIntExtra("USER_UNIQUE_ID",0);
             name = intent.getStringExtra("NAME");
@@ -98,8 +113,8 @@ public class BoardActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(getApplicationContext(),DB_Bulletin.class);
 
-                //인텐트에 position정보를 담아 전달
-                //intent.setFlags(position);
+                //인텐트에 bulletin정보를 담아 전달
+                intent.putExtra("bulletin",bulletin.get(position));
                 startActivity(intent);
             }
 
@@ -231,7 +246,7 @@ public class BoardActivity extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            return 10;
+            return bulletin.size();
         }
 
         @Override
@@ -249,6 +264,8 @@ public class BoardActivity extends AppCompatActivity {
         public View getView(int position, View convertView, ViewGroup parent) {
 
             BoardItemView view = new BoardItemView(getApplicationContext());
+
+            view.setBulletin(bulletin.get(position));
 
             return view;
         }
