@@ -13,11 +13,19 @@ import android.widget.TextView;
  */
 public class BoardItemView extends LinearLayout{
     TextView DestinationView;
-    TextView RouteView;
+    TextView RouteView1;
+    TextView RouteView2;
     TextView DateView;
     TextView PresentView;
     TextView FindingView;
     ImageView[] PictogramView = new ImageView[3];
+
+    //pictogram resource 배열
+    int pictogramres[] = {R.mipmap.p01people,R.mipmap.p02food,R.mipmap.p03beer,R.mipmap.p04coffee,
+    R.mipmap.p05sports,R.mipmap.p06music,R.mipmap.p07movie,R.mipmap.p08photo,R.mipmap.p09reading,
+    R.mipmap.p10concert,R.mipmap.p11festival,R.mipmap.p12travel,R.mipmap.p13rest,R.mipmap.p14tour,
+    R.mipmap.p15beach,R.mipmap.p16mountain,R.mipmap.p17owncar,R.mipmap.p18bycicle,
+    R.mipmap.p19publictransit,R.mipmap.p20cruise};
 
     public BoardItemView(Context context) {
         super(context);
@@ -37,7 +45,8 @@ public class BoardItemView extends LinearLayout{
         inflater.inflate(R.layout.board_item,this,true);
 
         DestinationView = (TextView) findViewById(R.id.destination);
-        RouteView = (TextView) findViewById(R.id.route);
+        RouteView1 = (TextView) findViewById(R.id.route1);
+        RouteView2 = (TextView) findViewById(R.id.route2);
         DateView = (TextView) findViewById(R.id.date);
         PresentView = (TextView) findViewById(R.id.present);
         FindingView = (TextView) findViewById(R.id.finding);
@@ -62,14 +71,32 @@ public class BoardItemView extends LinearLayout{
         PresentView.setText(present);
     }
 
-    public void setRouteView(String route) {
-        RouteView.setText(route);
+    public void setRoute1View(String route) {
+        RouteView1.setText(route);
     }
 
-    public void setPictogramView(int[] pictogram) {
-        PictogramView[0].setImageResource(pictogram[0]);
-        PictogramView[1].setImageResource(pictogram[1]);
-        PictogramView[2].setImageResource(pictogram[2]);
+    public void setRoute2View(String route) {
+        RouteView2.setText(route);
+    }
+
+    public void setPictogramView(int pictogram1, int pictogram2, int pictogram3) {
+        PictogramView[0].setImageResource(pictogram1);
+        PictogramView[1].setImageResource(pictogram2);
+        PictogramView[2].setImageResource(pictogram3);
+    }
+
+    public void setBulletin(Bulletin bulletin)
+    {
+        DateView.setText(bulletin.getDate());
+        DestinationView.setText(bulletin.getDestination());
+        FindingView.setText("Finding : "+bulletin.getTotalnum());
+        PresentView.setText("Presenting : "+bulletin.getJoinednum());
+        RouteView1.setText(bulletin.getRoute1());
+        RouteView2.setText(bulletin.getRoute2());
+        PictogramView[0].setImageResource(pictogramres[bulletin.getCharacter(0)]);
+        PictogramView[1].setImageResource(pictogramres[bulletin.getCharacter(1)]);
+        PictogramView[2].setImageResource(pictogramres[bulletin.getCharacter(2)]);
+
     }
 
 }

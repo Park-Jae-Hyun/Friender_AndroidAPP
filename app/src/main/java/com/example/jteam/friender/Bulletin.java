@@ -2,10 +2,12 @@ package com.example.jteam.friender;
 
 import android.util.Log;
 
+import java.io.Serializable;
+
 /**
  * Created by Jeong on 2016-08-08.
  */
-public class Bulletin {
+public class Bulletin implements Serializable {
     private String city = null;
     private String destination = null;
     private String route1 = null;
@@ -15,6 +17,7 @@ public class Bulletin {
     private int[] character = new int[3];/////////////
     private int totalnum = 0;/////////////
     private int joinednum = 0;//////////////
+    private String username = null;
 
     public int getCharacter(int num) {
         return character[num];
