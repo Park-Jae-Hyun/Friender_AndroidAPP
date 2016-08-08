@@ -8,6 +8,9 @@ import android.widget.TextView;
 /**
  * Created by flag on 2016-08-05.
  */
+
+
+
 public class DB_Bulletin extends AppCompatActivity{
     TextView Date;
     TextView Destination;
@@ -19,6 +22,7 @@ public class DB_Bulletin extends AppCompatActivity{
     TextView Join;
     TextView Letter;
     ImageView[] Pictogram = new ImageView[3];
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

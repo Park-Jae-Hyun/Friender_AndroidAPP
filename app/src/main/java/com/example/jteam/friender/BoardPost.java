@@ -42,12 +42,14 @@ public class BoardPost extends Activity {
     private String route1 = null;
     private String route2 = null;
     private String letter = null;
+    private int totalnum = 0;/////////////
+    private int joinednum = 0;//////////////
     private boolean[] checkbox = new boolean[20];
-    private int[] character = new int[3];
+    private int[] character = new int[3];/////////////
     private int p_year;
     private int p_month;
     private int p_day;
-    private String p_date =null;
+    private String p_date =null;////////////
 
 
     //check box resource 배열
@@ -94,21 +96,6 @@ public class BoardPost extends Activity {
         buttonWrite = (Button) findViewById(R.id.posting_write);
         buttonCancel = (Button) findViewById(R.id.posting_cancel);
 
-
-
-
-        // check the value of result from checkbox
-//        for(int i = 0; i < 20; i++) {
-//            checkbox[i] = checkBox[i].isChecked();
-//            if(checkbox[i]) {
-//                for(int j=0; j<3; j++) {
-//                    character[j] = i;
-//                }
-//            }
-//        }
-
-
-
         //날짜 선택 초기상태가 현재 날짜이도록 초기화
         final Calendar c = Calendar.getInstance();
         final int year = c.get(Calendar.YEAR);
@@ -128,6 +115,7 @@ public class BoardPost extends Activity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(getApplicationContext(), "Selected : " + position, Toast.LENGTH_SHORT).show();
+                totalnum = position;
             }
 
             @Override
@@ -140,6 +128,7 @@ public class BoardPost extends Activity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(getApplicationContext(), "Selected : " + position, Toast.LENGTH_SHORT).show();
+                joinednum = position;
             }
 
             @Override
@@ -169,11 +158,12 @@ public class BoardPost extends Activity {
                             monthOfYear + "/" + dayOfMonth, Toast.LENGTH_SHORT).show();
                     Button date = (Button) findViewById(R.id.posting_datebutton);
                     date.setText(year + "/" + monthOfYear + "/" + dayOfMonth);
-                    p_year = year;
-                    p_month = monthOfYear;
-                    p_day = dayOfMonth;
+                   // p_year = year;
+                   // p_month = monthOfYear;
+                   // p_day = dayOfMonth;
 
-                    p_date = ""+year+""+monthOfYear+""+dayOfMonth;
+                    //p_date = ""+year+""+monthOfYear+""+dayOfMonth;
+                    p_date = ""+(year*10000+monthOfYear*100+dayOfMonth);
                 }
     };
 
@@ -186,11 +176,25 @@ public class BoardPost extends Activity {
         route1 = editRoute1.getText().toString();
         route2 = editRoute2.getText().toString();
         letter = editLetter.getText().toString();
+
+        // check the value of result from checkbox
+        int j = 0;
+        for(int i = 0; i < 20 && j<3 ; i++) {
+            if(checkBox[i].isChecked())
+                character[j++] = i;
+        }
+
         Log.i("destination",""+destination);
+        Log.i("totalnum",""+totalnum);
+        Log.i("joinednum",""+joinednum);
+        Log.i("pictogram",""+character[0] +" " + character[1] + " " + character[2]);
+        Log.i("date",""+p_date);
+
+
 
         PostOnBoard post_on_board = new PostOnBoard();
         //post_on_board.execute(USER_UNIQUE_ID, destination, route1, route2, p_date, ""+character[1], ""+character[2], ""+character[3]);
-        post_on_board.execute(""+USER_UNIQUE_ID, destination, route1, route2, p_date);
+        post_on_board.execute(""+USER_UNIQUE_ID, destination, route1, route2, p_date, letter);
 
     }
 
@@ -209,6 +213,7 @@ public class BoardPost extends Activity {
             String user_route1 = params[2];
             String user_route2 = params[3];
             String user_date = params[4];
+            String text = params[5];
 //            String user_character1 = params[5];
 //            String user_character2 = params[6];
 //            String user_character3 = params[7];
@@ -228,7 +233,7 @@ public class BoardPost extends Activity {
 //                String urlParams = "id="+user_u_id+"&destination="+user_destination+"&route1="+user_route1+"&route2="+user_route2
 //                                   +"&date="+user_date+"&character1="+user_character1+"&character2="+user_character2+"&character3="+user_character3;
                 String urlParams = "id="+user_u_id+"&destination="+user_destination+"&route1="+user_route1+"&route2="+user_route2
-                        +"&date="+user_date;
+                        +"&date="+user_date+"&text="+text;
 
 
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
