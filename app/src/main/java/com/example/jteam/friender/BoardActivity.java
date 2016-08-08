@@ -133,6 +133,7 @@ public class BoardActivity extends AppCompatActivity {
         final int month = c.get(Calendar.MONTH);
         final int day = c.get(Calendar.DATE);
 
+        //날짜선택버튼 클릭리스너 설정(데이트피커다이얼로그 뜨게)
         startdateButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 DatePickerDialog dialog = new DatePickerDialog
@@ -175,6 +176,7 @@ public class BoardActivity extends AppCompatActivity {
             monthOfYear++;
             Toast.makeText(getApplicationContext(), year + "/" +
                     monthOfYear + "/" + dayOfMonth, Toast.LENGTH_SHORT).show();
+            //시간이 선택되면 버튼에 그 시간을 표시하게 변경
             startdateButton.setText(year + "/" + monthOfYear + "/" + dayOfMonth);
         }
     };
@@ -186,6 +188,7 @@ public class BoardActivity extends AppCompatActivity {
             monthOfYear++;
             Toast.makeText(getApplicationContext(), year + "/" +
                     monthOfYear + "/" + dayOfMonth, Toast.LENGTH_SHORT).show();
+            //시간이 선택되면 버튼에 그 시간을 표시하게 변경
             lastdateButton.setText(year + "/" + monthOfYear + "/" + dayOfMonth);
         }
     };

@@ -46,9 +46,6 @@ public class BoardPost extends Activity {
     private int joinednum = 0;//////////////
     private boolean[] checkbox = new boolean[20];
     private int[] character = new int[3];/////////////
-    private int p_year;
-    private int p_month;
-    private int p_day;
     private String p_date = null;
     private String city = null;
 
