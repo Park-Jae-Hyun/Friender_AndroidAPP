@@ -101,13 +101,14 @@ public class MainActivity extends AppCompatActivity {
                     SEX = bundle.getString("SEX");
                     BIRTH = bundle.getString("BIRTH");
                     MOBILE_NUMBER = bundle.getString("MOBILE_NUMBER");
+                    loginset = true;
 
 //                    Log.i("F_NAME",""+F_NAME);
 //                    Log.i("L_NAME",""+L_NAME);
 //                    Log.i("EMAIL",""+EMAIL);
 //                    Log.i("BIRTH",""+BIRTH);
 //                    Log.i("MOBILE_NUMBER",""+MOBILE_NUMBER);
-//                    loginset = true;
+
                     Log.i("USER_UNIQUE_ID",""+USER_UNIQUE_ID);
                     Log.i("F_NAME",""+F_NAME);
                     Log.i("L_NAME",""+L_NAME);
@@ -205,7 +206,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v)
             {
                 dialog.dismiss();
-                setContentView(R.layout.member_information);///////////////////////
+                setContentView(R.layout.member_information);
             }
 
         });
