@@ -71,7 +71,7 @@ public class BoardPost extends Activity {
 
         if(intent.getIntExtra("USER_UNIQUE_ID",0)!=0) {
             USER_UNIQUE_ID = intent.getIntExtra("USER_UNIQUE_ID",0);
-
+            city = intent.getStringExtra("city");
             Log.i("USER_UNIQUE_ID",""+USER_UNIQUE_ID);
         }
         Log.i("USER_UNIQUE_IDherere",""+USER_UNIQUE_ID);
@@ -196,7 +196,7 @@ public class BoardPost extends Activity {
 
         PostOnBoard post_on_board = new PostOnBoard();
         //post_on_board.execute(USER_UNIQUE_ID, destination, route1, route2, p_date, ""+character[1], ""+character[2], ""+character[3]);
-        post_on_board.execute(""+USER_UNIQUE_ID, destination, route1, route2, p_date, letter);
+        post_on_board.execute(""+USER_UNIQUE_ID, city, destination, route1, route2, p_date, letter);
 
     }
 
@@ -211,17 +211,19 @@ public class BoardPost extends Activity {
         protected String doInBackground(String... params) {
 
             String user_u_id = params[0];
-            String user_destination = params[1];
-            String user_route1 = params[2];
-            String user_route2 = params[3];
-            String user_date = params[4];
-            String text = params[5];
+            String user_city = params[1];
+            String user_destination = params[2];
+            String user_route1 = params[3];
+            String user_route2 = params[4];
+            String user_date = params[5];
+            String text = params[6];
 //            String user_character1 = params[5];
 //            String user_character2 = params[6];
 //            String user_character3 = params[7];
 
 
             Log.i("user_u_id",""+user_u_id);
+            Log.i("user_city",""+user_city);
             Log.i("user_destination",""+user_destination);
             Log.i("user_route1",""+user_route1);
             Log.i("user_route2",""+user_route2);
@@ -234,7 +236,7 @@ public class BoardPost extends Activity {
                 URL url = new URL("http://52.68.212.232/db_travel_post.php");
 //                String urlParams = "id="+user_u_id+"&destination="+user_destination+"&route1="+user_route1+"&route2="+user_route2
 //                                   +"&date="+user_date+"&character1="+user_character1+"&character2="+user_character2+"&character3="+user_character3;
-                String urlParams = "id="+user_u_id+"&destination="+user_destination+"&route1="+user_route1+"&route2="+user_route2
+                String urlParams = "id="+user_u_id+"&city="+user_city+"&destination="+user_destination+"&route1="+user_route1+"&route2="+user_route2
                         +"&date="+user_date+"&text="+text;
 
 
@@ -272,3 +274,4 @@ public class BoardPost extends Activity {
     }
 
 }
+
