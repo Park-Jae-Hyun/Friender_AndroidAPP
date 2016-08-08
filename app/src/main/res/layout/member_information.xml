@@ -203,164 +203,196 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-             <HorizontalScrollView
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:id="@+id/horizontalScrollView2">
-                 <LinearLayout
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:orientation="vertical">
+            <HorizontalScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/horizontalScrollView2">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-                     <LinearLayout
-                         android:orientation="horizontal"
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
 
-                         <CheckBox
-                             android:layout_width="match_parent"
-                             android:layout_height="match_parent" />
+                        <CheckBox
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
 
-                         <ImageView
-                             android:layout_width="50dp"
-                             android:layout_height="50dp"
-                             android:id="@+id/imageView21"
-                             android:background="@mipmap/p01people"
-                             android:layout_marginRight="10dp"/>
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:id="@+id/imageView21"
+                            android:background="@mipmap/p01people"
+                            android:layout_marginRight="10dp"/>
 
-                         <CheckBox
-                             android:layout_width="match_parent"
-                             android:layout_height="match_parent" />
+                        <CheckBox
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
 
-                         <ImageView
-                             android:layout_width="50dp"
-                             android:layout_height="50dp"
-                             android:id="@+id/imageView22"
-                             android:background="@mipmap/p02food"
-                             android:layout_marginRight="10dp"/>
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:id="@+id/imageView22"
+                            android:background="@mipmap/p02food"
+                            android:layout_marginRight="10dp"/>
 
-                         <CheckBox
-                             android:layout_width="match_parent"
-                             android:layout_height="match_parent" />
+                        <CheckBox
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
 
-                         <ImageView
-                             android:layout_width="50dp"
-                             android:layout_height="50dp"
-                             android:id="@+id/imageView23"
-                             android:background="@mipmap/p03beer"
-                             android:layout_marginRight="10dp"/>
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:id="@+id/imageView23"
+                            android:background="@mipmap/p03beer"
+                            android:layout_marginRight="10dp"/>
 
-                         <CheckBox
-                             android:layout_width="match_parent"
-                             android:layout_height="match_parent" />
+                        <CheckBox
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
 
-                         <ImageView
-                             android:layout_width="50dp"
-                             android:layout_height="50dp"
-                             android:id="@+id/imageView24"
-                             android:background="@mipmap/p04coffee"
-                             android:layout_marginRight="10dp"/>
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:id="@+id/imageView24"
+                            android:background="@mipmap/p04coffee"
+                            android:layout_marginRight="10dp"/>
 
-                         <CheckBox
-                             android:layout_width="match_parent"
-                             android:layout_height="match_parent" />
+                        <CheckBox
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
 
-                         <ImageView
-                             android:layout_width="50dp"
-                             android:layout_height="50dp"
-                             android:id="@+id/imageView25"
-                             android:background="@mipmap/p05sports"
-                             android:layout_marginRight="10dp"/>
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:id="@+id/imageView25"
+                            android:background="@mipmap/p05sports"
+                            android:layout_marginRight="10dp"/>
 
-                         <CheckBox
-                             android:layout_width="match_parent"
-                             android:layout_height="match_parent" />
+                        <CheckBox
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
 
-                         <ImageView
-                             android:layout_width="50dp"
-                             android:layout_height="50dp"
-                             android:id="@+id/imageView26"
-                             android:background="@mipmap/p06music"
-                             android:layout_marginRight="10dp"/>
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:id="@+id/imageView26"
+                            android:background="@mipmap/p06music"
+                            android:layout_marginRight="10dp"/>
 
-                         <CheckBox
-                             android:layout_width="match_parent"
-                             android:layout_height="match_parent" />
+                        <CheckBox
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
 
-                         <ImageView
-                             android:layout_width="50dp"
-                             android:layout_height="50dp"
-                             android:id="@+id/imageView27"
-                             android:background="@mipmap/p07movie"
-                             android:layout_marginRight="10dp"/>
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:id="@+id/imageView27"
+                            android:background="@mipmap/p07movie"
+                            android:layout_marginRight="10dp"/>
 
-                         <CheckBox
-                             android:layout_width="match_parent"
-                             android:layout_height="match_parent" />
+                        <CheckBox
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
 
-                         <ImageView
-                             android:layout_width="50dp"
-                             android:layout_height="50dp"
-                             android:id="@+id/imageView28"
-                             android:background="@mipmap/p08photo"
-                             android:layout_marginRight="10dp"/>
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:id="@+id/imageView28"
+                            android:background="@mipmap/p08photo"
+                            android:layout_marginRight="10dp"/>
 
-                         <CheckBox
-                             android:layout_width="match_parent"
-                             android:layout_height="match_parent" />
+                        <CheckBox
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
 
-                         <ImageView
-                             android:layout_width="50dp"
-                             android:layout_height="50dp"
-                             android:id="@+id/imageView29"
-                             android:background="@mipmap/p09reading"
-                             android:layout_marginRight="10dp"/>
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:id="@+id/imageView29"
+                            android:background="@mipmap/p09reading"
+                            android:layout_marginRight="10dp"/>
 
-                         <CheckBox
-                             android:layout_width="match_parent"
-                             android:layout_height="match_parent" />
+                        <CheckBox
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
 
-                         <ImageView
-                             android:layout_width="50dp"
-                             android:layout_height="50dp"
-                             android:id="@+id/imageView30"
-                             android:background="@mipmap/p10concert"
-                             android:layout_marginRight="10dp"/>
-                         <CheckBox
-                             android:layout_width="match_parent"
-                             android:layout_height="match_parent" />
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:id="@+id/imageView30"
+                            android:background="@mipmap/p10concert"
+                            android:layout_marginRight="10dp"/>
 
 
-                     </LinearLayout>
+                    </LinearLayout>
 
-                     <LinearLayout
-                         android:orientation="horizontal"
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
 
-                         <CheckBox
-                         android:layout_width="match_parent"
-                         android:layout_height="match_parent" />
+                        <CheckBox
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
 
-                         <ImageView
-                             android:layout_width="50dp"
-                             android:layout_height="50dp"
-                             android:id="@+id/imageView31"
-                             android:background="@mipmap/p11festival"
-                             android:layout_marginRight="10dp"/>
-                         <CheckBox
-                             android:layout_width="match_parent"
-                             android:layout_height="match_parent" />
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:id="@+id/imageView31"
+                            android:background="@mipmap/p11festival"
+                            android:layout_marginRight="10dp"/>
+                        <CheckBox
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
 
-                         <ImageView
-                             android:layout_width="50dp"
-                             android:layout_height="50dp"
-                             android:id="@+id/imageView32"
-                             android:background="@mipmap/p12travel"
-                             android:layout_marginRight="10dp"/>
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:id="@+id/imageView32"
+                            android:background="@mipmap/p12travel"
+                            android:layout_marginRight="10dp"/>
 
-                     </LinearLayout>
-                 </LinearLayout>
+                        <CheckBox
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:id="@+id/imageView33"
+                            android:background="@mipmap/p13rest"
+                            android:layout_marginRight="10dp"/>
+
+                        <CheckBox
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:id="@+id/imageView34"
+                            android:background="@mipmap/p14tour"
+                            android:layout_marginRight="10dp"/>
+
+                        <CheckBox
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:id="@+id/imageView35"
+                            android:background="@mipmap/p15beach"
+                            android:layout_marginRight="10dp"/>
+
+
+
+                    </LinearLayout>
+                </LinearLayout>
             </HorizontalScrollView>
         </LinearLayout>
 
@@ -374,20 +406,15 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="50"
-                android:text="New Button"
+                android:text="MODIFY"
                 android:id="@+id/button3" />
 
             <Button
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="50"
-                android:text="New Button"
+                android:text="OKAY"
                 android:id="@+id/button4" />
         </LinearLayout>
-
     </LinearLayout>
-
-
-
-
 </LinearLayout>
