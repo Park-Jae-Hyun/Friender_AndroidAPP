@@ -47,7 +47,8 @@ public class BoardPost extends Activity {
     private int p_year;
     private int p_month;
     private int p_day;
-    private String p_date =null;
+    private String p_date = null;
+    private String city = null;
 
 
     //check box resource 배열
@@ -68,6 +69,7 @@ public class BoardPost extends Activity {
 
         if(intent.getIntExtra("USER_UNIQUE_ID",0)!=0) {
             USER_UNIQUE_ID = intent.getIntExtra("USER_UNIQUE_ID",0);
+
             Log.i("USER_UNIQUE_ID",""+USER_UNIQUE_ID);
         }
         Log.i("USER_UNIQUE_IDherere",""+USER_UNIQUE_ID);

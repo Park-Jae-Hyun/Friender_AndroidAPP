@@ -34,6 +34,7 @@ public class BoardActivity extends AppCompatActivity {
     Button lastdateButton;
 
     private int USER_UNIQUE_ID = 0;
+    private String city = null;
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -52,7 +53,7 @@ public class BoardActivity extends AppCompatActivity {
         //액션바 타이틀 변경
         android.support.v7.app.ActionBar actionbar = getSupportActionBar();
         actionbar.setTitle((String)CList.getCity_list().get(intent.getFlags()));
-
+        city = (String)CList.getCity_list().get(intent.getFlags());
        // View itemview = getLayoutInflater().inflate(R.layout.city_item,null);
 
         //actionbar.setCustomView(itemview);
@@ -105,6 +106,8 @@ public class BoardActivity extends AppCompatActivity {
             Intent intent2 = new Intent(BoardActivity.this,BoardPost.class);
             if(USER_UNIQUE_ID!=0) {
                 intent2.putExtra("USER_UNIQUE_ID",USER_UNIQUE_ID);
+                intent2.putExtra("city",city);
+                //intent2.putExtra("City",);
                 Log.i("rightUSER_UNIQUE_ID",""+USER_UNIQUE_ID);
             }
 
