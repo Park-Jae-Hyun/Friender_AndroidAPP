@@ -1,5 +1,7 @@
 package com.example.jteam.friender;
 
+import android.util.Log;
+
 /**
  * Created by Jeong on 2016-08-08.
  */
@@ -9,17 +11,17 @@ public class Bulletin {
     private String route1 = null;
     private String route2 = null;
     private String letter = null;
-    private String p_date = null;
+    private String date = null;
     private int[] character = new int[3];/////////////
     private int totalnum = 0;/////////////
     private int joinednum = 0;//////////////
 
     public int getCharacter(int num) {
-        return character;
+        return character[num];
     }
 
-    public void setCharacter(int[] character) {
-        this.character = character;
+    public void setCharacter(int num, int a) {
+        this.character[num] = a;
     }
 
     public String getCity() {
@@ -54,12 +56,12 @@ public class Bulletin {
         this.letter = letter;
     }
 
-    public String getP_date() {
-        return p_date;
+    public String getDate() {
+        return date;
     }
 
-    public void setP_date(String p_date) {
-        this.p_date = p_date;
+    public void setDate(String p_date) {
+        this.date = p_date;
     }
 
     public String getRoute1() {
@@ -84,5 +86,17 @@ public class Bulletin {
 
     public void setTotalnum(int totalnum) {
         this.totalnum = totalnum;
+    }
+
+    public void printcontents()
+    {
+        Log.i("city",""+city);
+        Log.i("destination",""+destination);
+        Log.i("route1",""+route1);
+        Log.i("route2",""+route2);
+        Log.i("totalnum",""+totalnum);
+        Log.i("joinednum",""+joinednum);
+        Log.i("pictogram",""+character[0] +" " + character[1] + " " + character[2]);
+        Log.i("date",""+date);
     }
 }

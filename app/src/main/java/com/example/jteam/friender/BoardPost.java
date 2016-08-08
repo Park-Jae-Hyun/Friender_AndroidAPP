@@ -37,7 +37,7 @@ public class BoardPost extends Activity {
     private CheckBox[] checkBox = new CheckBox[20];
     private Button buttonWrite;
     private Button buttonCancel;
-
+/*
     private String destination = null;
     private String route1 = null;
     private String route2 = null;
@@ -47,7 +47,8 @@ public class BoardPost extends Activity {
     private boolean[] checkbox = new boolean[20];
     private int[] character = new int[3];/////////////
     private String p_date = null;
-    private String city = null;
+    private String city = null;*/
+    Bulletin bulletin = new Bulletin();
 
 
     //check box resource 배열
@@ -68,7 +69,7 @@ public class BoardPost extends Activity {
 
         if(intent.getIntExtra("USER_UNIQUE_ID",0)!=0) {
             USER_UNIQUE_ID = intent.getIntExtra("USER_UNIQUE_ID",0);
-            city = intent.getStringExtra("city");
+            bulletin.setCity(intent.getStringExtra("city"));
             Log.i("USER_UNIQUE_ID",""+USER_UNIQUE_ID);
         }
         Log.i("USER_UNIQUE_IDherere",""+USER_UNIQUE_ID);
@@ -114,7 +115,7 @@ public class BoardPost extends Activity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(getApplicationContext(), "Selected : " + position, Toast.LENGTH_SHORT).show();
-                totalnum = position;
+                bulletin.setTotalnum(position);
             }
 
             @Override
@@ -127,7 +128,7 @@ public class BoardPost extends Activity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(getApplicationContext(), "Selected : " + position, Toast.LENGTH_SHORT).show();
-                joinednum = position;
+                bulletin.setJoinednum(position);
             }
 
             @Override
@@ -162,7 +163,7 @@ public class BoardPost extends Activity {
                    // p_day = dayOfMonth;
 
                     //p_date = ""+year+""+monthOfYear+""+dayOfMonth;
-                    p_date = ""+(year*10000+monthOfYear*100+dayOfMonth);
+                    bulletin.setDate(""+(year*10000+monthOfYear*100+dayOfMonth));
                 }
     };
 
@@ -170,30 +171,24 @@ public class BoardPost extends Activity {
     public void onClickPost(View v) {
         //id, destination, route1, route2, date(p_year,p_month,p_day), character1, character2, character3, text
 
-
-        destination = editDestination.getText().toString();
-        route1 = editRoute1.getText().toString();
-        route2 = editRoute2.getText().toString();
-        letter = editLetter.getText().toString();
+        bulletin.setDestination(editDestination.getText().toString());
+        bulletin.setRoute1( editRoute1.getText().toString());
+        bulletin.setRoute2(editRoute2.getText().toString());
+        bulletin.setLetter(editLetter.getText().toString());
 
         // check the value of result from checkbox
         int j = 0;
         for(int i = 0; i < 20 && j<3 ; i++) {
             if(checkBox[i].isChecked())
-                character[j++] = i;
+                bulletin.setCharacter(j++,i);
         }
 
-        Log.i("destination",""+destination);
-        Log.i("totalnum",""+totalnum);
-        Log.i("joinednum",""+joinednum);
-        Log.i("pictogram",""+character[0] +" " + character[1] + " " + character[2]);
-        Log.i("date",""+p_date);
-
-
+        bulletin.printcontents();
 
         PostOnBoard post_on_board = new PostOnBoard();
         //post_on_board.execute(USER_UNIQUE_ID, destination, route1, route2, p_date, ""+character[1], ""+character[2], ""+character[3]);
-        post_on_board.execute(""+USER_UNIQUE_ID, city, destination, route1, route2, p_date, letter);
+        post_on_board.execute(""+USER_UNIQUE_ID, bulletin.getCity(), bulletin.getDestination(),
+                bulletin.getRoute1(), bulletin.getRoute2(), bulletin.getDate(), bulletin.getLetter());
 
     }
 
