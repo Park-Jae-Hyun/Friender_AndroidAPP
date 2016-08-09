@@ -195,17 +195,20 @@
             <ImageButton
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:id="@+id/choice1" />
+                android:id="@+id/choice1"
+                android:background="@color/white"/>
 
             <ImageButton
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:id="@+id/choice2" />
+                android:id="@+id/choice2"
+                android:background="@color/white"/>
 
             <ImageButton
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:id="@+id/choice3" />
+                android:id="@+id/choice3"
+                android:background="@color/white"/>
 
         </LinearLayout>
         <LinearLayout
@@ -251,6 +254,39 @@
                             android:layout_height="50dp"
                             android:id="@+id/ib4"
                             android:background="@mipmap/p04coffee"/>
+                        <ImageButton
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:id="@+id/ib5"
+                            android:background="@mipmap/p05sports"/>
+                        <ImageButton
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:id="@+id/ib6"
+                            android:background="@mipmap/p06music"/>
+                        <ImageButton
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:id="@+id/ib7"
+                            android:background="@mipmap/p07movie"/>
+
+                        <ImageButton
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:id="@+id/ib8"
+                            android:background="@mipmap/p08photo"/>
+                        <ImageButton
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:id="@+id/ib9"
+                            android:background="@mipmap/p09reading"/>
+                        <ImageButton
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:id="@+id/ib10"
+                            android:background="@mipmap/p10concert"/>
+
+
                     </LinearLayout>
 
                     <LinearLayout

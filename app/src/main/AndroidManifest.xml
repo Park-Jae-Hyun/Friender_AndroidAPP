@@ -28,6 +28,7 @@
         <activity android:name=".DB_Login" />
         <activity android:name=".BoardPost" />
         <activity android:name=".My_Post"/>
+        <activity android:name=".Magement"/>
         <activity android:name=".DB_Bulletin"></activity>
     </application>
 

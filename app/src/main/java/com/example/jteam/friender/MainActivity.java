@@ -191,7 +191,7 @@ public class MainActivity extends AppCompatActivity {
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.login_custom);
 
-        Button magementButton = (Button) dialog.findViewById(R.id.magement);
+        Button joinedButton = (Button) dialog.findViewById(R.id.joined);
         Button logoutButton = (Button) dialog.findViewById(R.id.logout);
 
         logoutButton.setOnClickListener(new View.OnClickListener(){
@@ -202,14 +202,24 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-        magementButton.setOnClickListener(new View.OnClickListener(){
+
+        joinedButton.setOnClickListener(new View.OnClickListener(){
             @Override
+            public void onClick(View v)
+            {
+
+            }
+
+        });
+
+        Button magementButton = (Button) dialog.findViewById(R.id.magement);
+        magementButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v)
             {
                 dialog.dismiss();
                // setContentView(R.layout.member_information);///////////////////////
-               // Intent intent = new Intent(MainActivity.this,information.class);
-               // startActivity(intent);
+                Intent intent = new Intent(MainActivity.this,Magement.class);
+                startActivity(intent);
                // setContentView(R.layout.member_information);
             }
 
