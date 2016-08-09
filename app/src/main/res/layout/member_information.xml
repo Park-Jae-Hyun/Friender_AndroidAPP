@@ -10,17 +10,17 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="INFORMATION MAGEMENT"
+            android:layout_height="60dp"
+            android:text="Member information"
             android:id="@+id/inform_title"
             android:layout_gravity="center_horizontal"
-            android:textSize="30sp"
+            android:textSize="20sp"
             android:gravity="center"/>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="40dp">
 
             <TextView
                 android:layout_width="0dp"
@@ -28,15 +28,16 @@
                 android:layout_weight="20"
                 android:text="ID"
                 android:id="@+id/inform_id_text"
-                android:textSize="25sp"
-                android:gravity="center" />
+                android:textSize="18sp"
+                android:gravity="center"
+                android:layout_gravity="center"/>
 
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/inform_id"
-                android:textSize="25sp"
+                android:textSize="18sp"
                 android:layout_weight="80"
                 android:layout_gravity="center"/>
         </LinearLayout>
@@ -44,13 +45,13 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="40dp">
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="20"
-                android:textSize="25sp"
+                android:textSize="18sp"
                 android:text="PW"
                 android:id="@+id/inform_password_text"
                 android:gravity="center"/>
@@ -58,9 +59,9 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_weight="60"
-                android:textSize="25sp"
+                android:textSize="18sp"
                 android:layout_height="wrap_content"
-                android:text="Bal"
+                android:text=""
                 android:id="@+id/inform_password" />
 
             <Button
@@ -76,21 +77,23 @@
 
         <LinearLayout
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:gravity="center">
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="20"
-                android:textSize="25dp"
-                android:text="SEX"
+                android:textSize="18dp"
+                android:text="Gender"
                 android:gravity="center"/>
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="80"
-                android:textSize="25dp"
+                android:textSize="18dp"
                 android:text="New Text"
                 android:id="@+id/textView14" />
         </LinearLayout>
@@ -98,13 +101,15 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:gravity="center">
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="20"
-                android:textSize="25sp"
+                android:textSize="18sp"
                 android:text="Name"
                 android:id="@+id/textView15"
                 android:gravity="center"/>
@@ -113,7 +118,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="40"
-                android:textSize="25sp"
+                android:textSize="18sp"
                 android:text="first name"
                 android:id="@+id/textView16" />
 
@@ -121,7 +126,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="40"
-                android:textSize="25sp"
+                android:textSize="18sp"
                 android:text="last name"
                 android:id="@+id/textView17" />
         </LinearLayout>
@@ -129,13 +134,15 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:gravity="center">
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="20"
-                android:textSize="25sp"
+                android:textSize="18sp"
                 android:text="Birth"
                 android:id="@+id/textView18"
                 android:gravity="center"/>
@@ -144,7 +151,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="80"
-                android:textSize="25sp"
+                android:textSize="18sp"
                 android:text="type birth"
                 android:id="@+id/textView19" />
         </LinearLayout>
@@ -152,14 +159,16 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:gravity="center">
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="20"
-                android:textSize="25sp"
-                android:text="Phone Number"
+                android:textSize="18sp"
+                android:text="Mobile"
                 android:id="@+id/textView20"
                 android:gravity="center"/>
 
@@ -168,7 +177,7 @@
                 android:layout_height="fill_parent"
                 android:layout_weight="80"
                 android:text="000 000 0000"
-                android:textSize="25sp"
+                android:textSize="18sp"
                 android:gravity="center"
                 android:id="@+id/textView21" />
         </LinearLayout>
@@ -176,26 +185,27 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginBottom="30dp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="I WANT TO THIS FOR TRAVEL"/>
+                android:text="TRIP CONCEP"/>
 
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/choice1" />
 
+            <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/choice2" />
 
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"></LinearLayout>
-
-
+            <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/choice3" />
 
         </LinearLayout>
         <LinearLayout
@@ -217,117 +227,30 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
 
-                        <CheckBox
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
 
-                        <ImageView
+                        <ImageButton
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:id="@+id/imageView21"
-                            android:background="@mipmap/p01people"
-                            android:layout_marginRight="10dp"/>
+                            android:id="@+id/ib1"
+                            android:background="@mipmap/p01people"/>
 
-                        <CheckBox
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
-
-                        <ImageView
+                        <ImageButton
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:id="@+id/imageView22"
-                            android:background="@mipmap/p02food"
-                            android:layout_marginRight="10dp"/>
+                            android:id="@+id/ib2"
+                            android:background="@mipmap/p02food"/>
 
-                        <CheckBox
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
-
-                        <ImageView
+                        <ImageButton
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:id="@+id/imageView23"
-                            android:background="@mipmap/p03beer"
-                            android:layout_marginRight="10dp"/>
+                            android:id="@+id/ib3"
+                            android:background="@mipmap/p03beer"/>
 
-                        <CheckBox
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
-
-                        <ImageView
+                        <ImageButton
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:id="@+id/imageView24"
-                            android:background="@mipmap/p04coffee"
-                            android:layout_marginRight="10dp"/>
-
-                        <CheckBox
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
-
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:id="@+id/imageView25"
-                            android:background="@mipmap/p05sports"
-                            android:layout_marginRight="10dp"/>
-
-                        <CheckBox
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
-
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:id="@+id/imageView26"
-                            android:background="@mipmap/p06music"
-                            android:layout_marginRight="10dp"/>
-
-                        <CheckBox
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
-
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:id="@+id/imageView27"
-                            android:background="@mipmap/p07movie"
-                            android:layout_marginRight="10dp"/>
-
-                        <CheckBox
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
-
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:id="@+id/imageView28"
-                            android:background="@mipmap/p08photo"
-                            android:layout_marginRight="10dp"/>
-
-                        <CheckBox
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
-
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:id="@+id/imageView29"
-                            android:background="@mipmap/p09reading"
-                            android:layout_marginRight="10dp"/>
-
-                        <CheckBox
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
-
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:id="@+id/imageView30"
-                            android:background="@mipmap/p10concert"
-                            android:layout_marginRight="10dp"/>
-
-
+                            android:id="@+id/ib4"
+                            android:background="@mipmap/p04coffee"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -335,62 +258,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
 
-                        <CheckBox
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
 
-                        <ImageView
+                        <ImageButton
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:id="@+id/imageView31"
-                            android:background="@mipmap/p11festival"
-                            android:layout_marginRight="10dp"/>
-                        <CheckBox
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
-
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:id="@+id/imageView32"
-                            android:background="@mipmap/p12travel"
-                            android:layout_marginRight="10dp"/>
-
-                        <CheckBox
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
-
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:id="@+id/imageView33"
-                            android:background="@mipmap/p13rest"
-                            android:layout_marginRight="10dp"/>
-
-                        <CheckBox
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
-
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:id="@+id/imageView34"
-                            android:background="@mipmap/p14tour"
-                            android:layout_marginRight="10dp"/>
-
-                        <CheckBox
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
-
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:id="@+id/imageView35"
-                            android:background="@mipmap/p15beach"
-                            android:layout_marginRight="10dp"/>
-
-
-
+                            android:id="@+id/ib11"
+                            android:background="@mipmap/p11festival"/>
                     </LinearLayout>
                 </LinearLayout>
             </HorizontalScrollView>
@@ -400,7 +273,8 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="bottom">
+            android:gravity="bottom"
+            android:layout_gravity="bottom">
 
             <Button
                 android:layout_width="0dp"
@@ -416,5 +290,6 @@
                 android:text="OKAY"
                 android:id="@+id/button4" />
         </LinearLayout>
+
     </LinearLayout>
 </LinearLayout>

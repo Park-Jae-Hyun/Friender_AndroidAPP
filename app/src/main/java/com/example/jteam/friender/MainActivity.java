@@ -205,11 +205,29 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v)
             {
                 dialog.dismiss();
-                setContentView(R.layout.member_information);///////////////////////
+               // setContentView(R.layout.member_information);///////////////////////
+                Intent intent = new Intent(MainActivity.this,information.class);
+                startActivity(intent);
             }
 
         });
         dialog.show();
+
+        Button mypostButton = (Button) dialog.findViewById(R.id.mypost);
+        mypostButton.setOnClickListener(new View.OnClickListener(){
+
+            public void onClick(View v)
+            {
+
+               Intent intent = new Intent(MainActivity.this,My_Post.class);
+               startActivity(intent);
+
+                //dialog.dismiss();
+
+            }
+
+        });
+       // dialog.show();
 
     }
 
