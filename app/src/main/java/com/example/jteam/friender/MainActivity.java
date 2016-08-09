@@ -231,8 +231,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v)
             {
                 dialog.dismiss();
-               Intent intent = new Intent(MainActivity.this,My_Post.class);
-               startActivity(intent);
+                Intent intent = new Intent(MainActivity.this,MyPost.class);
+                intent.putExtra("USER_UNIQUE_ID",USER_UNIQUE_ID);
+                startActivity(intent);
             }
 
         });

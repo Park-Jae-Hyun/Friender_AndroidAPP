@@ -44,6 +44,7 @@ public class BoardActivity extends AppCompatActivity {
     Button startdateButton;
     Button lastdateButton;
     ArrayList<Bulletin> bulletin = new ArrayList<Bulletin>();
+    ListView list;
 
     private int USER_UNIQUE_ID = 0;
     private String city = null;
@@ -131,7 +132,6 @@ public class BoardActivity extends AppCompatActivity {
                 intent2.putExtra("USER_UNIQUE_ID",USER_UNIQUE_ID);
                 intent2.putExtra("city",city);
                 intent2.putExtra("writer",name);
-                //intent2.putExtra("City",);
                 Log.i("rightUSER_UNIQUE_ID",""+USER_UNIQUE_ID);
                 Log.i("city3",""+city);
             }
@@ -343,6 +343,9 @@ public class BoardActivity extends AppCompatActivity {
                     Log.i("text",""+text);
                     Log.i("-----------", "----------\n");
                 }
+                Adapter = new BoardAdapter();
+                list = (ListView) findViewById(R.id.listView2);
+                list.setAdapter(Adapter);
 
             } catch (JSONException e) {
                 e.printStackTrace();
