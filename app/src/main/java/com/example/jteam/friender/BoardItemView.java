@@ -89,7 +89,10 @@ public class BoardItemView extends LinearLayout{
     {
         DateView.setText(bulletin.getDate());
         DestinationView.setText(bulletin.getDestination());
-        FindingView.setText("Finding : "+bulletin.getTotalnum());
+        if(bulletin.getTotalnum() == 1)
+            FindingView.setText("Finding:No matter");
+        else
+            FindingView.setText("Finding : "+bulletin.getTotalnum());
         PresentView.setText("Presenting : "+bulletin.getJoinednum());
         RouteView1.setText(bulletin.getRoute1());
         RouteView2.setText(bulletin.getRoute2());

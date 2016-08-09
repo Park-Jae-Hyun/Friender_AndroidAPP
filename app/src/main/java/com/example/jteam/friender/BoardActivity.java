@@ -49,8 +49,8 @@ public class BoardActivity extends AppCompatActivity {
     private String city = null;
     private String name = null;
     private String writer = null;
-    private String destination = null, sub_route1 = null, sub_route2 = null;
-    private int date = 0, total_friends = 0, joined_friends = 0, character1 = 0, character2 = 0, character3 = 0;
+    private String destination = null, sub_route1 = null, sub_route2 = null, text = null;
+    private int date = 0, total_friends = 0, joined_friends = 0, character1, character2, character3;
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -62,20 +62,6 @@ public class BoardActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        //지울거
-        Bulletin temp= new Bulletin();
-        temp.setDate("20160808");
-        temp.setLetter("Hi hello banga");
-        temp.setTotalnum(9);
-        temp.setJoinednum(1);
-        temp.setRoute1("Daegu");
-        temp.setRoute2("Pusan");
-        temp.setDestination("Seoul");
-        temp.setCharacter(0,0);
-        temp.setCharacter(1,1);
-        temp.setCharacter(2,2);
-        bulletin.add(temp);
-        bulletin.add(temp);
 
         if(intent.getIntExtra("USER_UNIQUE_ID",0)!=0) {
             USER_UNIQUE_ID = intent.getIntExtra("USER_UNIQUE_ID",0);
@@ -94,6 +80,7 @@ public class BoardActivity extends AppCompatActivity {
 
         //Get travel_info from database
         city = (String)CList.getCity_list().get(intent.getFlags());
+        Log.i("city1",""+city);
         BulletinShow B_Show = new BulletinShow();
         B_Show.execute(city);
 
@@ -146,6 +133,7 @@ public class BoardActivity extends AppCompatActivity {
                 intent2.putExtra("writer",name);
                 //intent2.putExtra("City",);
                 Log.i("rightUSER_UNIQUE_ID",""+USER_UNIQUE_ID);
+                Log.i("city3",""+city);
             }
 
             startActivity(intent2);
@@ -266,6 +254,7 @@ public class BoardActivity extends AppCompatActivity {
             BoardItemView view = new BoardItemView(getApplicationContext());
 
             view.setBulletin(bulletin.get(position));
+            Log.i("bulletin.get(position)",""+bulletin.get(position));
 
             return view;
         }
@@ -284,6 +273,7 @@ public class BoardActivity extends AppCompatActivity {
                 URL url = new URL("http://52.68.212.232/db_travel_bulletin.php");
                 String urlParams = "city=" + city;
 
+                Log.i("city2",""+city);
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
                 httpURLConnection.setDoOutput(true);
                 OutputStream os = httpURLConnection.getOutputStream();
@@ -320,6 +310,7 @@ public class BoardActivity extends AppCompatActivity {
                 JSONArray results = json.getJSONArray("travel_data");
 
                 for( int i = 0; i < results.length(); ++i) {
+                    Bulletin temp = new Bulletin();
                     JSONObject dataJObject = results.getJSONObject(i);
                     destination = dataJObject.getString("destination");
                     writer = dataJObject.getString("writer");
@@ -331,25 +322,27 @@ public class BoardActivity extends AppCompatActivity {
                     character1 = dataJObject.getInt("character1");
                     character2 = dataJObject.getInt("character2");
                     character3 = dataJObject.getInt("character3");
+                    text = dataJObject.getString("text");
 
-//                    Log.i("UNIQUE_UNIQUE_ID", "" + USER_UNIQUE_ID);
-//                    Log.i("writer", "" + name);
-//                    Log.i("destination", "" + destination);
-//                    Log.i("sub_route1", "" + sub_route1);
-//                    Log.i("sub_route2", "" + sub_route2);
-//                    Log.i("date", "" + date);
-//                    Log.i("total_friends", "" + total_friends);
-//                    Log.i("joined_friends", "" + joined_friends);
-//                    Log.i("character1", "" + character1);
-//                    Log.i("character2", "" + character2);
-//                    Log.i("character3", "" + character3);
-//                    Log.i("-----------", "----------\n");
+                    temp.setAllcomponents(destination, writer, sub_route1, sub_route2, date,
+                            total_friends, joined_friends, character1, character2, character3,text);
 
+                    bulletin.add(temp);
+                    
+                    Log.i("UNIQUE_UNIQUE_ID", "" + USER_UNIQUE_ID);
+                    Log.i("writer", "" + name);
+                    Log.i("destination", "" + destination);
+                    Log.i("sub_route1", "" + sub_route1);
+                    Log.i("sub_route2", "" + sub_route2);
+                    Log.i("date", "" + date);
+                    Log.i("total_friends", "" + total_friends);
+                    Log.i("joined_friends", "" + joined_friends);
+                    Log.i("character1", "" + character1);
+                    Log.i("character2", "" + character2);
+                    Log.i("character3", "" + character3);
+                    Log.i("text",""+text);
+                    Log.i("-----------", "----------\n");
                 }
-
-
-
-
 
             } catch (JSONException e) {
                 e.printStackTrace();
