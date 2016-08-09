@@ -6,6 +6,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.CalendarContract;
 import android.support.v7.app.AppCompatActivity;
@@ -23,6 +24,16 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -34,9 +45,12 @@ public class BoardActivity extends AppCompatActivity {
     Button lastdateButton;
     ArrayList<Bulletin> bulletin = new ArrayList<Bulletin>();
 
-
     private int USER_UNIQUE_ID = 0;
     private String city = null;
+    private String name = null;
+    private String writer = null;
+    private String destination = null, sub_route1 = null, sub_route2 = null;
+    private int date = 0, total_friends = 0, joined_friends = 0, character1 = 0, character2 = 0, character3 = 0;
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -65,18 +79,23 @@ public class BoardActivity extends AppCompatActivity {
 
         if(intent.getIntExtra("USER_UNIQUE_ID",0)!=0) {
             USER_UNIQUE_ID = intent.getIntExtra("USER_UNIQUE_ID",0);
+            name = intent.getStringExtra("NAME");
         }
+
 
         //액션바 타이틀 변경
         android.support.v7.app.ActionBar actionbar = getSupportActionBar();
         actionbar.setTitle((String)CList.getCity_list().get(intent.getFlags()));
-        city = (String)CList.getCity_list().get(intent.getFlags());
+
        // View itemview = getLayoutInflater().inflate(R.layout.city_item,null);
-
         //actionbar.setCustomView(itemview);
-
         actionbar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FF000000")));
         actionbar.setDisplayHomeAsUpEnabled(true);
+
+        //Get travel_info from database
+        city = (String)CList.getCity_list().get(intent.getFlags());
+        BulletinShow B_Show = new BulletinShow();
+        B_Show.execute(city);
 
         Adapter = new BoardAdapter();
         ListView list = (ListView) findViewById(R.id.listView2);
@@ -124,6 +143,7 @@ public class BoardActivity extends AppCompatActivity {
             if(USER_UNIQUE_ID!=0) {
                 intent2.putExtra("USER_UNIQUE_ID",USER_UNIQUE_ID);
                 intent2.putExtra("city",city);
+                intent2.putExtra("writer",name);
                 //intent2.putExtra("City",);
                 Log.i("rightUSER_UNIQUE_ID",""+USER_UNIQUE_ID);
             }
@@ -248,6 +268,91 @@ public class BoardActivity extends AppCompatActivity {
             view.setBulletin(bulletin.get(position));
 
             return view;
+        }
+    }
+
+    class BulletinShow extends AsyncTask<String, Void, String> {
+
+        @Override
+        protected String doInBackground(String... params) {
+            String city = params[0];
+
+            String data = "";
+            int tmp;
+
+            try {
+                URL url = new URL("http://52.68.212.232/db_travel_bulletin.php");
+                String urlParams = "city=" + city;
+
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                httpURLConnection.setDoOutput(true);
+                OutputStream os = httpURLConnection.getOutputStream();
+                os.write(urlParams.getBytes());
+                os.flush();
+                os.close();
+                InputStream is = httpURLConnection.getInputStream();
+                while ((tmp = is.read()) != -1) {
+                    data += (char) tmp;
+                }
+
+                is.close();
+                httpURLConnection.disconnect();
+
+                return data;
+
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+                return "Exception: " + e.getMessage();
+            } catch (IOException e) {
+                e.printStackTrace();
+                return "Exception: " + e.getMessage();
+            }
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+
+            String data = null;
+
+            try {
+                JSONObject json = new JSONObject(s);
+                data = json.getString("travel_data");
+                JSONArray results = json.getJSONArray("travel_data");
+
+                for( int i = 0; i < results.length(); ++i) {
+                    JSONObject dataJObject = results.getJSONObject(i);
+                    destination = dataJObject.getString("destination");
+                    writer = dataJObject.getString("writer");
+                    sub_route1 = dataJObject.getString("sub_route1");
+                    sub_route2 = dataJObject.getString("sub_route2");
+                    date = dataJObject.getInt("date");
+                    total_friends = dataJObject.getInt("total_friends");
+                    joined_friends = dataJObject.getInt("joined_friends");
+                    character1 = dataJObject.getInt("character1");
+                    character2 = dataJObject.getInt("character2");
+                    character3 = dataJObject.getInt("character3");
+
+                    Log.i("UNIQUE_UNIQUE_ID", "" + USER_UNIQUE_ID);
+                    Log.i("writer", "" + name);
+                    Log.i("destination", "" + destination);
+                    Log.i("sub_route1", "" + sub_route1);
+                    Log.i("sub_route2", "" + sub_route2);
+                    Log.i("date", "" + date);
+                    Log.i("total_friends", "" + total_friends);
+                    Log.i("joined_friends", "" + joined_friends);
+                    Log.i("character1", "" + character1);
+                    Log.i("character2", "" + character2);
+                    Log.i("character3", "" + character3);
+                    Log.i("-----------", "----------\n");
+                }
+
+
+
+
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
     }
 
