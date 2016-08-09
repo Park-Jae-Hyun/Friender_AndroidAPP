@@ -167,6 +167,10 @@ public class BoardPost extends Activity {
                 }
     };
 
+    public void onClickCancel(View v) {
+        finish();
+    }
+
 
     public void onClickPost(View v) {
         //id, destination, route1, route2, date(p_year,p_month,p_day), character1, character2, character3, text

@@ -57,8 +57,8 @@ public class DB_Bulletin extends AppCompatActivity{
         Route1.setText(bulletin.getRoute1());
         Route2.setText(bulletin.getRoute2());
 
-        Present.setText(""+bulletin.getTotalnum());
-        Finding.setText(""+bulletin.getJoinednum());
+        Present.setText(""+bulletin.getJoinednum());
+        Finding.setText(""+bulletin.getTotalnum());
         Letter.setText(bulletin.getLetter());
 
         Pictogram[0].setImageResource(pictogramres[bulletin.getCharacter(0)]);

@@ -462,7 +462,8 @@
                 android:layout_height="wrap_content"
                 android:text="Cancel"
                 android:id="@+id/posting_cancel"
-                android:layout_gravity="right" />
+                android:layout_gravity="right"
+                android:onClick="onClickCancel" />
 
             <Button
                 android:layout_width="wrap_content"
