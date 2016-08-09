@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         intent = getIntent();
-        loginset = false;
+        loginset = true;
 
         // Complete
         ArrayList<String> main_city_list = new ArrayList<String>();
@@ -79,6 +79,8 @@ public class MainActivity extends AppCompatActivity {
 
         actionbar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FF000000")));
         actionbar.setDisplayHomeAsUpEnabled(true);
+
+
     }
 
     private void fireCustomDialog(final CalendarContract.Reminders reminder)
@@ -129,10 +131,56 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+    private void logincustom(final CalendarContract.Reminders reminder)
+    {
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.login_custom);
+
+
+        TextView titleView = (TextView) dialog.findViewById(R.id.custom_title);
+        Button commitButton = (Button) dialog.findViewById(R.id.custom_button_login);
+        LinearLayout rootLayout = (LinearLayout) dialog.findViewById(R.id.custom_root_layout);
+        Button signupButton = (Button) dialog.findViewById(R.id.custom_button_signup);
+
+        final boolean isEditOperation = (reminder != null);
+
+
+        commitButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v)
+            {
+
+            }
+        });
+
+        signupButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v)
+            {
+
+            }
+        });
+
+        Button buttonCancle = (Button)dialog.findViewById(R.id.custom_button_cancel);
+
+        buttonCancle.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v)
+            {
+                dialog.dismiss();
+            }
+
+        });
+        dialog.show();
+
+
+    }
 
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+   public boolean onCreateOptionsMenu(Menu menu)
+    {
         getMenuInflater().inflate(R.menu.actionbar_main, menu);
         return true;
     }
@@ -148,7 +196,7 @@ public class MainActivity extends AppCompatActivity {
             }
             else
             {
-
+                logincustom(null);
             }
             return true;
 

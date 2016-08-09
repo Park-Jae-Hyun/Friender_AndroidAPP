@@ -37,7 +37,6 @@ public class DB_bulletin extends Activity {
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-
             setContentView(R.layout.activity_db_bulletin);
 
             //날짜 선택 초기상태가 현재 날짜이도록 초기화
@@ -61,8 +60,6 @@ public class DB_bulletin extends Activity {
                 }
 
             });
-
-            setContentView(R.layout.activity_db_login);
 
             gPHP = new GettingPHP();
             tv = (TextView) findViewById(R.id.email);/////////////////check
