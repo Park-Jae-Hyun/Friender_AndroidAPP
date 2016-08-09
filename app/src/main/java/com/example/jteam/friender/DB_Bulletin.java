@@ -1,5 +1,6 @@
 package com.example.jteam.friender;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
@@ -23,11 +24,20 @@ public class DB_Bulletin extends AppCompatActivity{
     TextView Letter;
     ImageView[] Pictogram = new ImageView[3];
 
+    int pictogramres[] = {R.mipmap.p01people,R.mipmap.p02food,R.mipmap.p03beer,R.mipmap.p04coffee,
+            R.mipmap.p05sports,R.mipmap.p06music,R.mipmap.p07movie,R.mipmap.p08photo,R.mipmap.p09reading,
+            R.mipmap.p10concert,R.mipmap.p11festival,R.mipmap.p12travel,R.mipmap.p13rest,R.mipmap.p14tour,
+            R.mipmap.p15beach,R.mipmap.p16mountain,R.mipmap.p17owncar,R.mipmap.p18bycicle,
+            R.mipmap.p19publictransit,R.mipmap.p20cruise};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_db_bulletin);
+
+        //intent로 보내온 bulletin객체 받아오기
+        Intent intent = getIntent();
+        Bulletin bulletin = (Bulletin) intent.getSerializableExtra("bulletin");
 
         Date = (TextView) findViewById(R.id.bulletin_date);
         Destination= (TextView) findViewById(R.id.bulletin_destination);
@@ -41,6 +51,19 @@ public class DB_Bulletin extends AppCompatActivity{
         Pictogram[0] = (ImageView) findViewById(R.id.bulletin_pictogram1);
         Pictogram[1] = (ImageView) findViewById(R.id.bulletin_pictogram2);
         Pictogram[2] = (ImageView) findViewById(R.id.bulletin_pictogram3);
+
+        Date.setText(bulletin.getDate());
+        Destination.setText(bulletin.getDestination());
+        Route1.setText(bulletin.getRoute1());
+        Route2.setText(bulletin.getRoute2());
+
+        Present.setText(""+bulletin.getTotalnum());
+        Finding.setText(""+bulletin.getJoinednum());
+        Letter.setText(bulletin.getLetter());
+
+        Pictogram[0].setImageResource(pictogramres[bulletin.getCharacter(0)]);
+        Pictogram[1].setImageResource(pictogramres[bulletin.getCharacter(1)]);
+        Pictogram[2].setImageResource(pictogramres[bulletin.getCharacter(2)]);
 
 
     }

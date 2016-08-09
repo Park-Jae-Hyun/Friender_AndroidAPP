@@ -27,8 +27,8 @@
         <activity android:name=".DB_Resister" />
         <activity android:name=".DB_Login" />
         <activity android:name=".BoardPost" />
-        <activity android:name=".DB_Bulletin"/>
-        <activity android:name=".information"></activity>
+        <activity android:name=".My_Post"/>
+        <activity android:name=".DB_Bulletin"></activity>
     </application>
 
 </manifest>

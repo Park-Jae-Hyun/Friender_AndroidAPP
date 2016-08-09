@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     CityAdapter Adapter;
     Intent intent;
 
-    boolean loginset = true; // whether login was complete or not
+    boolean loginset = false; // whether login was complete or not
     private static final int RESULT = 1000;
     private String user_id=null;
     private String F_NAME = null, L_NAME = null, SEX = null, EMAIL = null, BIRTH = null, MOBILE_NUMBER = null;
@@ -71,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if(USER_UNIQUE_ID!=0) {
                     intent.putExtra("USER_UNIQUE_ID",USER_UNIQUE_ID);
+                    intent.putExtra("NAME",""+F_NAME+" "+L_NAME);
                 }
                 intent.setFlags(position);
                 startActivity(intent);
@@ -101,13 +102,14 @@ public class MainActivity extends AppCompatActivity {
                     SEX = bundle.getString("SEX");
                     BIRTH = bundle.getString("BIRTH");
                     MOBILE_NUMBER = bundle.getString("MOBILE_NUMBER");
+                    loginset = true;
 
 //                    Log.i("F_NAME",""+F_NAME);
 //                    Log.i("L_NAME",""+L_NAME);
 //                    Log.i("EMAIL",""+EMAIL);
 //                    Log.i("BIRTH",""+BIRTH);
 //                    Log.i("MOBILE_NUMBER",""+MOBILE_NUMBER);
-//                    loginset = true;
+
                     Log.i("USER_UNIQUE_ID",""+USER_UNIQUE_ID);
                     Log.i("F_NAME",""+F_NAME);
                     Log.i("L_NAME",""+L_NAME);
@@ -206,8 +208,9 @@ public class MainActivity extends AppCompatActivity {
             {
                 dialog.dismiss();
                // setContentView(R.layout.member_information);///////////////////////
-                Intent intent = new Intent(MainActivity.this,information.class);
-                startActivity(intent);
+               // Intent intent = new Intent(MainActivity.this,information.class);
+               // startActivity(intent);
+               // setContentView(R.layout.member_information);
             }
 
         });
@@ -215,19 +218,15 @@ public class MainActivity extends AppCompatActivity {
 
         Button mypostButton = (Button) dialog.findViewById(R.id.mypost);
         mypostButton.setOnClickListener(new View.OnClickListener(){
-
             public void onClick(View v)
             {
-
+                dialog.dismiss();
                Intent intent = new Intent(MainActivity.this,My_Post.class);
                startActivity(intent);
-
-                //dialog.dismiss();
-
             }
 
         });
-       // dialog.show();
+        dialog.show();
 
     }
 
