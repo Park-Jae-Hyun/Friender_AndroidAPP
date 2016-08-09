@@ -325,7 +325,7 @@ public class BoardActivity extends AppCompatActivity {
                     text = dataJObject.getString("text");
 
                     temp.setAllcomponents(destination, writer, sub_route1, sub_route2, date,
-                            total_friends, joined_friends, character1, character2, character3);
+                            total_friends, joined_friends, character1, character2, character3,text);
 
                     bulletin.add(temp);
 
