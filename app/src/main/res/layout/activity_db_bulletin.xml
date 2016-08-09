@@ -170,6 +170,7 @@
             android:id="@+id/bulletin_joinbutton"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
+            android:onClick="join_Onclick"
             android:textSize="25dp"
             android:textColor="#000000" />
 
