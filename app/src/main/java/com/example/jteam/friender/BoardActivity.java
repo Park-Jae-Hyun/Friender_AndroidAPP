@@ -46,6 +46,7 @@ public class BoardActivity extends AppCompatActivity {
     Button startdateButton;
     Button lastdateButton;
     ArrayList<Bulletin> bulletin = new ArrayList<Bulletin>();
+    ListView list;
 
     ListView list;
 
@@ -137,7 +138,6 @@ public class BoardActivity extends AppCompatActivity {
                 intent2.putExtra("USER_UNIQUE_ID",USER_UNIQUE_ID);
                 intent2.putExtra("city",city);
                 intent2.putExtra("writer",name);
-                //intent2.putExtra("City",);
                 Log.i("rightUSER_UNIQUE_ID",""+USER_UNIQUE_ID);
                 Log.i("city3",""+city);
             }
@@ -379,6 +379,9 @@ public class BoardActivity extends AppCompatActivity {
                     if(date>=year*10000+(month+1)*100+day)
                          bulletin.add(temp);
                 }
+                Adapter = new BoardAdapter();
+                list = (ListView) findViewById(R.id.listView2);
+                list.setAdapter(Adapter);
 
                 Collections.sort(bulletin);
                 Adapter = new BoardAdapter(bulletin);
