@@ -169,6 +169,10 @@ public class BoardPost extends Activity {
                 }
     };
 
+    public void onClickCancel(View v) {
+        finish();
+    }
+
 
     public void onClickPost(View v) {
         //id, destination, route1, route2, date(p_year,p_month,p_day), character1, character2, character3, text
@@ -184,8 +188,6 @@ public class BoardPost extends Activity {
             if(checkBox[i].isChecked())
                 bulletin.setCharacter(j++,i);
         }
-
-        bulletin.printcontents();
 
         PostOnBoard post_on_board = new PostOnBoard();
         //post_on_board.execute(USER_UNIQUE_ID, destination, route1, route2, p_date, ""+character[1], ""+character[2], ""+character[3]);
