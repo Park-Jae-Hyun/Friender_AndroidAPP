@@ -37,7 +37,8 @@ public class BoardPost extends Activity {
     private CheckBox[] checkBox = new CheckBox[20];
     private Button buttonWrite;
     private Button buttonCancel;
-
+    private String writer = null;
+/*
     private String destination = null;
     private String route1 = null;
     private String route2 = null;
@@ -46,10 +47,9 @@ public class BoardPost extends Activity {
     private int joinednum = 0;//////////////
     private boolean[] checkbox = new boolean[20];
     private int[] character = new int[3];/////////////
-    private int p_year;
-    private int p_month;
-    private int p_day;
-    private String p_date =null;////////////
+    private String p_date = null;
+    private String city = null;*/
+    Bulletin bulletin = new Bulletin();
 
 
     //check box resource 배열
@@ -70,6 +70,8 @@ public class BoardPost extends Activity {
 
         if(intent.getIntExtra("USER_UNIQUE_ID",0)!=0) {
             USER_UNIQUE_ID = intent.getIntExtra("USER_UNIQUE_ID",0);
+            bulletin.setCity(intent.getStringExtra("city"));
+            writer = intent.getStringExtra("writer");
             Log.i("USER_UNIQUE_ID",""+USER_UNIQUE_ID);
         }
         Log.i("USER_UNIQUE_IDherere",""+USER_UNIQUE_ID);
@@ -115,7 +117,7 @@ public class BoardPost extends Activity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(getApplicationContext(), "Selected : " + position, Toast.LENGTH_SHORT).show();
-                totalnum = position;
+                bulletin.setTotalnum(position);
             }
 
             @Override
@@ -128,7 +130,7 @@ public class BoardPost extends Activity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(getApplicationContext(), "Selected : " + position, Toast.LENGTH_SHORT).show();
-                joinednum = position;
+                bulletin.setJoinednum(position);
             }
 
             @Override
@@ -163,7 +165,7 @@ public class BoardPost extends Activity {
                    // p_day = dayOfMonth;
 
                     //p_date = ""+year+""+monthOfYear+""+dayOfMonth;
-                    p_date = ""+(year*10000+monthOfYear*100+dayOfMonth);
+                    bulletin.setDate(""+(year*10000+monthOfYear*100+dayOfMonth));
                 }
     };
 
@@ -171,30 +173,25 @@ public class BoardPost extends Activity {
     public void onClickPost(View v) {
         //id, destination, route1, route2, date(p_year,p_month,p_day), character1, character2, character3, text
 
-
-        destination = editDestination.getText().toString();
-        route1 = editRoute1.getText().toString();
-        route2 = editRoute2.getText().toString();
-        letter = editLetter.getText().toString();
+        bulletin.setDestination(editDestination.getText().toString());
+        bulletin.setRoute1( editRoute1.getText().toString());
+        bulletin.setRoute2(editRoute2.getText().toString());
+        bulletin.setLetter(editLetter.getText().toString());
 
         // check the value of result from checkbox
         int j = 0;
         for(int i = 0; i < 20 && j<3 ; i++) {
             if(checkBox[i].isChecked())
-                character[j++] = i;
+                bulletin.setCharacter(j++,i);
         }
 
-        Log.i("destination",""+destination);
-        Log.i("totalnum",""+totalnum);
-        Log.i("joinednum",""+joinednum);
-        Log.i("pictogram",""+character[0] +" " + character[1] + " " + character[2]);
-        Log.i("date",""+p_date);
-
-
+        bulletin.printcontents();
 
         PostOnBoard post_on_board = new PostOnBoard();
         //post_on_board.execute(USER_UNIQUE_ID, destination, route1, route2, p_date, ""+character[1], ""+character[2], ""+character[3]);
-        post_on_board.execute(""+USER_UNIQUE_ID, destination, route1, route2, p_date, letter);
+        post_on_board.execute(""+USER_UNIQUE_ID, bulletin.getCity(), bulletin.getDestination(), writer,
+                bulletin.getRoute1(), bulletin.getRoute2(), bulletin.getDate(),""+bulletin.getTotalnum(),
+                ""+bulletin.getJoinednum(), ""+bulletin.getCharacter(0), ""+bulletin.getCharacter(1), ""+bulletin.getCharacter(2), bulletin.getLetter());
 
     }
 
@@ -209,31 +206,56 @@ public class BoardPost extends Activity {
         protected String doInBackground(String... params) {
 
             String user_u_id = params[0];
-            String user_destination = params[1];
-            String user_route1 = params[2];
-            String user_route2 = params[3];
-            String user_date = params[4];
-            String text = params[5];
-//            String user_character1 = params[5];
-//            String user_character2 = params[6];
-//            String user_character3 = params[7];
+            String user_city = params[1];
+            String user_destination = params[2];
+            String user_writer = params[3];
+            String user_route1 = params[4];
+            String user_route2 = params[5];
+            String user_date = params[6];
+            String user_total_traveler = params[7];
+            String user_joined_traveler = params[8];
+            String user_character1 = params[9];
+            String user_character2 = params[10];
+            String user_character3 = params[11];
+            String user_text = params[12];
 
 
             Log.i("user_u_id",""+user_u_id);
+            Log.i("user_city",""+user_city);
             Log.i("user_destination",""+user_destination);
+            Log.i("user_writer",""+user_writer);
             Log.i("user_route1",""+user_route1);
             Log.i("user_route2",""+user_route2);
             Log.i("user_date",""+user_date);
+            Log.i("user_total_traveler",""+user_total_traveler);
+            Log.i("user_joined_traveler",""+user_joined_traveler);
+            Log.i("user_character1",""+user_character1);
+            Log.i("user_character2",""+user_character2);
+            Log.i("user_character3",""+user_character3);
+            Log.i("user_text",""+user_text);
+
+
+
 
             String data = "";
             int tmp;
 
             try {
                 URL url = new URL("http://52.68.212.232/db_travel_post.php");
-//                String urlParams = "id="+user_u_id+"&destination="+user_destination+"&route1="+user_route1+"&route2="+user_route2
-//                                   +"&date="+user_date+"&character1="+user_character1+"&character2="+user_character2+"&character3="+user_character3;
-                String urlParams = "id="+user_u_id+"&destination="+user_destination+"&route1="+user_route1+"&route2="+user_route2
-                        +"&date="+user_date+"&text="+text;
+//
+                String urlParams =  "id="+user_u_id+
+                                    "&city="+user_city+
+                                    "&destination="+user_destination+
+                                    "&writer="+user_writer+
+                                    "&route1="+user_route1+
+                                    "&route2="+user_route2+
+                                    "&date="+user_date+
+                                    "&total_friends="+user_total_traveler+
+                                    "&joined_friends="+user_joined_traveler+
+                                    "&character1="+user_character1+
+                                    "&character2="+user_character2+
+                                    "&character3="+user_character3+
+                                    "&text="+user_text;
 
 
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
@@ -270,3 +292,4 @@ public class BoardPost extends Activity {
     }
 
 }
+
