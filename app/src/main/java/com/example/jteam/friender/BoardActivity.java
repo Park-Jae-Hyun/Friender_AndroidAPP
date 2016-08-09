@@ -328,7 +328,7 @@ public class BoardActivity extends AppCompatActivity {
                             total_friends, joined_friends, character1, character2, character3,text);
 
                     bulletin.add(temp);
-                    
+
                     Log.i("UNIQUE_UNIQUE_ID", "" + USER_UNIQUE_ID);
                     Log.i("writer", "" + name);
                     Log.i("destination", "" + destination);
