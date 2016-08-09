@@ -21,7 +21,7 @@ public class Bulletin implements Serializable {
 
 
     public void setAllcomponents(String des, String writer, String rout1,String rout2, int dat, int total, int join,
-                                 int char1, int char2, int char3)
+                                 int char1, int char2, int char3, String let)
     {
         destination = des;
         route1 = rout1;
@@ -33,6 +33,7 @@ public class Bulletin implements Serializable {
         character[0] = char1;
         character[1] = char2;
         character[2] = char3;
+        letter = let;
     }
 
     public int getCharacter(int num) {
