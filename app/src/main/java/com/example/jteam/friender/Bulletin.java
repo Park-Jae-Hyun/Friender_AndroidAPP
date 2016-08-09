@@ -7,13 +7,13 @@ import java.io.Serializable;
 /**
  * Created by Jeong on 2016-08-08.
  */
-public class Bulletin implements Serializable {
+public class Bulletin implements Serializable, Comparable<Bulletin> {
     private String city = null;
     private String destination = null;
     private String route1 = null;
     private String route2 = null;
     private String letter = null;
-    private String date = null;
+    private int date = 0;
     private int[] character = new int[3];/////////////
     private int totalnum = 0;/////////////
     private int joinednum = 0;//////////////
@@ -27,7 +27,7 @@ public class Bulletin implements Serializable {
         route1 = rout1;
         route2 = rout2;
         username = writer;
-        date = ""+dat;
+        date = dat;
         totalnum = total;
         joinednum = join;
         character[0] = char1;
@@ -85,10 +85,12 @@ public class Bulletin implements Serializable {
     }
 
     public String getDate() {
-        return date;
+        return ""+date;
     }
 
-    public void setDate(String p_date) {
+    public int getintDate() {return date;}
+
+    public void setDate(int p_date) {
         this.date = p_date;
     }
 
@@ -126,5 +128,21 @@ public class Bulletin implements Serializable {
         Log.i("joinednum",""+joinednum);
         Log.i("pictogram",""+character[0] +" " + character[1] + " " + character[2]);
         Log.i("date",""+date);
+    }
+
+
+
+    //날짜를 비교해서 출발날짜가 가장 일찍인 글이 가장 높은 우선순위를 가짐
+    //단 출발날짜가 오늘보다 전(이미 지나간글)이면 가장 낮은 우선순위를 가짐
+    @Override
+    public int compareTo(Bulletin another) {
+
+        if(this.date>another.date)
+            return 1;
+        else if(this.date<another.date)
+            return -1;
+        else
+            return 0;
+
     }
 }

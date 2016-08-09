@@ -165,7 +165,7 @@ public class BoardPost extends Activity {
                    // p_day = dayOfMonth;
 
                     //p_date = ""+year+""+monthOfYear+""+dayOfMonth;
-                    bulletin.setDate(""+(year*10000+monthOfYear*100+dayOfMonth));
+                    bulletin.setDate(year*10000+monthOfYear*100+dayOfMonth);
                 }
     };
 

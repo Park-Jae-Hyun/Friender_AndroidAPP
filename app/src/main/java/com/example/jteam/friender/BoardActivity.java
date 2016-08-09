@@ -15,11 +15,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.view.Window;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,6 +37,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 
 public class BoardActivity extends AppCompatActivity {
     CityList CList = new CityList();
@@ -45,12 +47,16 @@ public class BoardActivity extends AppCompatActivity {
     Button lastdateButton;
     ArrayList<Bulletin> bulletin = new ArrayList<Bulletin>();
 
+    ListView list;
+
     private int USER_UNIQUE_ID = 0;
     private String city = null;
     private String name = null;
     private String writer = null;
     private String destination = null, sub_route1 = null, sub_route2 = null, text = null;
     private int date = 0, total_friends = 0, joined_friends = 0, character1, character2, character3;
+    // 필터시 사용할 날짜
+    private int startdate =0, lastdate= 99999999;
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -84,7 +90,7 @@ public class BoardActivity extends AppCompatActivity {
         BulletinShow B_Show = new BulletinShow();
         B_Show.execute(city);
 
-        Adapter = new BoardAdapter();
+        Adapter = new BoardAdapter(bulletin);
         ListView list = (ListView) findViewById(R.id.listView2);
         list.setAdapter(Adapter);
 
@@ -146,8 +152,10 @@ public class BoardActivity extends AppCompatActivity {
         final Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.find_custom);
+        startdate =0;
+        lastdate= 99999999;
 
-        Button findButton = (Button) dialog.findViewById(R.id.custom_button_find);
+        final Button findButton = (Button) dialog.findViewById(R.id.custom_button_find);
         Button cancelButton = (Button) dialog.findViewById(R.id.custom_button_cancel);
         startdateButton = (Button) dialog.findViewById(R.id.custom_button_startdate);
         lastdateButton = (Button) dialog.findViewById(R.id.custom_button_lastdate);
@@ -157,6 +165,8 @@ public class BoardActivity extends AppCompatActivity {
         final int year = c.get(Calendar.YEAR);
         final int month = c.get(Calendar.MONTH);
         final int day = c.get(Calendar.DATE);
+
+
 
         //날짜선택버튼 클릭리스너 설정(데이트피커다이얼로그 뜨게)
         startdateButton.setOnClickListener(new View.OnClickListener() {
@@ -180,6 +190,33 @@ public class BoardActivity extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
+                ArrayList<Bulletin> filtedbulletin = new ArrayList<Bulletin>();
+                EditText destination = (EditText) dialog.findViewById(R.id.find_word);
+                String des = destination.getText().toString();
+
+                //글자검색 안할때
+                if(des.equals(""))
+                {
+                    for(int i = 0; i < bulletin.size();i++)
+                        if(startdate<=bulletin.get(i).getintDate()&&lastdate>=bulletin.get(i).getintDate())
+                            filtedbulletin.add(bulletin.get(i));
+
+                }
+                //글자검색할때
+                else
+                    for(int i = 0; i < bulletin.size();i++)
+                    {
+                      if(bulletin.get(i).getDestination().equals(des)
+                              ||bulletin.get(i).getRoute1().equals(des)
+                              ||bulletin.get(i).getRoute2().equals(des))
+                          if(startdate<=bulletin.get(i).getintDate()&&lastdate>=bulletin.get(i).getintDate())
+                              filtedbulletin.add(bulletin.get(i));
+                    }
+
+                Adapter = new BoardAdapter(filtedbulletin);
+                ListView list = (ListView) findViewById(R.id.listView2);
+                list.setAdapter(Adapter);
+                dialog.dismiss();
             }
 
         });
@@ -203,6 +240,7 @@ public class BoardActivity extends AppCompatActivity {
                     monthOfYear + "/" + dayOfMonth, Toast.LENGTH_SHORT).show();
             //시간이 선택되면 버튼에 그 시간을 표시하게 변경
             startdateButton.setText(year + "/" + monthOfYear + "/" + dayOfMonth);
+            startdate = year*10000+(monthOfYear)*100+dayOfMonth;
         }
     };
 
@@ -215,6 +253,7 @@ public class BoardActivity extends AppCompatActivity {
                     monthOfYear + "/" + dayOfMonth, Toast.LENGTH_SHORT).show();
             //시간이 선택되면 버튼에 그 시간을 표시하게 변경
             lastdateButton.setText(year + "/" + monthOfYear + "/" + dayOfMonth);
+            lastdate = year*10000+(monthOfYear)*100+dayOfMonth;
         }
     };
 
@@ -227,9 +266,11 @@ public class BoardActivity extends AppCompatActivity {
 
 
     class BoardAdapter extends BaseAdapter {
+        ArrayList<Bulletin> bulletin = new ArrayList<Bulletin>();
 
-        public BoardAdapter()
+        public BoardAdapter(ArrayList<Bulletin> newbulletin)
         {
+            bulletin = newbulletin;
         }
 
         @Override
@@ -299,10 +340,17 @@ public class BoardActivity extends AppCompatActivity {
             }
         }
 
+
+
         @Override
         protected void onPostExecute(String s) {
 
             String data = null;
+
+            final Calendar c = Calendar.getInstance();
+            final int year = c.get(Calendar.YEAR);
+            final int month = c.get(Calendar.MONTH);
+            final int day = c.get(Calendar.DATE);
 
             try {
                 JSONObject json = new JSONObject(s);
@@ -327,22 +375,15 @@ public class BoardActivity extends AppCompatActivity {
                     temp.setAllcomponents(destination, writer, sub_route1, sub_route2, date,
                             total_friends, joined_friends, character1, character2, character3,text);
 
-                    bulletin.add(temp);
-
-                    Log.i("UNIQUE_UNIQUE_ID", "" + USER_UNIQUE_ID);
-                    Log.i("writer", "" + name);
-                    Log.i("destination", "" + destination);
-                    Log.i("sub_route1", "" + sub_route1);
-                    Log.i("sub_route2", "" + sub_route2);
-                    Log.i("date", "" + date);
-                    Log.i("total_friends", "" + total_friends);
-                    Log.i("joined_friends", "" + joined_friends);
-                    Log.i("character1", "" + character1);
-                    Log.i("character2", "" + character2);
-                    Log.i("character3", "" + character3);
-                    Log.i("text",""+text);
-                    Log.i("-----------", "----------\n");
+                    //지금보다 이전날짜글은 안띄움
+                    if(date>=year*10000+(month+1)*100+day)
+                         bulletin.add(temp);
                 }
+
+                Collections.sort(bulletin);
+                Adapter = new BoardAdapter(bulletin);
+                list = (ListView) findViewById(R.id.listView2);
+                list.setAdapter(Adapter);
 
             } catch (JSONException e) {
                 e.printStackTrace();
