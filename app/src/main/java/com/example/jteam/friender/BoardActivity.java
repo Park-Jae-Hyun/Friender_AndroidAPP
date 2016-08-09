@@ -48,8 +48,6 @@ public class BoardActivity extends AppCompatActivity {
     ArrayList<Bulletin> bulletin = new ArrayList<Bulletin>();
     ListView list;
 
-    ListView list;
-
     private int USER_UNIQUE_ID = 0;
     private String city = null;
     private String name = null;
@@ -379,7 +377,7 @@ public class BoardActivity extends AppCompatActivity {
                     if(date>=year*10000+(month+1)*100+day)
                          bulletin.add(temp);
                 }
-                Adapter = new BoardAdapter();
+                Adapter = new BoardAdapter(bulletin);
                 list = (ListView) findViewById(R.id.listView2);
                 list.setAdapter(Adapter);
 

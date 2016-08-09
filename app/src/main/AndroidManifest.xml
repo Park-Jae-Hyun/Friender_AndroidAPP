@@ -18,6 +18,7 @@
             android:label="@string/title_activity_splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -27,9 +28,10 @@
         <activity android:name=".DB_Resister" />
         <activity android:name=".DB_Login" />
         <activity android:name=".BoardPost" />
-        <activity android:name=".MyPost"/>
-        <activity android:name=".Magement"/>
-        <activity android:name=".DB_Bulletin"></activity>
+        <activity android:name=".MyPost" />
+        <activity android:name=".Magement" />
+        <activity android:name=".DB_Bulletin" />
+        <activity android:name=".MyPost_info"></activity>
     </application>
 
 </manifest>

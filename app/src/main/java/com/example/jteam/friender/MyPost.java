@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -42,7 +41,6 @@ public class MyPost extends AppCompatActivity {
     private String city = null;
     private String name = null;
     private String writer = null;
-    ArrayList<Bulletin> bulletin = new ArrayList<Bulletin>();
     ListView list;
 
     protected void onCreate(Bundle savedInstanceState)
@@ -68,17 +66,17 @@ public class MyPost extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(getApplicationContext(), "Selected : " + position, Toast.LENGTH_SHORT).show();
 
-                Intent intent = new Intent(getApplicationContext(),DB_Bulletin.class);
+                Intent intent = new Intent(getApplicationContext(),MyPost_info.class);
 
                 //인텐트에 bulletin정보를 담아 전달
-                intent.putExtra("bulletin",bulletin.get(position));
+                intent.putExtra("bulletin",post_bulletin.get(position));
                 startActivity(intent);
             }
 
         });
 
         android.support.v7.app.ActionBar actionbar = getSupportActionBar();
-        actionbar.setTitle("FIND");
+       // actionbar.setTitle("FIND");
         actionbar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FF000000")));
         actionbar.setDisplayHomeAsUpEnabled(true);
     }

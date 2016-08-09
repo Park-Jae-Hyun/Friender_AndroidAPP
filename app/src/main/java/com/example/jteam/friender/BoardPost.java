@@ -130,7 +130,7 @@ public class BoardPost extends Activity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(getApplicationContext(), "Selected : " + position, Toast.LENGTH_SHORT).show();
-                bulletin.setJoinednum(position);
+                bulletin.setJoinednum(position+1);
             }
 
             @Override
