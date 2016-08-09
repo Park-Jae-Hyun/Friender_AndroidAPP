@@ -1,6 +1,8 @@
 package com.example.jteam.friender;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -19,9 +21,6 @@ public class My_Post extends AppCompatActivity {
     BoardAdapter Adapter;
     ArrayList<Bulletin> post_bulletin = new ArrayList<Bulletin>();
 
-
-
-
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
@@ -30,6 +29,11 @@ public class My_Post extends AppCompatActivity {
         Adapter = new BoardAdapter();
         ListView list = (ListView) findViewById(R.id.listView2);
         list.setAdapter(Adapter);
+
+        android.support.v7.app.ActionBar actionbar = getSupportActionBar();
+        actionbar.setTitle("FIND");
+        actionbar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FF000000")));
+        actionbar.setDisplayHomeAsUpEnabled(true);
     }
 
     class BoardAdapter extends BaseAdapter {
