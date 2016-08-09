@@ -87,12 +87,25 @@
         android:layout_height="wrap_content"
         android:id="@+id/mobile_Number" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Insert"
-        android:onClick="insert"
-        android:id="@+id/button" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancle"
+            android:id="@+id/button5" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Insert"
+            android:onClick="insert"
+            android:id="@+id/button" />
+    </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"

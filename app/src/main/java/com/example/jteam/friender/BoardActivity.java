@@ -332,18 +332,19 @@ public class BoardActivity extends AppCompatActivity {
                     character2 = dataJObject.getInt("character2");
                     character3 = dataJObject.getInt("character3");
 
-                    Log.i("UNIQUE_UNIQUE_ID", "" + USER_UNIQUE_ID);
-                    Log.i("writer", "" + name);
-                    Log.i("destination", "" + destination);
-                    Log.i("sub_route1", "" + sub_route1);
-                    Log.i("sub_route2", "" + sub_route2);
-                    Log.i("date", "" + date);
-                    Log.i("total_friends", "" + total_friends);
-                    Log.i("joined_friends", "" + joined_friends);
-                    Log.i("character1", "" + character1);
-                    Log.i("character2", "" + character2);
-                    Log.i("character3", "" + character3);
-                    Log.i("-----------", "----------\n");
+//                    Log.i("UNIQUE_UNIQUE_ID", "" + USER_UNIQUE_ID);
+//                    Log.i("writer", "" + name);
+//                    Log.i("destination", "" + destination);
+//                    Log.i("sub_route1", "" + sub_route1);
+//                    Log.i("sub_route2", "" + sub_route2);
+//                    Log.i("date", "" + date);
+//                    Log.i("total_friends", "" + total_friends);
+//                    Log.i("joined_friends", "" + joined_friends);
+//                    Log.i("character1", "" + character1);
+//                    Log.i("character2", "" + character2);
+//                    Log.i("character3", "" + character3);
+//                    Log.i("-----------", "----------\n");
+
                 }
 
 
