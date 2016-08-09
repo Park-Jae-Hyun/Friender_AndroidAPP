@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="300dp"
-    android:layout_height="250dp"
+    android:layout_height="fill_parent"
     android:id="@+id/custom_root_layout"
     android:layout_gravity="center"
     android:background="@color/white"
@@ -30,7 +30,7 @@
             android:layout_width="0dp"
             android:layout_height="30dp"
             android:layout_weight="30"
-            android:gravity="center_horizontal"
+            android:gravity="center"
             android:text="ID"
             android:id="@+id/textid"
             android:background="@color/white"
@@ -41,7 +41,7 @@
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_weight="70"
-            android:id="@+id/ID"
+            android:id="@+id/main_id"
             android:background="@android:color/white" />
     </LinearLayout>
 <LinearLayout
@@ -54,7 +54,7 @@
         android:layout_width="0dp"
         android:layout_height="30dp"
         android:layout_weight="30"
-        android:gravity="center_horizontal"
+        android:gravity="center"
         android:text="PW"
         android:id="@+id/textpassword"
         android:background="@color/white"
@@ -65,7 +65,7 @@
         android:layout_width="0dp"
         android:layout_height="fill_parent"
         android:layout_weight="70"
-        android:id="@+id/password"
+        android:id="@+id/main_password"
         android:background="@color/white"
         />
 </LinearLayout>

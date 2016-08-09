@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -14,10 +15,19 @@
     tools:context=".DB_Bulletin">
 >>>>>>> 584df4218f45905b8acdb8168595d82df472a870
 
+=======
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.jteam.friender.DB_Bulletin"
+    android:background="#ffffff">
+>>>>>>> 74ccebd2de7bb55cea71cd9a2cc026cb5906bbd4
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
+<<<<<<< HEAD
         android:layout_height="match_parent"
         android:weightSum="1"
         android:background="#ffffff">
@@ -113,10 +123,47 @@
             android:layout_height="53dp"
             android:id="@+id/horizontalScrollView"
             android:layout_gravity="center_horizontal" >
+=======
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.13"
+        android:weightSum="1"
+        android:id="@+id/linearLayout">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:id="@+id/imageView23"
+                android:layout_gravity="center_horizontal"
+                android:background="#000000" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="dd,mm,yyyy"
+                android:id="@+id/bulletin_date"
+                android:textSize="20dp"
+                android:textColor="#000000" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Destination"
+                android:id="@+id/bulletin_destination"
+                android:textSize="40dp"
+                android:textColor="#000000" />
+>>>>>>> 74ccebd2de7bb55cea71cd9a2cc026cb5906bbd4
 
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
+<<<<<<< HEAD
                 android:layout_height="match_parent"
                 android:gravity="center_vertical">
 
@@ -362,10 +409,112 @@
 
             </LinearLayout>
         </HorizontalScrollView>
+=======
+                android:layout_height="35dp"
+                android:layout_gravity="center_horizontal"
+                android:weightSum="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Route"
+                    android:id="@+id/bulletin_route1"
+                    android:textSize="20dp"
+                    android:layout_weight="0.35"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Route"
+                    android:id="@+id/bulletin_route2"
+                    android:textSize="20dp"
+                    android:textColor="#000000" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:id="@+id/imageView21"
+        android:layout_gravity="center_horizontal"
+        android:background="#000000" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:id="@+id/imageView22"
+        android:layout_gravity="center_horizontal"
+        android:background="#000000"
+        android:layout_below="@+id/linearLayout"
+        android:layout_centerHorizontal="true" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/linearLayout"
+        android:layout_alignParentStart="true"
+        android:id="@+id/linearLayout2"
+        android:gravity="center_vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="IDABCD"
+            android:id="@+id/bulletin_id"
+            android:textSize="25dp"
+            android:textColor="#000000" />
+
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:id="@+id/bulletin_pictogram1"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="right" />
+
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:id="@+id/bulletin_pictogram2"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="right" />
+
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:id="@+id/bulletin_pictogram3"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="right" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:id="@+id/imageView27"
+        android:layout_gravity="center_horizontal"
+        android:background="#000000"
+        android:layout_below="@+id/linearLayout2"
+        android:layout_alignStart="@+id/linearLayout2" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignTop="@+id/imageView27"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/linearLayout3"
+        android:gravity="center_vertical|center_horizontal">
+>>>>>>> 74ccebd2de7bb55cea71cd9a2cc026cb5906bbd4
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:text="Writing"
             android:id="@+id/textView10"
             android:textSize="20dp"
@@ -388,10 +537,25 @@
                 android:textSize="25dp"
                 android:text="content" />
         </ScrollView>
+=======
+            android:text="Present : "
+            android:id="@+id/textView12"
+            android:textSize="20dp"
+            android:textColor="#000000" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="q"
+            android:id="@+id/bulletin_present"
+            android:textSize="25dp"
+            android:textColor="#000000" />
+>>>>>>> 74ccebd2de7bb55cea71cd9a2cc026cb5906bbd4
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:text="Write"
             android:id="@+id/button2"
             android:layout_gravity="right" />
@@ -399,3 +563,61 @@
     </LinearLayout>
 
 </LinearLayout>
+=======
+            android:text="Join"
+            android:id="@+id/bulletin_joinbutton"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:onClick="join_Onclick"
+            android:textSize="25dp"
+            android:textColor="#000000" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Finding : "
+            android:id="@+id/textView22"
+            android:textSize="20dp"
+            android:textColor="#000000" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="q"
+            android:id="@+id/bulletin_finding"
+            android:textSize="25dp"
+            android:textColor="#000000" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:id="@+id/imageView28"
+        android:layout_gravity="center_horizontal"
+        android:background="#000000"
+        android:layout_below="@+id/linearLayout3"
+        android:layout_alignStart="@+id/linearLayout3" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/scrollView4"
+        android:layout_below="@+id/linearLayout3"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:id="@+id/bulletin_letter"
+            android:textSize="20dp"
+            android:textColor="#000000"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="128dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" />
+    </ScrollView>
+
+</RelativeLayout>
+>>>>>>> 74ccebd2de7bb55cea71cd9a2cc026cb5906bbd4

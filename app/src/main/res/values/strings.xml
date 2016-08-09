@@ -1,7 +1,12 @@
 <resources>
     <string name="app_name">Friender</string>
     <string name="title_activity_splash">SplashActivity</string>
+<<<<<<< HEAD
     <string-array name="number">
+=======
+
+    <string-array name="totalnumbers">
+>>>>>>> 74ccebd2de7bb55cea71cd9a2cc026cb5906bbd4
         <item>No matter</item>
         <item>2</item>
         <item>3</item>
@@ -13,4 +18,20 @@
         <item>9</item>
         <item>10</item>
     </string-array>
+<<<<<<< HEAD
+=======
+
+    <string-array name="joinednumbers">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+    </string-array>
+
+>>>>>>> 74ccebd2de7bb55cea71cd9a2cc026cb5906bbd4
 </resources>

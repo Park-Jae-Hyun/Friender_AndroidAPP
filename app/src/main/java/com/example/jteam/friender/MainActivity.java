@@ -7,6 +7,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.provider.CalendarContract;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -27,8 +28,8 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     CityAdapter Adapter;
     Intent intent;
-    boolean loginset;
 
+<<<<<<< HEAD
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +38,17 @@ public class MainActivity extends AppCompatActivity {
         intent = getIntent();
         loginset = true;
 
+=======
+    boolean loginset = false; // whether login was complete or not
+    private static final int RESULT = 1000;
+    private String user_id=null;
+    private String F_NAME = null, L_NAME = null, SEX = null, EMAIL = null, BIRTH = null, MOBILE_NUMBER = null;
+    private int USER_UNIQUE_ID = 0;
+    protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_main);
+            intent = getIntent();
+>>>>>>> 74ccebd2de7bb55cea71cd9a2cc026cb5906bbd4
         // Complete
         ArrayList<String> main_city_list = new ArrayList<String>();
         CityList CList= new CityList();
@@ -58,7 +70,11 @@ public class MainActivity extends AppCompatActivity {
         // listview options
         list.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
         list.setDivider(new ColorDrawable(Color.BLACK));
+<<<<<<< HEAD
        // list.setDividerHeight(2);
+=======
+        list.setDividerHeight(2);
+>>>>>>> 74ccebd2de7bb55cea71cd9a2cc026cb5906bbd4
 
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -66,8 +82,12 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(getApplicationContext(), "Selected : " + position, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(),BoardActivity.class);
-
                 //인텐트에 position정보를 담아 전달
+
+                if(USER_UNIQUE_ID!=0) {
+                    intent.putExtra("USER_UNIQUE_ID",USER_UNIQUE_ID);
+                    intent.putExtra("NAME",""+F_NAME+" "+L_NAME);
+                }
                 intent.setFlags(position);
                 startActivity(intent);
             }
@@ -81,6 +101,46 @@ public class MainActivity extends AppCompatActivity {
         actionbar.setDisplayHomeAsUpEnabled(true);
 
 
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        super.onActivityResult(requestCode, requestCode, data);
+        switch (requestCode) {
+            case RESULT:
+                if(resultCode==RESULT_OK) {
+                    Bundle bundle = data.getExtras();
+                    USER_UNIQUE_ID  = bundle.getInt("USER_UNIQUE_ID");
+                    F_NAME = bundle.getString("F_NAME");
+                    L_NAME = bundle.getString("L_NAME");
+                    EMAIL = bundle.getString("EMAIL");
+                    SEX = bundle.getString("SEX");
+                    BIRTH = bundle.getString("BIRTH");
+                    MOBILE_NUMBER = bundle.getString("MOBILE_NUMBER");
+                    loginset = true;
+
+//                    Log.i("F_NAME",""+F_NAME);
+//                    Log.i("L_NAME",""+L_NAME);
+//                    Log.i("EMAIL",""+EMAIL);
+//                    Log.i("BIRTH",""+BIRTH);
+//                    Log.i("MOBILE_NUMBER",""+MOBILE_NUMBER);
+
+                    Log.i("USER_UNIQUE_ID",""+USER_UNIQUE_ID);
+                    Log.i("F_NAME",""+F_NAME);
+                    Log.i("L_NAME",""+L_NAME);
+                    Log.i("EMAIL",""+EMAIL);
+                    Log.i("SEX",""+SEX);
+                    Log.i("BIRTH",""+BIRTH);
+                    Log.i("MOBILE_NUMBER",""+MOBILE_NUMBER);
+                    //loginset = true;
+
+                    //TextView textview = (TextView)findViewById(R.id.inform_id);
+                    //textview.setText("GI");
+                    //textview.append("HELLO");
+                   // textview.setBackgroundColor(Color.BLACK);
+                }
+                break;
+        }
     }
 
     private void fireCustomDialog(final CalendarContract.Reminders reminder)
@@ -100,12 +160,18 @@ public class MainActivity extends AppCompatActivity {
 
         commitButton.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View v)
-            {
-                EditText id = (EditText) dialog.findViewById(R.id.ID);
-                EditText password = (EditText) dialog.findViewById(R.id.password);
+            public void onClick(View v) {
+                EditText main_id = (EditText) dialog.findViewById(R.id.main_id);
+                EditText main_password = (EditText) dialog.findViewById(R.id.main_password);
 
+                String id = main_id.getText().toString();
+                String password = main_password.getText().toString();
 
+                Intent intent = new Intent(MainActivity.this, DB_Login.class);
+                intent.putExtra("main_id", id);
+                intent.putExtra("main_password", password);
+                startActivityForResult(intent, RESULT);
+                dialog.dismiss();
             }
         });
 
@@ -113,7 +179,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-
+                dialog.dismiss();
+                startActivity(new Intent(MainActivity.this, DB_Resister.class));
             }
         });
 
@@ -131,49 +198,61 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
     private void logincustom(final CalendarContract.Reminders reminder)
     {
         final Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.login_custom);
 
+        Button joinedButton = (Button) dialog.findViewById(R.id.joined);
+        Button logoutButton = (Button) dialog.findViewById(R.id.logout);
 
-        TextView titleView = (TextView) dialog.findViewById(R.id.custom_title);
-        Button commitButton = (Button) dialog.findViewById(R.id.custom_button_login);
-        LinearLayout rootLayout = (LinearLayout) dialog.findViewById(R.id.custom_root_layout);
-        Button signupButton = (Button) dialog.findViewById(R.id.custom_button_signup);
+        logoutButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v)
+            {
+            }
 
-        final boolean isEditOperation = (reminder != null);
+        });
 
 
-        commitButton.setOnClickListener(new View.OnClickListener(){
+        joinedButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v)
             {
 
             }
+
         });
 
-        signupButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v)
-            {
-
-            }
-        });
-
-        Button buttonCancle = (Button)dialog.findViewById(R.id.custom_button_cancel);
-
-        buttonCancle.setOnClickListener(new View.OnClickListener(){
-            @Override
+        Button magementButton = (Button) dialog.findViewById(R.id.magement);
+        magementButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v)
             {
                 dialog.dismiss();
+               // setContentView(R.layout.member_information);///////////////////////
+                Intent intent = new Intent(MainActivity.this,Magement.class);
+                startActivity(intent);
+               // setContentView(R.layout.member_information);
             }
 
         });
         dialog.show();
 
+        Button mypostButton = (Button) dialog.findViewById(R.id.mypost);
+        mypostButton.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v)
+            {
+                dialog.dismiss();
+                Intent intent = new Intent(MainActivity.this,MyPost.class);
+                intent.putExtra("USER_UNIQUE_ID",USER_UNIQUE_ID);
+                startActivity(intent);
+            }
+
+        });
+        dialog.show();
 
     }
 
@@ -191,7 +270,7 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
         if (id == R.id.main_login )
         {
-            if(loginset = false) {
+            if(loginset == false) {
                 fireCustomDialog(null);
             }
             else

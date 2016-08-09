@@ -3,17 +3,15 @@ package com.example.jteam.friender;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
-/**
- * Created by flag on 2016-08-05.
- */
-
-
-
-public class DB_Bulletin extends AppCompatActivity{
+public class MyPost_info extends AppCompatActivity {
     TextView Date;
     TextView Destination;
     TextView Route1;
@@ -25,6 +23,8 @@ public class DB_Bulletin extends AppCompatActivity{
     TextView Letter;
     ImageView[] Pictogram = new ImageView[3];
 
+    nameAdapter Adapter = new nameAdapter();
+
     int pictogramres[] = {R.mipmap.p01people,R.mipmap.p02food,R.mipmap.p03beer,R.mipmap.p04coffee,
             R.mipmap.p05sports,R.mipmap.p06music,R.mipmap.p07movie,R.mipmap.p08photo,R.mipmap.p09reading,
             R.mipmap.p10concert,R.mipmap.p11festival,R.mipmap.p12travel,R.mipmap.p13rest,R.mipmap.p14tour,
@@ -34,7 +34,7 @@ public class DB_Bulletin extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_db_bulletin);
+        setContentView(R.layout.activity_my_post_info);
 
         //intent로 보내온 bulletin객체 받아오기
         Intent intent = getIntent();
@@ -53,6 +53,15 @@ public class DB_Bulletin extends AppCompatActivity{
         Pictogram[1] = (ImageView) findViewById(R.id.bulletin_pictogram2);
         Pictogram[2] = (ImageView) findViewById(R.id.bulletin_pictogram3);
 
+        ListView list = (ListView) findViewById(R.id.listView3);
+        list.setAdapter(Adapter);
+
+        Log.i("writer", "" + bulletin.getUsername());
+        Log.i("destination", "" + bulletin.getDestination());
+        Log.i("sub_route1", "" +bulletin.getRoute1());
+        Log.i("sub_route2", "" + bulletin.getRoute2());
+
+
         Date.setText(bulletin.getDate());
         Destination.setText(bulletin.getDestination());
         Route1.setText(bulletin.getRoute1());
@@ -70,11 +79,35 @@ public class DB_Bulletin extends AppCompatActivity{
         Pictogram[2].setImageResource(pictogramres[bulletin.getCharacter(2)]);
     }
 
+    class nameAdapter extends BaseAdapter {
 
+        //시티리스트(이름, 사진)를 받아와 초기화
+        public nameAdapter()
+        {
+        }
 
-    public void join_Onclick(View view) {
+        @Override
+        public int getCount() {
+            return 0;
+        }
 
+        @Override
+        public Object getItem(int position) {
+            return 0;
+        }
 
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        //각 리스트에 보여질 뷰 세팅
+        public View getView(int position, View convertView, ViewGroup parent) {
+
+            CityItemView view = new CityItemView(getApplicationContext());
+
+            return view;
+        }
     }
-
 }

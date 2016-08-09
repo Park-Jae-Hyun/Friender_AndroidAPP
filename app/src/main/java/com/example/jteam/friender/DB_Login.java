@@ -4,10 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.io.IOException;
@@ -19,28 +15,22 @@ import java.net.URL;
 
 public class DB_Login extends Activity{
 
-    String id, password;
-    EditText Id, Password;
+    private String id = null, password = null;
+    private static String F_NAME = null, L_NAME = null, EMAIL = null, SEX = null, BIRTH = null, MOBILE_NUMBER = null;
+    private static int USER_UNIQUE_ID=0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_db_login);
 
-        Id = (EditText) findViewById(R.id.login_text);
-        Password = (EditText) findViewById(R.id.password_text);
-    }
+        Intent intent = getIntent();
+        id = intent.getStringExtra("main_id");
+        password =intent.getStringExtra("main_password");
 
-    public void resMem(View v) {
-        startActivity(new Intent(DB_Login.this, DB_Resister.class));
-    }
-
-
-    public void login(View v) {
-        id = Id.getText().toString();
-        password = Password.getText().toString();
         LoginCheck login_check = new LoginCheck();
         login_check.execute(id, password);
+
     }
 
     class LoginCheck extends AsyncTask<String, String, String> {
@@ -83,29 +73,36 @@ public class DB_Login extends Activity{
 
         @Override
         protected void onPostExecute(String s) {
-            String ID = null, F_NAME = null, L_NAME = null, EMAIL = null, BIRTH = null, MOBILE_NUMBER = null;
-            String err = null;
+
             String data = null;
 
-            Log.i("json", "First EMAIL : " + EMAIL);
             try {
-                Log.i("json", "1");
                 JSONObject json = new JSONObject(s);
                 data = json.getString("user_data");
-                Log.i("json", "2");
                 JSONObject dataJObject = json.getJSONObject("user_data");
-                Log.i("json", "3");
-                ID = dataJObject.getString("id");
+                USER_UNIQUE_ID = dataJObject.getInt("user_unique_id");
                 F_NAME = dataJObject.getString("f_name");
                 L_NAME = dataJObject.getString("l_name");
                 EMAIL = dataJObject.getString("email");
+                SEX = dataJObject.getString("sex");
                 BIRTH = dataJObject.getString("birth");
                 MOBILE_NUMBER = dataJObject.getString("mobile_number");
 
+
+                Intent intent = new Intent(DB_Login.this, MainActivity.class);
+                intent.putExtra("USER_UNIQUE_ID", USER_UNIQUE_ID);
+                intent.putExtra("F_NAME", F_NAME);
+                intent.putExtra("L_NAME", L_NAME);
+                intent.putExtra("EMAIL", EMAIL);
+                intent.putExtra("SEX", SEX);
+                intent.putExtra("BIRTH", BIRTH);
+                intent.putExtra("MOBILE_NUMBER", MOBILE_NUMBER);
+
+                setResult(RESULT_OK,intent);
+                finish();
+
             } catch (JSONException e) {
                 e.printStackTrace();
-                err = "Exception: " + e.getMessage();
-                Toast.makeText(getApplicationContext(), "" + err, Toast.LENGTH_LONG).show();
             }
         }
     }
