@@ -189,8 +189,6 @@ public class BoardPost extends Activity {
                 bulletin.setCharacter(j++,i);
         }
 
-        bulletin.printcontents();
-
         PostOnBoard post_on_board = new PostOnBoard();
         //post_on_board.execute(USER_UNIQUE_ID, destination, route1, route2, p_date, ""+character[1], ""+character[2], ""+character[3]);
         post_on_board.execute(""+USER_UNIQUE_ID, bulletin.getCity(), bulletin.getDestination(), writer,

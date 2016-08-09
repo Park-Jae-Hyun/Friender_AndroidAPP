@@ -56,7 +56,7 @@ public class DB_Bulletin extends AppCompatActivity{
         Destination.setText(bulletin.getDestination());
         Route1.setText(bulletin.getRoute1());
         Route2.setText(bulletin.getRoute2());
-
+        ID.setText(bulletin.getUsername());
         Present.setText(""+bulletin.getJoinednum());
         Finding.setText(""+bulletin.getTotalnum());
         Letter.setText(bulletin.getLetter());

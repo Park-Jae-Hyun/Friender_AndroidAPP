@@ -110,19 +110,22 @@
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:id="@+id/bulletin_pictogram1"
-            android:layout_marginLeft="100dp" />
+            android:layout_marginLeft="100dp"
+            android:layout_gravity="right" />
 
         <ImageView
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:id="@+id/bulletin_pictogram2"
-            android:layout_marginLeft="10dp" />
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="right" />
 
         <ImageView
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:id="@+id/bulletin_pictogram3"
-            android:layout_marginLeft="10dp" />
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="right" />
 
     </LinearLayout>
 
